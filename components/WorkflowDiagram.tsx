@@ -248,9 +248,8 @@ export default function WorkflowDiagram({ industryTitle, steps }: N8nWorkflowPro
                   fontFamily="monospace" 
                   fontSize="10" 
                   fill="rgba(255,255,255,0.4)" 
-                  textTransform="uppercase"
                 >
-                  {node.type}
+                  {node.type.toUpperCase()}
                 </text>
 
                 {/* Status Dot inside node */}
