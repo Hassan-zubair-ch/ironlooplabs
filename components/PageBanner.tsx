@@ -45,13 +45,6 @@ export default function PageBanner({ title, subtitle, badge, breadcrumbs }: Page
           className="absolute top-[10%] right-[10%] w-[500px] h-[500px] bg-[#38bdf8] rounded-full blur-[150px]"
         />
 
-        {/* Diagonal Light Beam for structural asymmetry */}
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="absolute -top-40 left-1/4 w-[1px] h-[200%] bg-gradient-to-b from-transparent via-[#a3e635]/20 to-transparent rotate-[35deg] transform origin-top mix-blend-screen"
-        />
       </div>
 
       <div className="max-w-container-max mx-auto px-6 lg:px-margin-desktop relative z-10">
