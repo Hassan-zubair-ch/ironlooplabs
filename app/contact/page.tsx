@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import PageBanner from "@/components/PageBanner";
 import ContactClient from "@/components/ContactClient";
+import CalendlyInline from "@/components/CalendlyInline";
 
 export const metadata = {
   title: "Contact Us | IronLoop Labs",
@@ -22,6 +23,13 @@ export default function ContactPage() {
         ]}
       />
       <ContactClient />
+      <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto w-full">
+        <div className="text-center mb-8">
+          <h2 className="text-headline-md text-primary mb-4 font-display">Or Pick a Time on Our Calendar</h2>
+          <p className="text-body-md text-on-surface-variant max-w-2xl mx-auto">Skip the back-and-forth and schedule a meeting directly.</p>
+        </div>
+        <CalendlyInline />
+      </section>
       <Footer />
     </>
   );

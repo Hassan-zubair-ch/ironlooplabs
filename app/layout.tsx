@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import CalendlyWidget from "@/components/CalendlyWidget";
 
 export const metadata: Metadata = {
   title: "IronLoop Labs | AI & Workflow Automation for Healthcare, HVAC & High-Growth Industries",
@@ -30,6 +31,7 @@ export default function RootLayout({
       </head>
       <body className="bg-background text-on-background font-body overflow-x-hidden">
         {children}
+        <CalendlyWidget />
       </body>
     </html>
   );
