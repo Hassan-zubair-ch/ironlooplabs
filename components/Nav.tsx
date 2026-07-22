@@ -39,14 +39,14 @@ export default function Nav() {
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="bg-surface/80 backdrop-blur-md top-0 sticky z-50 shadow-sm border-b border-white/5"
     >
-      <nav className="flex justify-between items-center h-20 px-margin-desktop w-full max-w-container-max mx-auto">
-        <a href="#hero" className="flex items-center group cursor-pointer py-1">
+      <nav className="flex justify-between items-center h-24 px-margin-desktop w-full max-w-container-max mx-auto">
+        <a href="#hero" className="flex items-center group cursor-pointer py-2">
           <Image
             src="/logo-black-bg.png"
             alt="IronLoop Labs Logo"
-            width={200}
-            height={55}
-            className="h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            width={280}
+            height={80}
+            className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             priority
           />
         </a>

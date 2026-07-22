@@ -9,9 +9,9 @@ export default function Footer() {
             <Image
               src="/logo-black-bg.png"
               alt="IronLoop Labs Logo"
-              width={220}
-              height={60}
-              className="h-12 w-auto object-contain"
+              width={320}
+              height={90}
+              className="h-16 md:h-20 w-auto object-contain"
             />
           </div>
           <p className="font-body text-on-surface-variant mb-6 pr-4">
