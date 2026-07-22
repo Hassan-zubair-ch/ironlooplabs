@@ -39,8 +39,8 @@ export default function Hero() {
 
           <Reveal delay={0.1}>
             <p className="font-body text-body-lg text-on-surface-variant max-w-xl">
-              No-cooling emergencies, maintenance requests, and installs — EchoAI answers every one
-              instantly, qualifies the job, and books it straight into your dispatch calendar. 24/7,
+              No-cooling emergencies, medical triage calls, and service inquiries — IronLoop answers every one
+              instantly, qualifies the request, and books it straight into your calendar. 24/7,
               every day of the year.
             </p>
           </Reveal>
@@ -105,7 +105,7 @@ export default function Hero() {
               </div>
               <div className="bg-growth-green/10 p-4 rounded-2xl rounded-tr-none ml-8 border-l-4 border-growth-green transform hover:scale-[1.02] transition-transform">
                 <p className="text-sm font-body text-growth-green italic">
-                  &quot;EchoAI: I&apos;m sorry to hear that — let&apos;s get a technician to you today. I have an
+                  &quot;IronLoop: I&apos;m sorry to hear that — let&apos;s get a technician to you today. I have an
                   opening at 2:00 PM, does that work?&quot;
                 </p>
               </div>

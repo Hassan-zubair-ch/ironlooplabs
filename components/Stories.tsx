@@ -11,7 +11,7 @@ export default function Stories() {
           <div className="max-w-xl">
             <h2 className="font-display text-headline-lg text-white mb-4">Proven in the Field</h2>
             <p className="font-body text-on-surface-variant">
-              See how HVAC owners are recapturing their time and doubling their lead volume with EchoAI.
+              See how healthcare practices and service leaders are recapturing their time and doubling their lead volume with IronLoop.
             </p>
           </div>
         </Reveal>
@@ -41,9 +41,8 @@ export default function Stories() {
                   Scaling to 12 Trucks Without Missing a Single Emergency Call.
                 </h3>
                 <p className="font-body text-on-surface-variant max-w-lg mb-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                  &quot;EchoAI didn&apos;t just save us money on a receptionist; it changed how we do
-                  business. Every no-cooling call is answered, every job is booked, and our techs are
-                  never idle.&quot;
+                  &quot;IronLoop didn&apos;t just save us money on an answering service; it changed how we do
+                  business. Every call is answered, every job is booked, and our staff is never overwhelmed.&quot;
                 </p>
                 <div className="flex gap-12">
                   <div>
@@ -72,7 +71,7 @@ export default function Stories() {
                   </div>
                 </div>
                 <p className="text-sm font-body text-on-surface-variant mb-4 italic">
-                  &quot;I was skeptical about AI, but EchoAI sounds more professional than my old
+                  &quot;I was skeptical about AI, but IronLoop sounds more professional than my old
                   answering service.&quot;
                 </p>
                 <p className="font-mono text-[10px] text-growth-green">— Mark T., Coastline Heating &amp; Air</p>

@@ -20,8 +20,8 @@ export default function CTA() {
             Ready to Automate Your <span className="text-growth-green">Growth</span>?
           </h2>
           <p className="font-body text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12">
-            Stop losing thousands every month in missed calls. Join the growing list of HVAC and
-            home-service businesses who have already upgraded to EchoAI.
+            Stop losing thousands every month in missed calls or delayed intake. Join the growing list of healthcare providers, HVAC firms, and
+            service businesses who have already upgraded to IronLoop Labs.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <a

@@ -21,8 +21,8 @@ export default function Dashboard() {
             Built for the Trade, <span className="text-primary">Optimized for Growth</span>
           </h2>
           <p className="font-body text-body-lg text-on-surface-variant">
-            Just like the technicians and dispatchers we serve, EchoAI translates every call into a
-            measurable KPI. See your lead capture and ROI in real-time, right from your pocket.
+            Just like the healthcare administrators, technicians, and dispatchers we serve, IronLoop Labs translates every call and intake into a
+            measurable KPI. See your lead capture and ROI in real-time, right from your dashboard.
           </p>
           <div className="grid grid-cols-2 gap-6">
             <div className="p-6 bg-surface-container-highest rounded-lg border border-primary/10 transition-all duration-300 hover:border-primary/40 hover:bg-surface-container-high">

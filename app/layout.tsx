@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "EchoAI | AI Receptionists for HVAC & Home Service Businesses",
+  title: "IronLoop Labs | AI & Workflow Automation for Healthcare, HVAC & High-Growth Industries",
   description:
-    "EchoAI answers every HVAC call in seconds, qualifies the job, and books it straight into your dispatch calendar — 24/7, every day of the year.",
+    "IronLoop Labs provides 24/7 AI receptionists and automated dispatch intake for hospitals, medical clinics, HVAC, plumbing, and high-demand service industries.",
 };
 
 export default function RootLayout({

@@ -3,10 +3,9 @@ export default function Footer() {
     <footer className="bg-background-subtle border-t border-white/5">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter py-20 px-margin-desktop w-full max-w-container-max mx-auto">
         <div className="col-span-1 md:col-span-1">
-          <span className="font-display font-black text-white mb-6 block text-2xl">EchoAI</span>
+          <span className="font-display font-black text-white mb-6 block text-2xl">IronLoop Labs</span>
           <p className="font-body text-on-surface-variant mb-6 pr-4">
-            Revolutionizing receptionist services for HVAC and home-service businesses with
-            state-of-the-art AI automation.
+            Revolutionizing receptionist &amp; workflow automation for healthcare, medical clinics, HVAC, and service businesses.
           </p>
           <div className="flex gap-4">
             <a
@@ -56,7 +55,7 @@ export default function Footer() {
 
       <div className="border-t border-white/5 py-8 px-margin-desktop w-full max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="font-mono text-label-sm text-on-surface-variant">
-          © 2026 EchoAI Receptionists. All rights reserved. Built for HVAC &amp; Home Services.
+          © 2026 IronLoop Labs. All rights reserved. Built for Healthcare, HVAC &amp; High-Growth Services.
         </p>
         <div className="flex gap-8">
           <a className="font-mono text-label-sm text-on-surface-variant hover:text-growth-green underline transition-all" href="#">Privacy Policy</a>

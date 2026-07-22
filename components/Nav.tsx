@@ -47,7 +47,7 @@ export default function Nav() {
               eco
             </span>
           </div>
-          <span className="font-display font-bold text-white text-2xl">EchoAI</span>
+          <span className="font-display font-bold text-white text-2xl">IronLoop</span>
         </a>
 
         <div className="hidden md:flex items-center gap-1">

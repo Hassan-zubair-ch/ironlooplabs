@@ -34,3 +34,19 @@ section[id] {
   background: #C5E033;
   color: #0B1C0E;
 }
+
+.bg-dark-grid {
+  background-color: #0c0e12;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.bg-card-grid {
+  background-image: 
+    linear-gradient(to right, rgba(197, 224, 51, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(197, 224, 51, 0.1) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
