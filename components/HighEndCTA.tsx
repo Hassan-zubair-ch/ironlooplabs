@@ -34,19 +34,10 @@ export default function HighEndCTA({ industryTitle }: Props) {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            {/* Call Button - Solid Dark */}
-            <a 
-              href="tel:8136695315" 
-              className="flex items-center gap-2 bg-[#0b0d10] text-white px-8 py-4 rounded-md font-display font-extrabold text-[15px] tracking-wide uppercase hover:bg-[#1a1d24] transition-colors w-full sm:w-auto justify-center shadow-xl shadow-black/10"
-            >
-              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20.016 15.727l-3.327-1.109a2.003 2.003 0 0 0-2.348.749l-1.393 1.956c-2.906-1.365-5.263-3.722-6.628-6.628l1.956-1.393a2.003 2.003 0 0 0 .749-2.348l-1.109-3.327a2.002 2.002 0 0 0-2.368-1.32l-3.744.75A2.002 2.002 0 0 0 0 4.996C0 14.935 8.056 24 17.986 24a2.002 2.002 0 0 0 1.939-1.558l.75-3.744a2.002 2.002 0 0 0-1.32-2.368h-.001L20.016 15.727z"/></svg>
-              CALL (813) 669-5315
-            </a>
-
-            {/* Contact Button - Outlined */}
+            {/* Contact Button */}
             <Link 
               href="/contact" 
-              className="flex items-center gap-2 border-[2.5px] border-[#0b0d10] text-[#0b0d10] px-8 py-4 rounded-md font-display font-extrabold text-[15px] tracking-wide uppercase hover:bg-[#0b0d10] hover:text-[#a3e635] transition-all w-full sm:w-auto justify-center"
+              className="flex items-center gap-2 bg-[#0b0d10] text-white px-8 py-4 rounded-md font-display font-extrabold text-[15px] tracking-wide uppercase hover:bg-[#1a1d24] transition-colors w-full sm:w-auto justify-center shadow-xl shadow-black/10"
             >
               LET&apos;S TALK GROWTH
             </Link>
