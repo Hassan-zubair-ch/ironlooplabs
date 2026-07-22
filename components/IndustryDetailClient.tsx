@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import WorkflowDiagram from "./WorkflowDiagram";
 import HighEndCTA from "./HighEndCTA";
+import IndustryPrograms from "./IndustryPrograms";
 import { IndustryDetail } from "@/lib/industriesData";
 import { getIndustryIconComponent } from "./IndustryIcons";
 
@@ -149,6 +150,9 @@ export default function IndustryDetailClient({ industry }: Props) {
           </div>
         </div>
       </section>
+
+      {/* ── Industry Programs ── */}
+      <IndustryPrograms industryTitle={industry.title} />
 
       {/* ── CTA ── */}
       <section className="py-16 lg:py-20">
