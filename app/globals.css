@@ -41,11 +41,163 @@ section[id] {
   background-size: 32px 32px;
 }
 
-.card-spotlight-grid {
-  background-image: 
-    linear-gradient(to right, rgba(163, 230, 53, 0.4) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(163, 230, 53, 0.4) 1px, transparent 1px);
-  background-size: 18px 18px;
+/* ─── Premium Card Hover System ─── */
+
+/* Border glow that follows the mouse */
+.industry-card {
+  --x: 50%;
+  --y: 50%;
+  position: relative;
+  background: #111318;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.25rem;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
+.industry-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(
+    600px circle at var(--x) var(--y),
+    rgba(163, 230, 53, 0.15),
+    transparent 40%
+  );
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
 
+.industry-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    400px circle at var(--x) var(--y),
+    rgba(163, 230, 53, 0.06),
+    transparent 40%
+  );
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.industry-card:hover {
+  border-color: rgba(163, 230, 53, 0.3);
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5),
+              0 0 40px -10px rgba(163, 230, 53, 0.12);
+}
+
+.industry-card:hover::before,
+.industry-card:hover::after {
+  opacity: 1;
+}
+
+/* Dot grid overlay that tracks mouse */
+.card-dot-grid {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background-image: radial-gradient(circle, rgba(163, 230, 53, 0.35) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.industry-card:hover .card-dot-grid {
+  opacity: 1;
+}
+
+/* ─── Detail Page Styles ─── */
+
+.detail-hero-glow {
+  background: linear-gradient(135deg, #0d1117 0%, #111820 50%, #0d1117 100%);
+}
+
+.detail-stat-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.detail-stat-card:hover {
+  border-color: rgba(163, 230, 53, 0.3);
+  transform: translateY(-2px);
+}
+
+.workflow-connector {
+  position: relative;
+}
+.workflow-connector::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -1.5rem;
+  width: 1.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(163,230,53,0.4), rgba(163,230,53,0));
+}
+.workflow-connector:last-child::after {
+  display: none;
+}
+
+.feature-card-premium {
+  background: linear-gradient(180deg, rgba(18,21,26,1) 0%, rgba(14,16,20,1) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.25rem;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+}
+.feature-card-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(163,230,53,0), transparent);
+  transition: background 0.4s ease;
+}
+.feature-card-premium:hover {
+  border-color: rgba(163, 230, 53, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(0,0,0,0.4);
+}
+.feature-card-premium:hover::before {
+  background: linear-gradient(90deg, transparent, rgba(163,230,53,0.5), transparent);
+}
+
+/* Pulse animation for status indicators */
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.status-pulse {
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+/* Shimmer animation for CTA */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.cta-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(163,230,53,0) 0%,
+    rgba(163,230,53,0.15) 50%,
+    rgba(163,230,53,0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}

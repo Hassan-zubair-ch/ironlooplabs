@@ -1,10 +1,9 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Programs from "@/components/Programs";
 import Dashboard from "@/components/Dashboard";
 import Reliability from "@/components/Reliability";
 import Industries from "@/components/Industries";
-import Stories from "@/components/Stories";
+import StoriesPreview from "@/components/StoriesPreview";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -14,11 +13,10 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <Programs />
         <Dashboard />
         <Reliability />
         <Industries />
-        <Stories />
+        <StoriesPreview />
         <CTA />
       </main>
       <Footer />

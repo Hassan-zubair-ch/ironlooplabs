@@ -16,108 +16,130 @@ export default function HighEndCTA({ industryTitle }: HighEndCTAProps) {
   };
 
   return (
-    <div className="my-20 relative rounded-3xl overflow-hidden border border-[#a3e635]/40 bg-[#12151a] p-8 lg:p-16 shadow-[0_0_50px_rgba(163,230,53,0.12)]">
-      {/* Background ambient lighting */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#a3e635]/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#facc15]/10 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />
+    <div className="relative rounded-3xl overflow-hidden border border-white/[0.06]">
+      {/* Background with shimmer */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#111318] via-[#12151a] to-[#0d1117]" />
+      <div className="absolute inset-0 cta-shimmer pointer-events-none" />
 
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        {/* Text Column */}
-        <div className="lg:col-span-6 space-y-6">
-          <span className="inline-block font-mono text-xs uppercase tracking-[0.25em] text-[#a3e635] font-bold bg-[#a3e635]/10 px-4 py-1.5 rounded-full border border-[#a3e635]/30">
-            ENTERPRISE AUTOMATION READY
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
-            Transform Your <span className="text-[#a3e635]">{industryTitle}</span> Operations Today
-          </h2>
-          <p className="font-body text-base lg:text-lg text-on-surface-variant leading-relaxed">
-            Eliminate missed calls, reduce admin fatigue by 60%, and ensure 24/7 instant intake for every inquiry. Speak with our lead automation architects.
-          </p>
+      {/* Ambient orbs */}
+      <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#a3e635]/[0.08] rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#38bdf8]/[0.05] rounded-full blur-[80px] pointer-events-none" />
 
-          <div className="space-y-3 pt-2">
-            {[
-              "100% HIPAA & SOC2 Enterprise Compliance",
-              "Live System Integration in under 48 Hours",
-              "Dedicated 24/7 On-Call Technical Support"
-            ].map((check, idx) => (
-              <div key={idx} className="flex items-center gap-3">
-                <span className="w-6 h-6 rounded-full bg-[#a3e635] text-[#0b0d10] flex items-center justify-center font-bold text-sm shrink-0">
-                  ✓
-                </span>
-                <span className="font-body text-white text-sm font-medium">{check}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+      <div className="relative z-10 p-8 lg:p-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Left Column - Value Proposition */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-[#a3e635] font-bold bg-[#a3e635]/10 px-4 py-1.5 rounded-full border border-[#a3e635]/20">
+                <span className="w-2 h-2 rounded-full bg-[#a3e635] status-pulse" />
+                ACCEPTING NEW CLIENTS
+              </span>
+            </div>
 
-        {/* Interactive Consultation Form */}
-        <div className="lg:col-span-6">
-          <div className="bg-[#181c24] border border-white/10 rounded-2xl p-8 shadow-2xl relative">
-            {submitted ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="text-center py-10 space-y-4"
-              >
-                <div className="w-16 h-16 rounded-full bg-[#a3e635] text-[#0b0d10] text-3xl font-bold flex items-center justify-center mx-auto shadow-lg">
-                  ✓
-                </div>
-                <h3 className="font-display text-2xl text-white font-bold">Consultation Requested!</h3>
-                <p className="font-body text-sm text-on-surface-variant max-w-sm mx-auto">
-                  Our {industryTitle} automation specialist will contact you within 15 minutes to demo your custom workflow.
-                </p>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <h3 className="font-display text-xl text-white font-bold mb-4">
-                  Schedule Free {industryTitle} AI Demo
-                </h3>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-white leading-[1.15]">
+              Ready to Deploy <span className="text-[#a3e635]">{industryTitle}</span> Automation?
+            </h2>
 
-                <div>
-                  <label className="block font-mono text-xs text-on-surface-variant uppercase mb-1">
-                    Your Name / Practice Name
-                  </label>
-                  <input
-                    required
-                    type="text"
-                    placeholder="e.g. Metro Health Partners"
-                    className="w-full bg-[#12151a] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:border-[#a3e635] focus:outline-none transition-colors"
-                  />
-                </div>
+            <p className="font-body text-lg text-on-surface-variant leading-relaxed max-w-xl">
+              Eliminate missed calls, reduce admin overhead by 60%, and ensure 24/7 intelligent intake. Our automation architects will build a system tailored to your exact operations.
+            </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block font-mono text-xs text-on-surface-variant uppercase mb-1">
-                      Direct Phone
-                    </label>
-                    <input
-                      required
-                      type="tel"
-                      placeholder="(555) 000-0000"
-                      className="w-full bg-[#12151a] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:border-[#a3e635] focus:outline-none transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-mono text-xs text-on-surface-variant uppercase mb-1">
-                      Work Email
-                    </label>
-                    <input
-                      required
-                      type="email"
-                      placeholder="admin@practice.com"
-                      className="w-full bg-[#12151a] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:border-[#a3e635] focus:outline-none transition-colors"
-                    />
-                  </div>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-[#a3e635] text-[#0b0d10] font-bold font-display text-base py-4 rounded-xl hover:brightness-110 active:scale-95 transition-all shadow-[0_0_20px_rgba(163,230,53,0.3)] mt-2"
+            <div className="space-y-4 pt-2">
+              {[
+                { label: "100% HIPAA & SOC2 Compliance", icon: "verified_user" },
+                { label: "Live in Under 48 Hours", icon: "rocket_launch" },
+                { label: "Dedicated Success Manager", icon: "support_agent" },
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex items-center gap-3"
                 >
-                  Deploy {industryTitle} Automation Now →
-                </button>
-              </form>
-            )}
+                  <div className="w-8 h-8 rounded-lg bg-[#a3e635]/15 flex items-center justify-center shrink-0">
+                    <span className="material-symbols-outlined text-[#a3e635] text-base">{item.icon}</span>
+                  </div>
+                  <span className="font-body text-white text-sm font-medium">{item.label}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Column - Form */}
+          <div className="lg:col-span-5">
+            <div className="bg-[#0d0f14] border border-white/[0.08] rounded-2xl p-8 shadow-2xl">
+              {submitted ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-8 space-y-5"
+                >
+                  <div className="w-16 h-16 rounded-2xl bg-[#a3e635] text-[#0b0d10] flex items-center justify-center mx-auto shadow-[0_0_30px_rgba(163,230,53,0.3)]">
+                    <span className="material-symbols-outlined text-3xl">check</span>
+                  </div>
+                  <h3 className="font-display text-2xl text-white font-bold">Request Submitted</h3>
+                  <p className="font-body text-sm text-on-surface-variant max-w-xs mx-auto">
+                    Our {industryTitle} specialist will contact you within 15 minutes to configure your workflow.
+                  </p>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div>
+                    <h3 className="font-display text-xl text-white font-bold">
+                      Book a Free Strategy Call
+                    </h3>
+                    <p className="font-body text-xs text-on-surface-variant mt-1">
+                      30-min walkthrough of your custom {industryTitle} AI system
+                    </p>
+                  </div>
+
+                  <div>
+                    <label className="block font-mono text-[10px] text-on-surface-variant uppercase tracking-wider mb-1.5">Business Name</label>
+                    <input
+                      required
+                      type="text"
+                      placeholder="e.g. Metro Health Partners"
+                      className="w-full bg-[#111318] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/25 focus:border-[#a3e635]/50 focus:outline-none focus:ring-1 focus:ring-[#a3e635]/20 transition-all"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block font-mono text-[10px] text-on-surface-variant uppercase tracking-wider mb-1.5">Phone</label>
+                      <input
+                        required
+                        type="tel"
+                        placeholder="(555) 000-0000"
+                        className="w-full bg-[#111318] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/25 focus:border-[#a3e635]/50 focus:outline-none focus:ring-1 focus:ring-[#a3e635]/20 transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block font-mono text-[10px] text-on-surface-variant uppercase tracking-wider mb-1.5">Email</label>
+                      <input
+                        required
+                        type="email"
+                        placeholder="you@company.com"
+                        className="w-full bg-[#111318] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/25 focus:border-[#a3e635]/50 focus:outline-none focus:ring-1 focus:ring-[#a3e635]/20 transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full bg-[#a3e635] text-[#0b0d10] font-bold font-display text-sm py-4 rounded-xl hover:brightness-110 active:scale-[0.98] transition-all shadow-[0_0_30px_rgba(163,230,53,0.2)] flex items-center justify-center gap-2 mt-1"
+                  >
+                    Schedule Strategy Call
+                    <span className="material-symbols-outlined text-lg">arrow_forward</span>
+                  </button>
+
+                  <p className="font-mono text-[9px] text-on-surface-variant text-center pt-1 tracking-wide">
+                    NO COMMITMENT • CANCEL ANYTIME • ENTERPRISE READY
+                  </p>
+                </form>
+              )}
+            </div>
           </div>
         </div>
       </div>

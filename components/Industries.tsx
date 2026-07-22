@@ -1,94 +1,110 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useCallback } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Reveal from "./Reveal";
 import { INDUSTRIES_DATA, IndustryDetail } from "@/lib/industriesData";
 import { getIndustryIconComponent } from "./IndustryIcons";
 
-interface CardProps {
-  ind: IndustryDetail;
-}
+function IndustryCard({ ind, index }: { ind: IndustryDetail; index: number }) {
+  const cardRef = useRef<HTMLDivElement>(null);
 
-function IndustryCard({ ind }: CardProps) {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
+    card.style.setProperty("--x", `${x}px`);
+    card.style.setProperty("--y", `${y}px`);
+
+    // Subtle 3D tilt based on mouse position
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -4;
+    const rotateY = ((x - centerX) / centerX) * 4;
+    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px) scale(1.015)`;
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    const card = cardRef.current;
+    if (!card) return;
+    card.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)";
+  }, []);
 
   return (
-    <Link href={`/industries/${ind.slug}`} className="block w-full">
-      <motion.div
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        onMouseMove={handleMouseMove}
-        whileHover={{ scale: 1.02, y: -4 }}
-        whileTap={{ scale: 0.98 }}
-        className={`relative group rounded-2xl h-48 sm:h-52 p-6 flex flex-col items-center justify-center transition-all duration-300 cursor-pointer overflow-hidden ${
-          isHovered
-            ? "bg-[#14161a] border-2 border-[#a3e635] shadow-[0_0_30px_rgba(163,230,53,0.2)]"
-            : "bg-[#121417] border border-white/10 hover:bg-[#14161a]"
-        }`}
-      >
-        {/* Mouse Spotlight Grid Mask - Light & transparent grid moving with cursor */}
-        {isHovered && (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, margin: "-50px" }}
+    >
+      <Link href={`/industries/${ind.slug}`} className="block">
+        <div
+          ref={cardRef}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          className="industry-card h-56 sm:h-60 p-6 flex flex-col items-center justify-center cursor-pointer group overflow-hidden"
+          style={{ '--x': '50%', '--y': '50%' } as React.CSSProperties}
+        >
+          {/* Dot grid that reveals on hover */}
           <div
-            className="absolute inset-0 rounded-2xl pointer-events-none card-spotlight-grid transition-opacity duration-200"
+            className="card-dot-grid"
             style={{
-              WebkitMaskImage: `radial-gradient(160px circle at ${mousePos.x}px ${mousePos.y}px, black 25%, transparent 80%)`,
-              maskImage: `radial-gradient(160px circle at ${mousePos.x}px ${mousePos.y}px, black 25%, transparent 80%)`,
+              WebkitMaskImage: `radial-gradient(180px circle at var(--x) var(--y), black 20%, transparent 70%)`,
+              maskImage: `radial-gradient(180px circle at var(--x) var(--y), black 20%, transparent 70%)`,
             }}
           />
-        )}
 
-        {/* Card Vector Icon & Title */}
-        <div className="relative z-10 flex flex-col items-center text-center">
-          <div className="mb-3 transition-transform duration-300 group-hover:scale-110">
-            {getIndustryIconComponent(ind.iconType, "w-16 h-16 sm:w-18 sm:h-18")}
+          {/* Content */}
+          <div className="relative z-10 flex flex-col items-center text-center">
+            <div className="mb-4 transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(163,230,53,0.35)]">
+              {getIndustryIconComponent(ind.iconType, "w-16 h-16")}
+            </div>
+            <h3 className="font-display font-extrabold text-white text-base sm:text-lg tracking-tight group-hover:text-[#a3e635] transition-colors duration-300">
+              {ind.title}
+            </h3>
+            <p className="font-body text-xs text-on-surface-variant mt-1 max-w-[180px] opacity-0 group-hover:opacity-80 transition-opacity duration-500">
+              {ind.subtitle}
+            </p>
+            {/* Arrow indicator */}
+            <div className="mt-3 flex items-center gap-1 text-[#a3e635] opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+              <span className="font-mono text-[11px] font-semibold tracking-wider">EXPLORE</span>
+              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            </div>
           </div>
-          <h3 className="font-display font-extrabold text-white text-base sm:text-lg tracking-normal group-hover:text-[#a3e635] transition-colors">
-            {ind.title}
-          </h3>
-          <span className="font-mono text-[11px] text-[#a3e635] opacity-0 group-hover:opacity-100 transition-opacity mt-2 flex items-center gap-1">
-            Explore Separate Page <span className="material-symbols-outlined text-xs">arrow_forward</span>
-          </span>
         </div>
-      </motion.div>
-    </Link>
+      </Link>
+    </motion.div>
   );
 }
 
 export default function Industries() {
   return (
-    <section id="industries" className="py-24 bg-[#0b0d10] bg-dark-grid border-t border-b border-white/5 relative overflow-hidden">
-      {/* Background Radial Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[550px] bg-growth-green/5 blur-[160px] pointer-events-none rounded-full" />
+    <section id="industries" className="py-28 bg-[#0b0d10] bg-dark-grid border-t border-b border-white/5 relative overflow-hidden">
+      {/* Ambient background glows */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[400px] bg-[#a3e635]/[0.03] blur-[120px] pointer-events-none rounded-full" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[350px] bg-[#a3e635]/[0.02] blur-[100px] pointer-events-none rounded-full" />
 
       <div className="max-w-container-max mx-auto px-margin-desktop relative z-10">
-        {/* Header Section matching exact screenshot layout */}
         <Reveal className="mb-16 text-center max-w-4xl mx-auto">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#a3e635] mb-3 block font-semibold">
+          <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#a3e635] mb-4 block font-bold">
             INDUSTRIES WE SERVE
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 uppercase tracking-tight leading-tight">
-            AUTOMATION EXPERTS FOR THE <span className="text-[#a3e635]">HIGH-GROWTH INDUSTRIES</span>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold text-white mb-6 uppercase tracking-tight leading-[1.1]">
+            AUTOMATION EXPERTS FOR<br className="hidden lg:block" /> <span className="text-[#a3e635]">HIGH-GROWTH INDUSTRIES</span>
           </h2>
           <p className="font-body text-base sm:text-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
-            We provide specialized online marketing &amp; AI workflow automation to healthcare, hospitals, clinics, HVAC, and trade businesses. Click an industry card to view its dedicated separate page.
+            Purpose-built AI receptionist and workflow automation for healthcare, HVAC, and trade businesses. Each industry has a dedicated automation page.
           </p>
         </Reveal>
 
-        {/* 8-Cards Grid (4 cols x 2 rows) - Each card links directly to its separate page */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {INDUSTRIES_DATA.map((ind) => (
-            <IndustryCard key={ind.slug} ind={ind} />
+        {/* 4x2 Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {INDUSTRIES_DATA.map((ind, i) => (
+            <IndustryCard key={ind.slug} ind={ind} index={i} />
           ))}
         </div>
       </div>
