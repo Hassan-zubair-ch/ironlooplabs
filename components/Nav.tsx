@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
+import Image from "next/image";
+
 const LINKS = [
   { href: "#programs", label: "Growth Programs" },
   { href: "#stories", label: "Success Stories" },
@@ -38,16 +40,15 @@ export default function Nav() {
       className="bg-surface/80 backdrop-blur-md top-0 sticky z-50 shadow-sm border-b border-white/5"
     >
       <nav className="flex justify-between items-center h-20 px-margin-desktop w-full max-w-container-max mx-auto">
-        <a href="#hero" className="flex items-center gap-2 group cursor-pointer">
-          <div className="w-10 h-10 bg-growth-green flex items-center justify-center rounded transition-transform duration-300 group-hover:rotate-12">
-            <span
-              className="material-symbols-outlined text-deep-forest"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              eco
-            </span>
-          </div>
-          <span className="font-display font-bold text-white text-2xl">IronLoop</span>
+        <a href="#hero" className="flex items-center group cursor-pointer py-1">
+          <Image
+            src="/logo-black-bg.png"
+            alt="IronLoop Labs Logo"
+            width={200}
+            height={55}
+            className="h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            priority
+          />
         </a>
 
         <div className="hidden md:flex items-center gap-1">

@@ -1,9 +1,19 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="bg-background-subtle border-t border-white/5">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter py-20 px-margin-desktop w-full max-w-container-max mx-auto">
         <div className="col-span-1 md:col-span-1">
-          <span className="font-display font-black text-white mb-6 block text-2xl">IronLoop Labs</span>
+          <div className="mb-6">
+            <Image
+              src="/logo-black-bg.png"
+              alt="IronLoop Labs Logo"
+              width={220}
+              height={60}
+              className="h-12 w-auto object-contain"
+            />
+          </div>
           <p className="font-body text-on-surface-variant mb-6 pr-4">
             Revolutionizing receptionist &amp; workflow automation for healthcare, medical clinics, HVAC, and service businesses.
           </p>
