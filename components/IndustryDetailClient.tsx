@@ -152,7 +152,7 @@ export default function IndustryDetailClient({ industry }: Props) {
       </section>
 
       {/* ── Industry Programs ── */}
-      <IndustryPrograms industryTitle={industry.title} />
+      <IndustryPrograms industry={industry} />
 
       {/* ── CTA ── */}
       <section className="py-16 lg:py-20">

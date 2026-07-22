@@ -26,20 +26,22 @@ export default function WorkflowDiagram({ industryTitle, steps }: N8nWorkflowPro
     steps[3] || { title: 'Wrap Up', icon: 'settings', desc: '' },
   ];
 
-  // N8n style layout nodes
+  // N8n style layout nodes (Wrapped layout to fit screen better)
   const nodes = [
-    { id: 't1', type: 'trigger', label: 'Inbound Call (Voice)', icon: 'call', color: '#10b981', x: 0, y: 120 },
-    { id: 't2', type: 'trigger', label: 'Webform Submit', icon: 'forum', color: '#10b981', x: 0, y: 260 },
-    { id: 'c1', type: 'logic', label: 'Parse Payload', icon: 'data_object', color: '#6366f1', x: 260, y: 190 },
-    { id: 's1', type: 'logic', label: 'AI Intent Router', icon: 'alt_route', color: '#8b5cf6', x: 520, y: 190 },
-    { id: 'a1', type: 'action', label: safeSteps[0].title, icon: safeSteps[0].icon, color: '#a3e635', x: 780, y: 80 },
-    { id: 'a2', type: 'action', label: 'Routine Inquiry', icon: 'contact_support', color: '#3b82f6', x: 780, y: 300 },
-    { id: 'm1', type: 'action', label: safeSteps[1].title, icon: safeSteps[1].icon, color: '#a3e635', x: 1040, y: 190 },
-    { id: 'l1', type: 'logic', label: 'Requires Follow-up?', icon: 'rule', color: '#8b5cf6', x: 1300, y: 190 },
-    { id: 'e1', type: 'action', label: 'Archive Record', icon: 'archive', color: '#6b7280', x: 1560, y: 80 },
-    { id: 'loop1', type: 'logic', label: 'Action Loop', icon: 'all_inclusive', color: '#8b5cf6', x: 1560, y: 300 },
-    { id: 'a3', type: 'action', label: safeSteps[2].title, icon: safeSteps[2].icon, color: '#a3e635', x: 1820, y: 300 },
-    { id: 'a4', type: 'action', label: safeSteps[3].title, icon: safeSteps[3].icon, color: '#a3e635', x: 2080, y: 300 },
+    { id: 't1', type: 'trigger', label: 'Inbound Call (Voice)', icon: 'call', color: '#10b981', x: 0, y: 20 },
+    { id: 't2', type: 'trigger', label: 'Webform Submit', icon: 'forum', color: '#10b981', x: 0, y: 140 },
+    { id: 'c1', type: 'logic', label: 'Parse Payload', icon: 'data_object', color: '#6366f1', x: 280, y: 80 },
+    { id: 's1', type: 'logic', label: 'AI Intent Router', icon: 'alt_route', color: '#8b5cf6', x: 560, y: 80 },
+    { id: 'a1', type: 'action', label: safeSteps[0].title, icon: safeSteps[0].icon, color: '#a3e635', x: 840, y: 20 },
+    { id: 'a2', type: 'action', label: 'Routine Inquiry', icon: 'contact_support', color: '#3b82f6', x: 840, y: 140 },
+    
+    // Row 2 (Carriage return)
+    { id: 'm1', type: 'action', label: safeSteps[1].title, icon: safeSteps[1].icon, color: '#a3e635', x: 0, y: 300 },
+    { id: 'l1', type: 'logic', label: 'Requires Follow-up?', icon: 'rule', color: '#8b5cf6', x: 280, y: 300 },
+    { id: 'e1', type: 'action', label: 'Archive Record', icon: 'archive', color: '#6b7280', x: 280, y: 420 },
+    { id: 'loop1', type: 'logic', label: 'Action Loop', icon: 'all_inclusive', color: '#8b5cf6', x: 560, y: 300 },
+    { id: 'a3', type: 'action', label: safeSteps[2].title, icon: safeSteps[2].icon, color: '#a3e635', x: 840, y: 300 },
+    { id: 'a4', type: 'action', label: safeSteps[3].title, icon: safeSteps[3].icon, color: '#a3e635', x: 1120, y: 300 },
   ];
 
   const edges = [
@@ -48,8 +50,8 @@ export default function WorkflowDiagram({ industryTitle, steps }: N8nWorkflowPro
     { from: 'c1', to: 's1', active: true },
     { from: 's1', to: 'a1', active: true, label: "Urgent" },
     { from: 's1', to: 'a2', active: false, label: "General" },
-    { from: 'a1', to: 'm1', active: true },
-    { from: 'a2', to: 'm1', active: false },
+    { from: 'a1', to: 'm1', active: true, isCarriageReturn: true },
+    { from: 'a2', to: 'm1', active: false, isCarriageReturn: true },
     { from: 'm1', to: 'l1', active: true },
     { from: 'l1', to: 'e1', active: false, label: "False" },
     { from: 'l1', to: 'loop1', active: true, label: "True" },
@@ -58,7 +60,7 @@ export default function WorkflowDiagram({ industryTitle, steps }: N8nWorkflowPro
     { from: 'a4', to: 'loop1', isLoop: true, active: true },
   ];
 
-  const getPath = (fromId: string, toId: string, isLoop?: boolean) => {
+  const getPath = (fromId: string, toId: string, isLoop?: boolean, isCarriageReturn?: boolean) => {
     const fromNode = nodes.find(n => n.id === fromId);
     const toNode = nodes.find(n => n.id === toId);
     if (!fromNode || !toNode) return "";
@@ -67,6 +69,10 @@ export default function WorkflowDiagram({ industryTitle, steps }: N8nWorkflowPro
     const y1 = fromNode.y + 32;  // port y
     const x2 = toNode.x;
     const y2 = toNode.y + 32;
+
+    if (isCarriageReturn) {
+       return `M ${x1} ${y1} C ${x1 + 100} ${y1}, ${x1 + 100} 240, 500 240 C -80 240, -80 ${y2}, ${x2} ${y2}`;
+    }
 
     if (isLoop) {
       const dropY = Math.max(y1, y2) + 90;
@@ -77,13 +83,6 @@ export default function WorkflowDiagram({ industryTitle, steps }: N8nWorkflowPro
     const curvature = Math.max(40, dx * 0.4);
     return `M ${x1} ${y1} C ${x1 + curvature} ${y1}, ${x2 - curvature} ${y2}, ${x2} ${y2}`;
   };
-
-  // Center scroll on load for mobile
-  useEffect(() => {
-    if (scrollRef.current && window.innerWidth < 1024) {
-      scrollRef.current.scrollLeft = 400;
-    }
-  }, []);
 
   return (
     <div className="relative">
@@ -121,18 +120,7 @@ export default function WorkflowDiagram({ industryTitle, steps }: N8nWorkflowPro
 
       {/* SVG Workflow Canvas Wrapper */}
       <div 
-        ref={scrollRef}
-        className="relative w-full overflow-x-auto overflow-y-hidden rounded-3xl border border-white/[0.08] bg-[#0a0c10] custom-scrollbar shadow-2xl"
-        style={{ cursor: "grab" }}
-        onMouseDown={(e) => {
-          e.currentTarget.style.cursor = "grabbing";
-        }}
-        onMouseUp={(e) => {
-          e.currentTarget.style.cursor = "grab";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.cursor = "grab";
-        }}
+        className="relative w-full rounded-3xl border border-white/[0.08] bg-[#0a0c10] shadow-2xl overflow-hidden"
       >
         {/* Background Grid Pattern */}
         <div className="absolute inset-0 opacity-[0.15] pointer-events-none" style={{
@@ -140,8 +128,8 @@ export default function WorkflowDiagram({ industryTitle, steps }: N8nWorkflowPro
           backgroundSize: "30px 30px",
         }} />
 
-        <div className="min-w-[1200px] w-[2350px] p-10">
-          <svg viewBox="-20 -20 2300 500" className="w-full h-auto overflow-visible" style={{ filter: "drop-shadow(0 0 20px rgba(0,0,0,0.5))" }}>
+        <div className="w-full p-6 lg:p-10 flex items-center justify-center">
+          <svg viewBox="-40 -20 1400 550" className="w-full max-w-full h-auto overflow-visible" style={{ filter: "drop-shadow(0 0 20px rgba(0,0,0,0.5))" }}>
             <defs>
               <filter id="glowEdge">
                 <feGaussianBlur stdDeviation="3" result="blur"/>

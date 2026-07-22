@@ -1,40 +1,41 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { IndustryDetail } from "@/lib/industriesData";
 
 interface Props {
-  industryTitle: string;
+  industry: IndustryDetail;
 }
 
-export default function IndustryPrograms({ industryTitle }: Props) {
+export default function IndustryPrograms({ industry }: Props) {
+  // Use the industry's actual features to populate the program cards
   const programs = [
     {
       badge: "STARTER",
-      title: "Kickstart Program",
-      greenText: `For ${industryTitle} businesses under $1M in revenue`,
-      desc: "Get dependable automated call handling, missed-call text back, and basic appointment booking.",
+      title: industry.features[0]?.title || "Basic Automation",
+      icon: industry.features[0]?.icon || "bolt",
+      desc: industry.features[0]?.desc || "Essential tools to kickstart your automation journey.",
       highlight: false,
     },
     {
       badge: "GROWTH",
-      title: "Accelerate Program",
-      greenText: `For ${industryTitle} businesses $1M–$3M in revenue`,
-      desc: "Predictable lead capture, 2-way SMS follow-ups, and consistent automated workflow routing.",
+      title: industry.features[1]?.title || "Accelerate Program",
+      icon: industry.features[1]?.icon || "trending_up",
+      desc: industry.features[1]?.desc || "Scale your operations with advanced workflow features.",
       highlight: false,
     },
     {
       badge: "POPULAR",
-      title: "Elite Program",
-      greenText: `For ${industryTitle} businesses $3M–$10M in revenue`,
-      desc: "Advanced EHR/CRM integrations, custom triage logic, and full front-desk AI replacement.",
+      title: industry.features[2]?.title || "Elite System",
+      icon: industry.features[2]?.icon || "star",
+      desc: industry.features[2]?.desc || "Comprehensive AI integration for maximum ROI.",
       highlight: true,
     },
     {
       badge: "ENTERPRISE",
-      title: "Titan Program",
-      greenText: `For ${industryTitle} businesses over $10M in revenue`,
-      desc: "Multi-location routing, custom API development, long-term market control and dominance.",
+      title: industry.features[3]?.title || "Titan Network",
+      icon: industry.features[3]?.icon || "domain",
+      desc: industry.features[3]?.desc || "Full custom deployment and enterprise-grade SLAs.",
       highlight: false,
     },
   ];
@@ -68,7 +69,7 @@ export default function IndustryPrograms({ industryTitle }: Props) {
                   : "bg-[#16181d] border border-transparent hover:border-white/10"
               }`}
             >
-              <div className="mb-8">
+              <div className="mb-4">
                 {/* Badge */}
                 <div className={`inline-flex items-center px-4 py-1.5 rounded-full font-mono text-[11px] font-bold tracking-wider uppercase mb-8 ${
                   prog.highlight 
@@ -78,30 +79,22 @@ export default function IndustryPrograms({ industryTitle }: Props) {
                   {prog.badge}
                 </div>
 
+                {/* Icon */}
+                <div className="mb-6">
+                  <span className={`material-symbols-outlined text-4xl ${prog.highlight ? "text-[#a3e635]" : "text-white/60"}`}>
+                    {prog.icon}
+                  </span>
+                </div>
+
                 {/* Title */}
-                <h3 className="font-display text-2xl font-black text-white mb-4">
+                <h3 className="font-display text-2xl font-black text-white mb-4 leading-tight">
                   {prog.title}
                 </h3>
 
-                {/* Green Subtext */}
-                <p className="font-body text-[15px] font-semibold text-[#a3e635] mb-6">
-                  {prog.greenText}
-                </p>
-
                 {/* Description */}
-                <p className="font-body text-[15px] text-white/80 leading-relaxed">
+                <p className="font-body text-[15px] text-white/70 leading-relaxed mt-4">
                   {prog.desc}
                 </p>
-              </div>
-
-              {/* Push button to bottom */}
-              <div className="mt-auto pt-6">
-                <Link
-                  href="/contact"
-                  className="block w-full text-center bg-[#a3e635] text-[#0b0d10] py-3.5 rounded-lg font-display font-extrabold text-[15px] tracking-wide uppercase hover:brightness-110 active:scale-[0.98] transition-all"
-                >
-                  LEARN MORE
-                </Link>
               </div>
             </motion.div>
           ))}
