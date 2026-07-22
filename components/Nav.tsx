@@ -9,7 +9,6 @@ const LINKS = [
   { href: "#programs", label: "Growth Programs" },
   { href: "#stories", label: "Success Stories" },
   { href: "#industries", label: "Industry Expertise" },
-  { href: "#programs", label: "Pricing" },
 ];
 
 export default function Nav() {

@@ -32,10 +32,10 @@ export default function CTA() {
               <span className="material-symbols-outlined">calendar_today</span>
             </a>
             <a
-              href="#"
+              href="#industries"
               className="bg-transparent border border-white/20 text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-white/5 active:scale-95 transition-all"
             >
-              Download Pricing Guide
+              Explore AI Workflows
             </a>
           </div>
         </div>
