@@ -216,5 +216,191 @@ export const productsData: ProductData[] = [
       }
     ],
     integrations: ["Salesforce", "HubSpot", "AthenaHealth", "Epic"]
+  },
+  {
+    slug: "ai-estimating-agent",
+    name: "AI Estimating Agent",
+    shortDesc: "Instant, accurate quotes generated from voice descriptions and photos.",
+    heroDesc: "Close deals faster. Our AI Estimating Agent analyzes customer inputs, references your pricing books, and generates professional, accurate proposals in seconds, allowing your sales team to focus on closing rather than calculating.",
+    heroIcon: "calculate",
+    metrics: [
+      { label: "Quote Speed", value: "<10s", subtext: "From request to inbox" },
+      { label: "Close Rate", value: "+22%", subtext: "Due to faster response" },
+      { label: "Pricing Accuracy", value: "99%", subtext: "Tied to live catalogs" }
+    ],
+    workflowTitle: "Automated Quoting Pipeline",
+    workflowSteps: [
+      {
+        step: "01",
+        title: "Request Intake",
+        desc: "Customer describes the issue via voice or text, and uploads photos if necessary.",
+        icon: "chat"
+      },
+      {
+        step: "02",
+        title: "Context Analysis",
+        desc: "AI parses the requirements and matches them against your service catalog and flat-rate book.",
+        icon: "troubleshoot"
+      },
+      {
+        step: "03",
+        title: "Proposal Generation",
+        desc: "A branded, itemized quote is instantly generated with good/better/best options.",
+        icon: "request_quote"
+      },
+      {
+        step: "04",
+        title: "Approval & Scheduling",
+        desc: "Customer approves online, triggering automatic deposit collection and job scheduling.",
+        icon: "task_alt"
+      }
+    ],
+    features: [
+      {
+        title: "Visual AI Analysis",
+        desc: "Can identify basic parts or issues from customer-uploaded photos to refine quotes.",
+        icon: "image_search"
+      },
+      {
+        title: "Flat-Rate Integration",
+        desc: "Directly syncs with your price book to ensure margins are protected on every quote.",
+        icon: "price_check"
+      },
+      {
+        title: "Multi-Option Proposals",
+        desc: "Automatically builds Good/Better/Best options to increase average ticket size.",
+        icon: "view_column"
+      },
+      {
+        title: "Automated Follow-ups",
+        desc: "Chases unsold estimates via SMS and Email using personalized messaging.",
+        icon: "mark_email_unread"
+      }
+    ],
+    integrations: ["ServiceTitan", "Housecall Pro", "Stripe", "QuickBooks"]
+  },
+  {
+    slug: "automated-retention",
+    name: "Automated Retention System",
+    shortDesc: "AI-driven post-job follow-ups, review generation, and maintenance upselling.",
+    heroDesc: "Turn one-time customers into lifelong clients. This system automatically triggers customized outreach after every job to collect 5-star reviews, resolve silent complaints, and sell recurring maintenance plans without human effort.",
+    heroIcon: "campaign",
+    metrics: [
+      { label: "Review Volume", value: "3x", subtext: "Increase in 5-star reviews" },
+      { label: "Maintenance Conversion", value: "18%", subtext: "Automated upsells" },
+      { label: "Churn Reduction", value: "-40%", subtext: "Through proactive support" }
+    ],
+    workflowTitle: "Customer Lifecycle Pipeline",
+    workflowSteps: [
+      {
+        step: "01",
+        title: "Job Completion",
+        desc: "Technician marks the job complete in your CRM, triggering the retention flow.",
+        icon: "fact_check"
+      },
+      {
+        step: "02",
+        title: "Sentiment Check",
+        desc: "AI sends a quick SMS to gauge satisfaction before requesting a public review.",
+        icon: "thumbs_up_down"
+      },
+      {
+        step: "03",
+        title: "Review Routing",
+        desc: "Happy customers are sent to Google; unhappy customers are routed to a manager.",
+        icon: "reviews"
+      },
+      {
+        step: "04",
+        title: "Long-term Nurture",
+        desc: "System schedules check-ins and maintenance reminders 6-12 months out.",
+        icon: "calendar_month"
+      }
+    ],
+    features: [
+      {
+        title: "Smart Review Gating",
+        desc: "Protects your online reputation by privately intercepting negative feedback.",
+        icon: "shield"
+      },
+      {
+        title: "Personalized SMS",
+        desc: "Uses details from the job notes to make automated texts feel highly personal.",
+        icon: "sms"
+      },
+      {
+        title: "Maintenance Upsells",
+        desc: "Automatically pitches seasonal tune-ups or club memberships at the perfect time.",
+        icon: "sell"
+      },
+      {
+        title: "Reputation Dashboard",
+        desc: "Aggregates all reviews and customer sentiment scores into one unified view.",
+        icon: "query_stats"
+      }
+    ],
+    integrations: ["Google Business", "Yelp", "ServiceTitan", "HubSpot"]
+  },
+  {
+    slug: "smart-inventory",
+    name: "Smart Inventory Manager",
+    shortDesc: "Predictive parts ordering and automated warehouse stock management.",
+    heroDesc: "Never run out of critical parts. Our Smart Inventory Manager uses historical data and upcoming schedules to predict what you'll need, automatically drafting purchase orders and managing vendor relations.",
+    heroIcon: "warehouse",
+    metrics: [
+      { label: "Stockouts", value: "0", subtext: "Eliminated entirely" },
+      { label: "Holding Costs", value: "-25%", subtext: "Optimized stock levels" },
+      { label: "Procurement Time", value: "-80%", subtext: "Automated POs" }
+    ],
+    workflowTitle: "Predictive Restock Pipeline",
+    workflowSteps: [
+      {
+        step: "01",
+        title: "Usage Tracking",
+        desc: "Technician logs a part used on a job, instantly decrementing virtual stock.",
+        icon: "qr_code_scanner"
+      },
+      {
+        step: "02",
+        title: "Predictive Analytics",
+        desc: "AI analyzes upcoming scheduled jobs and seasonal trends to forecast needs.",
+        icon: "timeline"
+      },
+      {
+        step: "03",
+        title: "PO Generation",
+        desc: "System automatically drafts a Purchase Order for the best vendor when stock is low.",
+        icon: "receipt"
+      },
+      {
+        step: "04",
+        title: "Vendor Sync",
+        desc: "PO is electronically sent to the supplier, and tracking information is logged.",
+        icon: "local_shipping"
+      }
+    ],
+    features: [
+      {
+        title: "Barcode Scanning",
+        desc: "Mobile app integration allows technicians to scan parts right from the truck.",
+        icon: "qr_code"
+      },
+      {
+        title: "Multi-Vendor Routing",
+        desc: "Automatically compares pricing and availability across your approved suppliers.",
+        icon: "compare_arrows"
+      },
+      {
+        title: "Seasonality Adjustments",
+        desc: "Learns that you need more AC capacitors in July and pre-orders them in May.",
+        icon: "thermostat"
+      },
+      {
+        title: "Truck Restock Lists",
+        desc: "Generates daily pick-lists so warehouse staff know exactly what to put on each truck.",
+        icon: "list_alt"
+      }
+    ],
+    integrations: ["QuickBooks", "ServiceTitan", "Ferguson", "Johnstone Supply"]
   }
 ];

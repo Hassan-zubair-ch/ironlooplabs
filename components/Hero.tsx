@@ -34,14 +34,12 @@ export default function Hero() {
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           >
-            Never Miss an <span className="text-growth-green italic">HVAC Call</span> Again.
+            The Autonomous Nerve Center For <span className="text-growth-green italic">Modern Services.</span>
           </motion.h1>
 
           <Reveal delay={0.1}>
             <p className="font-body text-body-lg text-on-surface-variant max-w-xl">
-              No-cooling emergencies, medical triage calls, and service inquiries — IronLoop answers every one
-              instantly, qualifies the request, and books it straight into your calendar. 24/7,
-              every day of the year.
+              From zero-latency emergency dispatch to HIPAA-compliant medical triage, IronLoop&apos;s AI infrastructure answers every inbound call instantly, qualifies complex intent, and locks in high-value bookings with ruthless precision.
             </p>
           </Reveal>
 
