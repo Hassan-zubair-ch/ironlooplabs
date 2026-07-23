@@ -112,7 +112,7 @@ export default function IndustryWorkflowDiagram({ industryTitle, steps }: Props)
                   
                   {/* Description */}
                   <foreignObject x={x - 90} y={y + 85} width="180" height="80">
-                     <div xmlns="http://www.w3.org/1999/xhtml" style={{ color: "rgba(255,255,255,0.6)", fontSize: "12px", textAlign: "center", lineHeight: "1.4", fontFamily: "system-ui, -apple-system, sans-serif" }}>
+                     <div style={{ color: "rgba(255,255,255,0.6)", fontSize: "12px", textAlign: "center", lineHeight: "1.4", fontFamily: "system-ui, -apple-system, sans-serif" }}>
                        {step.desc}
                      </div>
                   </foreignObject>
