@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import Reveal from "./Reveal";
 
 export default function Hero() {
@@ -45,18 +46,18 @@ export default function Hero() {
 
           <Reveal delay={0.2}>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="#programs"
+              <Link
+                href="/contact"
                 className="bg-growth-green text-deep-forest px-8 py-4 rounded-xl font-display text-lg font-bold shadow-lg shadow-growth-green/10 hover:scale-105 active:scale-95 transition-transform text-center btn-glow-hover"
               >
-                Start Growing Now
-              </a>
-              <a
-                href="#contact"
+                Deploy AI Agents
+              </Link>
+              <Link
+                href="/products"
                 className="border-2 border-surface-container-highest text-white px-8 py-4 rounded-xl font-display text-lg font-bold hover:bg-white/5 active:scale-95 transition-all text-center"
               >
-                Watch AI Demo
-              </a>
+                Explore Ecosystem
+              </Link>
             </div>
           </Reveal>
 
