@@ -7,14 +7,46 @@ import Link from "next/link";
 export default function ContactClient() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    businessName: "",
+    email: "",
+    phone: "",
+    industry: "",
+    scope: ""
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        const errorData = await res.json();
+        setErrorMsg(errorData.error || "Failed to submit request.");
+      }
+    } catch (error) {
+      console.error(error);
+      setErrorMsg("An unexpected error occurred. Please try again.");
+    } finally {
       setLoading(false);
-      setSubmitted(true);
-    }, 1500);
+    }
   };
 
   return (
@@ -42,7 +74,7 @@ export default function ContactClient() {
                  </div>
                  <h4 className="font-display font-bold text-white mb-1">Email Us</h4>
                  <p className="text-sm text-white/50 mb-2">For general inquiries</p>
-                 <a href="mailto:hello@ironlooplabs.com" className="text-sm font-mono text-[#a3e635] hover:underline">hello@ironlooplabs.com</a>
+                 <a href="mailto:info@ironlooplabs.com" className="text-sm font-mono text-[#a3e635] hover:underline">info@ironlooplabs.com</a>
                </div>
                <div className="p-6 rounded-2xl bg-[#0b0d10] border border-white/[0.05] hover:border-[#38bdf8]/20 transition-all">
                  <div className="w-10 h-10 rounded-full bg-[#38bdf8]/10 flex items-center justify-center text-[#38bdf8] mb-4">
@@ -117,44 +149,44 @@ export default function ContactClient() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="space-y-1.5">
                       <label className="block font-mono text-[10px] text-white/40 uppercase tracking-widest font-bold">First Name *</label>
-                      <input required type="text" className="w-full bg-[#050608] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white text-sm focus:border-[#a3e635]/50 focus:ring-1 focus:ring-[#a3e635]/50 focus:outline-none transition-all" />
+                      <input required type="text" name="firstName" value={formData.firstName} onChange={handleChange} className="w-full bg-[#050608] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white text-sm focus:border-[#a3e635]/50 focus:ring-1 focus:ring-[#a3e635]/50 focus:outline-none transition-all" />
                     </div>
                     <div className="space-y-1.5">
                       <label className="block font-mono text-[10px] text-white/40 uppercase tracking-widest font-bold">Last Name *</label>
-                      <input required type="text" className="w-full bg-[#050608] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white text-sm focus:border-[#a3e635]/50 focus:ring-1 focus:ring-[#a3e635]/50 focus:outline-none transition-all" />
+                      <input required type="text" name="lastName" value={formData.lastName} onChange={handleChange} className="w-full bg-[#050608] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white text-sm focus:border-[#a3e635]/50 focus:ring-1 focus:ring-[#a3e635]/50 focus:outline-none transition-all" />
                     </div>
                   </div>
 
                   <div className="space-y-1.5">
                     <label className="block font-mono text-[10px] text-white/40 uppercase tracking-widest font-bold">Business Name *</label>
-                    <input required type="text" placeholder="e.g. Metro Health Partners" className="w-full bg-[#050608] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white text-sm placeholder:text-white/20 focus:border-[#a3e635]/50 focus:ring-1 focus:ring-[#a3e635]/50 focus:outline-none transition-all" />
+                    <input required type="text" name="businessName" value={formData.businessName} onChange={handleChange} className="w-full bg-[#050608] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white text-sm focus:border-[#a3e635]/50 focus:ring-1 focus:ring-[#a3e635]/50 focus:outline-none transition-all" />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="space-y-1.5">
                       <label className="block font-mono text-[10px] text-white/40 uppercase tracking-widest font-bold">Work Email *</label>
-                      <input required type="email" placeholder="you@company.com" className="w-full bg-[#050608] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white text-sm placeholder:text-white/20 focus:border-[#a3e635]/50 focus:ring-1 focus:ring-[#a3e635]/50 focus:outline-none transition-all" />
+                      <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full bg-[#050608] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white text-sm focus:border-[#a3e635]/50 focus:ring-1 focus:ring-[#a3e635]/50 focus:outline-none transition-all" />
                     </div>
                     <div className="space-y-1.5">
                       <label className="block font-mono text-[10px] text-white/40 uppercase tracking-widest font-bold">Phone *</label>
-                      <input required type="tel" placeholder="(555) 000-0000" className="w-full bg-[#050608] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white text-sm placeholder:text-white/20 focus:border-[#a3e635]/50 focus:ring-1 focus:ring-[#a3e635]/50 focus:outline-none transition-all" />
+                      <input required type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full bg-[#050608] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white text-sm focus:border-[#a3e635]/50 focus:ring-1 focus:ring-[#a3e635]/50 focus:outline-none transition-all" />
                     </div>
                   </div>
 
                   <div className="space-y-1.5">
                     <label className="block font-mono text-[10px] text-white/40 uppercase tracking-widest font-bold">Industry *</label>
                     <div className="relative">
-                      <select required className="w-full bg-[#050608] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white text-sm focus:border-[#a3e635]/50 focus:ring-1 focus:ring-[#a3e635]/50 focus:outline-none transition-all appearance-none cursor-pointer">
+                      <select required name="industry" value={formData.industry} onChange={handleChange} className="w-full bg-[#050608] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white text-sm focus:border-[#a3e635]/50 focus:ring-1 focus:ring-[#a3e635]/50 focus:outline-none transition-all appearance-none cursor-pointer">
                         <option value="">Select your industry...</option>
-                        <option>Hospitals &amp; Healthcare</option>
-                        <option>Medical Clinics</option>
-                        <option>Dental Practices</option>
-                        <option>HVAC Services</option>
-                        <option>Plumbing &amp; Trades</option>
-                        <option>Pest &amp; Lawn Care</option>
-                        <option>Home Repair Services</option>
-                        <option>Commercial Facility Ops</option>
-                        <option>Other</option>
+                        <option value="Hospitals & Healthcare">Hospitals &amp; Healthcare</option>
+                        <option value="Medical Clinics">Medical Clinics</option>
+                        <option value="Dental Practices">Dental Practices</option>
+                        <option value="HVAC Services">HVAC Services</option>
+                        <option value="Plumbing & Trades">Plumbing &amp; Trades</option>
+                        <option value="Pest & Lawn Care">Pest &amp; Lawn Care</option>
+                        <option value="Home Repair Services">Home Repair Services</option>
+                        <option value="Commercial Facility Ops">Commercial Facility Ops</option>
+                        <option value="Other">Other</option>
                       </select>
                       <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none">expand_more</span>
                     </div>
@@ -162,8 +194,14 @@ export default function ContactClient() {
 
                   <div className="space-y-1.5">
                     <label className="block font-mono text-[10px] text-white/40 uppercase tracking-widest font-bold">Project Scope / Workflow to Automate</label>
-                    <textarea rows={4} placeholder="Briefly describe your call volume or what processes you want to automate..." className="w-full bg-[#050608] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white text-sm placeholder:text-white/20 focus:border-[#a3e635]/50 focus:ring-1 focus:ring-[#a3e635]/50 focus:outline-none transition-all resize-none custom-scrollbar" />
+                    <textarea rows={4} name="scope" value={formData.scope} onChange={handleChange} className="w-full bg-[#050608] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white text-sm focus:border-[#a3e635]/50 focus:ring-1 focus:ring-[#a3e635]/50 focus:outline-none transition-all resize-none custom-scrollbar" />
                   </div>
+
+                  {errorMsg && (
+                    <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-500 text-sm font-body">
+                      {errorMsg}
+                    </div>
+                  )}
 
                   <button 
                     type="submit" 

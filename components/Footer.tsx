@@ -2,15 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { productsData } from "@/lib/productsData";
 
 const FOOTER_LINKS = {
-  Product: [
-    { label: "Products", href: "/products" },
-    { label: "Industries", href: "/industries" },
-    { label: "Success Stories", href: "/success-stories" },
-  ],
   Company: [
     { label: "Home", href: "/" },
+    { label: "Industries", href: "/industries" },
+    { label: "Success Stories", href: "/success-stories" },
     { label: "Contact Us", href: "/contact" },
   ],
   Legal: [
@@ -65,10 +63,10 @@ export default function Footer() {
             <div>
               <h4 className="font-display text-[15px] text-white font-semibold mb-6">Product</h4>
               <ul className="space-y-4">
-                {FOOTER_LINKS.Product.map((link) => (
-                  <li key={link.label}>
-                    <Link href={link.href} className="font-body text-[14px] text-white/50 hover:text-[#a3e635] transition-colors duration-200">
-                      {link.label}
+                {productsData.map((prod) => (
+                  <li key={prod.slug}>
+                    <Link href={`/products/${prod.slug}`} className="font-body text-[14px] text-white/50 hover:text-[#a3e635] transition-colors duration-200">
+                      {prod.name}
                     </Link>
                   </li>
                 ))}
