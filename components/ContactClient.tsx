@@ -78,11 +78,11 @@ export default function ContactClient() {
                </div>
                <div className="p-6 rounded-2xl bg-[#0b0d10] border border-white/[0.05] hover:border-[#38bdf8]/20 transition-all">
                  <div className="w-10 h-10 rounded-full bg-[#38bdf8]/10 flex items-center justify-center text-[#38bdf8] mb-4">
-                   <span className="material-symbols-outlined text-lg">headset_mic</span>
+                   <span className="material-symbols-outlined text-lg">phone_in_talk</span>
                  </div>
-                 <h4 className="font-display font-bold text-white mb-1">Support</h4>
-                 <p className="text-sm text-white/50 mb-2">Current clients only</p>
-                 <a href="#" className="text-sm font-mono text-[#38bdf8] hover:underline">Support Portal</a>
+                 <h4 className="font-display font-bold text-white mb-1">Call Us</h4>
+                 <p className="text-sm text-white/50 mb-2">Toll-Free (US & UK)</p>
+                 <a href="tel:+18005550199" className="text-sm font-mono text-[#38bdf8] hover:underline">+1 (800) 555-0199</a>
                </div>
             </div>
 
