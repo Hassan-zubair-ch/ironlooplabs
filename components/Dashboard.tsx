@@ -2,20 +2,14 @@
 
 import Image from "next/image";
 import Reveal from "./Reveal";
+import MCPServerDiagram from "./MCPServerDiagram";
+import Link from "next/link";
 
 export default function Dashboard() {
   return (
     <section className="py-24 bg-background">
       <Reveal className="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-16 items-center bg-surface-container-low rounded-2xl p-12 border border-outline shadow-2xl">
-        <div className="overflow-hidden rounded-lg group">
-          <Image
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiPutB7OFdQqc4VjmEGd2tQwFykQ3uP7vczAUtWC6l_UxYjQDvFaGE7PrgtXTgf-w288qBQTQbplaz31ZLxZTdILOgDLMo8yoJjYOqQ925JPX9f5Gww0QMqsfkSoub3Xtc17dbv7Zk4lRYIR9UPWWTz7JrmiBiGWvXHDsZmQ2REuSgW_sIBKSVOf_TBPXBuXyGD2Xs2-PlFLZHGaqEqFVhkQPUAQeUwXELHq__0OKSELfmXw7p0Th4"
-            alt="KPI Report dashboard"
-            width={640}
-            height={480}
-            className="rounded-lg shadow-2xl w-full object-cover aspect-[4/3] brightness-90 contrast-110 transition-transform duration-700 group-hover:scale-110"
-          />
-        </div>
+        <MCPServerDiagram />
         <div className="space-y-8">
           <h2 className="font-display text-headline-lg text-white">
             Built for the Trade, <span className="text-primary">Optimized for Growth</span>
@@ -37,6 +31,14 @@ export default function Dashboard() {
                 Lead Quality
               </div>
             </div>
+          </div>
+          <div className="pt-4">
+            <Link 
+              href="/success-stories"
+              className="inline-block bg-primary text-background px-8 py-3.5 rounded-lg font-display text-lg font-bold shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-transform text-center hover:shadow-[0_0_15px_rgba(180,244,44,0.5)]"
+            >
+              View Success Stories
+            </Link>
           </div>
         </div>
       </Reveal>

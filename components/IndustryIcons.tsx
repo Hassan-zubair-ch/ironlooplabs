@@ -27,7 +27,7 @@ export function IndustryImageIcon({ type, className = "w-16 h-16" }: IconProps) 
         alt={`${type} icon`}
         width={80}
         height={80}
-        className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(163,230,53,0.3)]"
+        className="w-full h-full object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
         priority
       />
     </div>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 interface Props {
-  industryTitle: string;
+  industryTitle?: string;
 }
 
 export default function HighEndCTA({ industryTitle }: Props) {
@@ -27,7 +27,7 @@ export default function HighEndCTA({ industryTitle }: Props) {
           viewport={{ once: true }}
         >
           <h2 className="font-display text-4xl sm:text-5xl lg:text-[54px] font-black text-[#0b0d10] uppercase tracking-tight mb-5 max-w-4xl mx-auto">
-            READY TO GROW YOUR {industryTitle.toUpperCase()} BUSINESS?
+            {industryTitle ? `READY TO GROW YOUR ${industryTitle.toUpperCase()} BUSINESS?` : "READY TO GROW YOUR BUSINESS WITH AI?"}
           </h2>
           <p className="font-body text-lg sm:text-xl text-[#0b0d10]/80 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
             Schedule a consultation and discover how IronLoop AI can help you generate more leads, automate workflows, and increase revenue.

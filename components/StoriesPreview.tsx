@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 const TESTIMONIALS = [
   {
@@ -18,8 +19,78 @@ const TESTIMONIALS = [
 ];
 
 export default function StoriesPreview() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  // Duplicate the testimonials to ensure enough width for seamless infinite scrolling
+  const duplicatedTestimonials = [...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS];
+
+  useEffect(() => {
+    let animationId: number;
+    let lastTime = performance.now();
+
+    const scroll = (time: number) => {
+      const element = scrollRef.current;
+      if (!element) return;
+
+      const deltaTime = time - lastTime;
+      lastTime = time;
+
+      if (!isHovered && !isDragging) {
+        element.scrollLeft += (0.05 * deltaTime); // Adjust auto-scroll speed
+        
+        // Loop back when we scroll past half the width (which is perfectly multiple full sets)
+        if (element.scrollLeft >= element.scrollWidth / 2) {
+          element.scrollLeft -= element.scrollWidth / 2;
+        }
+      }
+      animationId = requestAnimationFrame(scroll);
+    };
+
+    animationId = requestAnimationFrame(scroll);
+    return () => cancelAnimationFrame(animationId);
+  }, [isHovered, isDragging]);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartX(e.pageX - (scrollRef.current?.offsetLeft || 0));
+    setScrollLeft(scrollRef.current?.scrollLeft || 0);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+    setIsHovered(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - (scrollRef.current.offsetLeft || 0);
+    const walk = (x - startX) * 2; // Scroll fast
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleScroll = () => {
+    const element = scrollRef.current;
+    if (!element) return;
+    
+    // When manually scrolling (touch or trackpad), we still enforce the infinite loop constraints
+    if (element.scrollLeft >= element.scrollWidth / 2) {
+      element.scrollLeft -= element.scrollWidth / 2;
+    } else if (element.scrollLeft <= 0) {
+      element.scrollLeft += element.scrollWidth / 2;
+    }
+  };
+
   return (
-    <section className="py-20 lg:py-28 bg-[#08090a] border-t border-white/[0.04]">
+    <section className="py-20 lg:py-28 bg-[#08090a] border-t border-white/[0.04] overflow-hidden">
       <div className="max-w-container-max mx-auto px-6 lg:px-margin-desktop">
         
         {/* Header Section */}
@@ -36,16 +107,33 @@ export default function StoriesPreview() {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {TESTIMONIALS.map((testimonial, i) => (
+      </div>
+      
+      {/* Testimonials Carousel Wrapper */}
+      <div 
+        className="w-full relative group"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div 
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing px-6 lg:px-margin-desktop pb-8 scroll-smooth-disabled"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          onScroll={handleScroll}
+          onTouchStart={() => setIsHovered(true)}
+          onTouchEnd={() => setIsHovered(false)}
+        >
+          {duplicatedTestimonials.map((testimonial, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-[#121316] rounded-2xl p-8 lg:p-10 relative overflow-hidden flex flex-col h-full border border-white/[0.02]"
+              className="flex-shrink-0 w-[85vw] sm:w-[400px] md:w-[450px] bg-[#121316] rounded-2xl p-8 lg:p-10 relative overflow-hidden flex flex-col border border-white/[0.02]"
             >
               {/* Large Quote Icon Background */}
               <svg 
@@ -66,7 +154,7 @@ export default function StoriesPreview() {
 
               {/* Testimonial Text */}
               <div className="flex-1">
-                <p className="font-body text-[14px] text-white/85 leading-[1.8] relative z-10 mb-8">
+                <p className="font-body text-[14px] text-white/85 leading-[1.8] relative z-10 mb-8 select-text">
                   &quot;{testimonial.text}&quot;
                 </p>
               </div>
@@ -78,7 +166,6 @@ export default function StoriesPreview() {
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );

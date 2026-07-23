@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { INDUSTRIES_DATA } from "@/lib/industriesData";
-import { getIndustryIconComponent } from "./IndustryIcons";
+import IndustryCard from "./IndustryCard";
 
 export default function IndustriesListClient() {
   return (
@@ -13,36 +12,7 @@ export default function IndustriesListClient() {
       <div className="max-w-container-max mx-auto px-6 lg:px-margin-desktop relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {INDUSTRIES_DATA.map((ind, i) => (
-            <motion.div
-              key={ind.slug}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-              viewport={{ once: true }}
-            >
-              <Link href={`/industries/${ind.slug}`} className="block group">
-                <div className="bg-[#111318] border border-white/[0.06] rounded-2xl p-7 h-64 flex flex-col items-center justify-center text-center hover:border-[#a3e635]/30 hover:bg-[#14171d] transition-all duration-400 relative overflow-hidden">
-                  {/* Glow on hover */}
-                  <div className="absolute inset-0 bg-[#a3e635]/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" />
-
-                  <div className="relative z-10 flex flex-col items-center">
-                    <div className="mb-4 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(163,230,53,0.3)] transition-all duration-500">
-                      {getIndustryIconComponent(ind.iconType, "w-16 h-16")}
-                    </div>
-                    <h3 className="font-display text-lg text-white font-extrabold group-hover:text-[#a3e635] transition-colors mb-2">
-                      {ind.title}
-                    </h3>
-                    <p className="font-body text-xs text-on-surface-variant leading-relaxed max-w-[200px]">
-                      {ind.subtitle}
-                    </p>
-                    <div className="mt-4 flex items-center gap-1 text-[#a3e635] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                      <span className="font-mono text-[11px] font-bold tracking-wider">VIEW DETAILS</span>
-                      <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
+            <IndustryCard key={ind.slug} ind={ind} index={i} />
           ))}
         </div>
 
