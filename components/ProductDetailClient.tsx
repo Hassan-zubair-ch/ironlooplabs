@@ -68,17 +68,59 @@ export default function ProductDetailClient({ prod }: Props) {
             </div>
 
             {/* Right Icon/Visual */}
-            <div className="lg:col-span-5 relative">
+            <div className="lg:col-span-5 relative flex items-center justify-center min-h-[400px] lg:min-h-[500px]">
+              {/* Core Glow */}
+              <div className="absolute w-[300px] h-[300px] bg-[#a3e635]/10 rounded-full blur-[80px] animate-pulse pointer-events-none" />
+              
+              {/* Outer Dashed Ring (Rotating Slow) */}
               <motion.div 
-                initial={{ opacity: 0, scale: 0.9, rotate: -10 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
-                className="w-full aspect-square max-w-[400px] mx-auto rounded-full bg-gradient-to-br from-[#111318] to-[#090a0f] border border-white/[0.05] shadow-[0_0_60px_rgba(163,230,53,0.05)] flex items-center justify-center relative group"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                className="absolute w-[380px] h-[380px] rounded-full border-[1px] border-dashed border-white/10 pointer-events-none"
+              />
+              
+              {/* Middle Solid Ring (Rotating Fast Opposite) */}
+              <motion.div 
+                animate={{ rotate: -360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute w-[280px] h-[280px] rounded-full border border-[#a3e635]/20 flex items-center justify-center pointer-events-none"
               >
-                <div className="absolute inset-0 rounded-full border border-[#a3e635]/20 scale-105 opacity-0 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700" />
-                <span className="material-symbols-outlined text-9xl text-[#a3e635] drop-shadow-[0_0_30px_rgba(163,230,53,0.4)] transition-transform duration-700 group-hover:scale-110">
+                 <div className="absolute top-0 w-2 h-2 bg-[#a3e635] rounded-full shadow-[0_0_10px_#a3e635]" />
+                 <div className="absolute bottom-0 w-2 h-2 bg-white/30 rounded-full" />
+              </motion.div>
+              
+              {/* Inner Glowing Core Container */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, type: "spring" }}
+                className="relative w-[160px] h-[160px] rounded-full bg-gradient-to-br from-[#111318] to-[#090a0f] border border-[#a3e635]/30 shadow-[0_0_40px_rgba(163,230,53,0.15)] flex items-center justify-center z-10 group cursor-default"
+              >
+                <div className="absolute inset-0 rounded-full border border-[#a3e635]/50 scale-105 opacity-0 group-hover:scale-110 group-hover:opacity-100 transition-all duration-500" />
+                <span 
+                  className="material-symbols-outlined text-[#a3e635] drop-shadow-[0_0_20px_rgba(163,230,53,0.6)] transition-transform duration-500 group-hover:scale-110" 
+                  style={{ fontSize: "72px" }}
+                >
                   {prod.heroIcon}
                 </span>
+              </motion.div>
+
+              {/* Floating Element 1 */}
+              <motion.div 
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-10 left-4 lg:left-0 w-12 h-12 rounded-xl bg-[#0b0d10] border border-white/10 flex items-center justify-center shadow-lg backdrop-blur-sm z-20"
+              >
+                <span className="material-symbols-outlined text-white/50 text-[20px]">sync</span>
+              </motion.div>
+
+              {/* Floating Element 2 */}
+              <motion.div 
+                animate={{ y: [0, 20, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute bottom-16 right-4 lg:right-0 w-14 h-14 rounded-xl bg-[#0b0d10] border border-white/10 flex items-center justify-center shadow-lg backdrop-blur-sm z-20"
+              >
+                <span className="material-symbols-outlined text-[#a3e635]/70 text-[24px]">api</span>
               </motion.div>
             </div>
             
