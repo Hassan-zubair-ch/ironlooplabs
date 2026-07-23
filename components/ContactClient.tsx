@@ -3,7 +3,10 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { PopupButton } from "react-calendly";
+import dynamic from "next/dynamic";
+
+const CalendlyInline = dynamic(() => import("@/components/CalendlyInline"), { ssr: false });
+const PopupButton = dynamic(() => import("react-calendly").then(mod => mod.PopupButton), { ssr: false });
 
 export default function ContactClient() {
   const [rootElement, setRootElement] = useState<HTMLElement | null>(null);

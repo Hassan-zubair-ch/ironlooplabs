@@ -2,7 +2,9 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import PageBanner from "@/components/PageBanner";
 import ContactClient from "@/components/ContactClient";
-import CalendlyInline from "@/components/CalendlyInline";
+import dynamic from "next/dynamic";
+
+const CalendlyInline = dynamic(() => import("@/components/CalendlyInline"), { ssr: false });
 
 export const metadata = {
   title: "Contact Us | IronLoop Labs",

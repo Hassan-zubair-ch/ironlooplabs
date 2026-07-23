@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import CalendlyWidget from "@/components/CalendlyWidget";
+import dynamic from "next/dynamic";
 import { Manrope, Open_Sans, JetBrains_Mono } from "next/font/google";
+
+const CalendlyWidget = dynamic(() => import("@/components/CalendlyWidget"), { ssr: false });
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
 const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans", display: "swap" });
@@ -145,9 +147,21 @@ export default function RootLayout({
         
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-          rel="stylesheet"
+        <noscript>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+            rel="stylesheet"
+          />
+        </noscript>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              var link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap';
+              document.head.appendChild(link);
+            `
+          }}
         />
         
         {/* Inject Structured Data (JSON-LD) for deep SEO */}
