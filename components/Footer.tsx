@@ -62,7 +62,7 @@ export default function Footer() {
           {/* Links Columns */}
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 pt-2">
             <div>
-              <h4 className="font-display text-[15px] text-white font-semibold mb-6">Product</h4>
+              <h3 className="font-display text-[15px] text-white font-semibold mb-6">Product</h3>
               <ul className="space-y-4">
                 {productsData.map((prod) => (
                   <li key={prod.slug}>
@@ -74,7 +74,7 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="font-display text-[15px] text-white font-semibold mb-6">Company</h4>
+              <h3 className="font-display text-[15px] text-white font-semibold mb-6">Company</h3>
               <ul className="space-y-4">
                 {FOOTER_LINKS.Company.map((link) => (
                   <li key={link.label}>
@@ -86,7 +86,7 @@ export default function Footer() {
               </ul>
             </div>
             <div className="col-span-2 sm:col-span-1">
-              <h4 className="font-display text-[15px] text-white font-semibold mb-6">Legal & Trust</h4>
+              <h3 className="font-display text-[15px] text-white font-semibold mb-6">Legal & Trust</h3>
               <ul className="space-y-4">
                 {FOOTER_LINKS.Legal.map((link) => (
                   <li key={link.label}>

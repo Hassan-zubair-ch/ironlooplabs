@@ -30,13 +30,11 @@ export default function Hero() {
             </div>
           </Reveal>
 
-          <motion.h1
+          <h1
             className="font-display text-display-lg text-white"
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           >
             The Autonomous Nerve Center For <span className="text-growth-green italic">Modern Services.</span>
-          </motion.h1>
+          </h1>
 
           <Reveal delay={0.1}>
             <p className="font-body text-body-lg text-on-surface-variant max-w-xl">

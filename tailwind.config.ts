@@ -35,9 +35,9 @@ const config: Config = {
         "on-tertiary-container": "#525980",
       },
       fontFamily: {
-        display: ["Manrope", "sans-serif"],
-        body: ["'Open Sans'", "sans-serif"],
-        mono: ["'JetBrains Mono'", "monospace"],
+        display: ["var(--font-manrope)", "Manrope", "sans-serif"],
+        body: ["var(--font-open-sans)", "Open Sans", "sans-serif"],
+        mono: ["var(--font-jetbrains-mono)", "JetBrains Mono", "monospace"],
       },
       fontSize: {
         "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import { Manrope, Open_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import dynamic from "next/dynamic";
-import { Manrope, Open_Sans, JetBrains_Mono } from "next/font/google";
 
 const CalendlyWidget = dynamic(() => import("@/components/CalendlyWidget"), { ssr: false });
 
@@ -140,28 +140,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth dark">
+    <html lang="en" className={`scroll-smooth dark ${manrope.variable} ${openSans.variable} ${jetbrainsMono.variable}`}>
       <head>
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="shortcut icon" href="/favicon.ico" />
-        
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <noscript>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-            rel="stylesheet"
-          />
-        </noscript>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              var link = document.createElement('link');
-              link.rel = 'stylesheet';
-              link.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap';
-              document.head.appendChild(link);
-            `
-          }}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"
         />
         
         {/* Inject Structured Data (JSON-LD) for deep SEO */}
@@ -170,7 +155,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`bg-background text-on-background font-body overflow-x-hidden ${manrope.variable} ${openSans.variable} ${jetbrainsMono.variable}`} style={{ willChange: "transform, opacity" }}>
+      <body className="bg-background text-on-background font-body overflow-x-hidden">
         {children}
         <CalendlyWidget />
       </body>
