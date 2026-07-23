@@ -5,14 +5,22 @@ import { PopupButton } from "react-calendly";
 
 export default function CalendlyWidget() {
   const [rootElement, setRootElement] = useState<HTMLElement | null>(null);
+  const [shouldRender, setShouldRender] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       setRootElement(document.body);
     }
+    
+    // Defer loading heavy Calendly scripts by 3.5s to fix PageSpeed
+    const timer = setTimeout(() => {
+      setShouldRender(true);
+    }, 3500);
+    
+    return () => clearTimeout(timer);
   }, []);
 
-  if (!rootElement) return null;
+  if (!rootElement || !shouldRender) return null;
 
   return (
     <div className="fixed top-1/2 right-0 -translate-y-1/2 z-50">

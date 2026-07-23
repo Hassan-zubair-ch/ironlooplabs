@@ -1,10 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { PopupButton } from "react-calendly";
 
 export default function ContactClient() {
+  const [rootElement, setRootElement] = useState<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setRootElement(document.body);
+    }
+  }, []);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
@@ -73,16 +81,25 @@ export default function ContactClient() {
                    <span className="material-symbols-outlined text-lg">mail</span>
                  </div>
                  <h4 className="font-display font-bold text-white mb-1">Email Us</h4>
-                 <p className="text-sm text-white/50 mb-2">For general inquiries</p>
+                 <p className="text-sm text-white/60 mb-2">For general inquiries</p>
                  <a href="mailto:info@ironlooplabs.com" className="text-sm font-mono text-[#a3e635] hover:underline">info@ironlooplabs.com</a>
                </div>
+               
                <div className="p-6 rounded-2xl bg-[#0b0d10] border border-white/[0.05] hover:border-[#38bdf8]/20 transition-all">
                  <div className="w-10 h-10 rounded-full bg-[#38bdf8]/10 flex items-center justify-center text-[#38bdf8] mb-4">
-                   <span className="material-symbols-outlined text-lg">phone_in_talk</span>
+                   <span className="material-symbols-outlined text-lg">calendar_month</span>
                  </div>
-                 <h4 className="font-display font-bold text-white mb-1">Call Us</h4>
-                 <p className="text-sm text-white/50 mb-2">Toll-Free (US & UK)</p>
-                 <a href="tel:+18005550199" className="text-sm font-mono text-[#38bdf8] hover:underline">+1 (800) 555-0199</a>
+                 <h4 className="font-display font-bold text-white mb-1">Book a Call</h4>
+                 <p className="text-sm text-white/60 mb-2">Schedule directly</p>
+                 {rootElement && (
+                   <PopupButton
+                     url="https://calendly.com/ironlooplabs/new-meeting"
+                     rootElement={rootElement}
+                     text="Open Calendar ->"
+                     className="text-sm font-mono text-[#38bdf8] hover:underline cursor-pointer text-left block"
+                     pageSettings={{ primaryColor: 'c5e033' }}
+                   />
+                 )}
                </div>
             </div>
 
