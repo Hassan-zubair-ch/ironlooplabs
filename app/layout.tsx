@@ -142,11 +142,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`scroll-smooth dark ${manrope.variable} ${openSans.variable} ${jetbrainsMono.variable}`}>
       <head>
-        <link rel="preconnect" href="https://calendly.com" />
-        <link rel="preconnect" href="https://assets.calendly.com" />
-        <link rel="dns-prefetch" href="https://calendly.com" />
-        <link rel="dns-prefetch" href="https://assets.calendly.com" />
-        <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="shortcut icon" href="/favicon.ico" />
         
@@ -160,11 +155,6 @@ export default function RootLayout({
         <MaterialSymbolsLoader />
         {children}
         <CalendlyWidget />
-        <Script
-          id="calendly-global-widget-js"
-          src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   );
