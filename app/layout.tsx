@@ -202,7 +202,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-background text-on-background font-body overflow-x-hidden">
-        <GoogleAnalytics />
+        <GoogleAnalytics gaId="G-VP9HC133R6" />
         <MaterialSymbolsLoader />
         {children}
         <CalendlyWidget />
