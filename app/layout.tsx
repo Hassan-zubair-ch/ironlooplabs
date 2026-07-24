@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import { Manrope, Open_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import dynamic from "next/dynamic";
-
+import Script from "next/script";
 import MaterialSymbolsLoader from "@/components/MaterialSymbolsLoader";
-import CalendlyPreloader from "@/components/CalendlyPreloader";
-
-const CalendlyWidget = dynamic(() => import("@/components/CalendlyWidget"), { ssr: false });
+import CalendlyWidget from "@/components/CalendlyWidget";
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
 const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans", display: "swap" });
@@ -149,6 +146,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://assets.calendly.com" />
         <link rel="dns-prefetch" href="https://calendly.com" />
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
+        <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="shortcut icon" href="/favicon.ico" />
         
@@ -160,9 +158,13 @@ export default function RootLayout({
       </head>
       <body className="bg-background text-on-background font-body overflow-x-hidden">
         <MaterialSymbolsLoader />
-        <CalendlyPreloader />
         {children}
         <CalendlyWidget />
+        <Script
+          id="calendly-global-widget-js"
+          src="https://assets.calendly.com/assets/external/widget.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
