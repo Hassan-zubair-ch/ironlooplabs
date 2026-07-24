@@ -48,7 +48,7 @@ export default function CalendlyWidget() {
       <Script
         id="calendly-widget-js-onload"
         src="https://assets.calendly.com/assets/external/widget.js"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         onLoad={() => setScriptLoaded(true)}
       />
 

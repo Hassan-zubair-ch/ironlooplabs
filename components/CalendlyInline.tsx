@@ -37,7 +37,7 @@ export default function CalendlyInline() {
       <Script
         id="calendly-inline-js"
         src="https://assets.calendly.com/assets/external/widget.js"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         onLoad={() => setLoading(false)}
       />
     </div>
