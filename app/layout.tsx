@@ -3,6 +3,7 @@ import { Manrope, Open_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import MaterialSymbolsLoader from "@/components/MaterialSymbolsLoader";
 import CalendlyWidget from "@/components/CalendlyWidget";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap", fallback: ["system-ui", "sans-serif"] });
 const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans", display: "swap", fallback: ["system-ui", "sans-serif"] });
@@ -201,6 +202,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-background text-on-background font-body overflow-x-hidden">
+        <GoogleAnalytics />
         <MaterialSymbolsLoader />
         {children}
         <CalendlyWidget />
