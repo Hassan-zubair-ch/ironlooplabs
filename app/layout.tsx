@@ -72,6 +72,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.ironlooplabs.com",
   },
+  verification: {
+    other: {
+      "msvalidate.01": "62D16DBC30E48F038169270DC90AAFC4",
+    },
+  },
   robots: {
     index: true,
     follow: true,
