@@ -3,6 +3,8 @@ import { Manrope, Open_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import dynamic from "next/dynamic";
 
+import MaterialSymbolsLoader from "@/components/MaterialSymbolsLoader";
+
 const CalendlyWidget = dynamic(() => import("@/components/CalendlyWidget"), { ssr: false });
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
@@ -152,6 +154,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-background text-on-background font-body overflow-x-hidden">
+        <MaterialSymbolsLoader />
         {children}
         <CalendlyWidget />
       </body>
