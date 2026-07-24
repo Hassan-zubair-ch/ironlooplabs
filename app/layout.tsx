@@ -4,6 +4,7 @@ import "./globals.css";
 import dynamic from "next/dynamic";
 
 import MaterialSymbolsLoader from "@/components/MaterialSymbolsLoader";
+import CalendlyPreloader from "@/components/CalendlyPreloader";
 
 const CalendlyWidget = dynamic(() => import("@/components/CalendlyWidget"), { ssr: false });
 
@@ -155,6 +156,7 @@ export default function RootLayout({
       </head>
       <body className="bg-background text-on-background font-body overflow-x-hidden">
         <MaterialSymbolsLoader />
+        <CalendlyPreloader />
         {children}
         <CalendlyWidget />
       </body>
