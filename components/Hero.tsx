@@ -19,16 +19,10 @@ export default function Hero() {
 
       <div className="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center relative z-10">
         <div className="lg:col-span-7 space-y-8">
-          <Reveal>
-            <div className="inline-flex items-center gap-2 bg-growth-green/10 px-4 py-1.5 rounded-full border border-growth-green/20">
-              <span className="font-mono text-label-sm text-growth-green uppercase">Active Automation</span>
-              <motion.div
-                className="w-2 h-2 rounded-full bg-growth-green"
-                animate={{ opacity: [1, 0.3, 1] }}
-                transition={{ duration: 1.6, repeat: Infinity }}
-              />
-            </div>
-          </Reveal>
+          <div className="inline-flex items-center gap-2 bg-growth-green/10 px-4 py-1.5 rounded-full border border-growth-green/20">
+            <span className="font-mono text-label-sm text-growth-green uppercase">Active Automation</span>
+            <span className="w-2 h-2 rounded-full bg-growth-green status-pulse" />
+          </div>
 
           <h1
             className="font-display text-display-lg text-white"
@@ -36,48 +30,42 @@ export default function Hero() {
             The Autonomous Nerve Center For <span className="text-growth-green italic">Modern Services.</span>
           </h1>
 
-          <Reveal delay={0.1}>
-            <p className="font-body text-body-lg text-on-surface-variant max-w-xl">
-              From zero-latency emergency dispatch to HIPAA-compliant medical triage, IronLoop&apos;s AI infrastructure answers every inbound call instantly, qualifies complex intent, and locks in high-value bookings with ruthless precision.
-            </p>
-          </Reveal>
+          <p className="font-body text-body-lg text-on-surface-variant max-w-xl">
+            From zero-latency emergency dispatch to HIPAA-compliant medical triage, IronLoop&apos;s AI infrastructure answers every inbound call instantly, qualifies complex intent, and locks in high-value bookings with ruthless precision.
+          </p>
 
-          <Reveal delay={0.2}>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className="bg-growth-green text-deep-forest px-8 py-4 rounded-xl font-display text-lg font-bold shadow-lg shadow-growth-green/10 hover:scale-105 active:scale-95 transition-transform text-center btn-glow-hover"
-              >
-                Deploy AI Agents
-              </Link>
-              <Link
-                href="/products"
-                className="border-2 border-surface-container-highest text-white px-8 py-4 rounded-xl font-display text-lg font-bold hover:bg-white/5 active:scale-95 transition-all text-center"
-              >
-                Explore Ecosystem
-              </Link>
-            </div>
-          </Reveal>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              href="/contact"
+              className="bg-growth-green text-deep-forest px-8 py-4 rounded-xl font-display text-lg font-bold shadow-lg shadow-growth-green/10 hover:scale-105 active:scale-95 transition-transform text-center btn-glow-hover"
+            >
+              Deploy AI Agents
+            </Link>
+            <Link
+              href="/products"
+              className="border-2 border-surface-container-highest text-white px-8 py-4 rounded-xl font-display text-lg font-bold hover:bg-white/5 active:scale-95 transition-all text-center"
+            >
+              Explore Ecosystem
+            </Link>
+          </div>
 
-          <Reveal delay={0.3}>
-            <div className="grid grid-cols-3 gap-gutter pt-12 border-t border-white/10">
-              <div>
-                <p className="font-display text-headline-lg text-white">10k+</p>
-                <p className="font-mono text-label-sm text-on-surface-variant uppercase">Calls Handled</p>
-              </div>
-              <div>
-                <p className="font-display text-headline-lg text-white">24/7</p>
-                <p className="font-mono text-label-sm text-on-surface-variant uppercase">Availability</p>
-              </div>
-              <div>
-                <p className="font-display text-headline-lg text-white">35%</p>
-                <p className="font-mono text-label-sm text-on-surface-variant uppercase">Conversion Lift</p>
-              </div>
+          <div className="grid grid-cols-3 gap-gutter pt-12 border-t border-white/10">
+            <div>
+              <p className="font-display text-headline-lg text-white">10k+</p>
+              <p className="font-mono text-label-sm text-on-surface-variant uppercase">Calls Handled</p>
             </div>
-          </Reveal>
+            <div>
+              <p className="font-display text-headline-lg text-white">24/7</p>
+              <p className="font-mono text-label-sm text-on-surface-variant uppercase">Availability</p>
+            </div>
+            <div>
+              <p className="font-display text-headline-lg text-white">35%</p>
+              <p className="font-mono text-label-sm text-on-surface-variant uppercase">Conversion Lift</p>
+            </div>
+          </div>
         </div>
 
-        <Reveal delay={0.4} className="lg:col-span-5 relative">
+        <div className="lg:col-span-5 relative">
           <div className="bg-surface-container-low rounded-3xl shadow-2xl p-6 border border-white/5 relative z-10">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
@@ -135,7 +123,7 @@ export default function Hero() {
             animate={{ opacity: [0.3, 0.6, 0.3] }}
             transition={{ duration: 3, repeat: Infinity, delay: 1 }}
           />
-        </Reveal>
+        </div>
       </div>
     </section>
   );

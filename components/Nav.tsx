@@ -24,10 +24,7 @@ export default function Nav() {
   }, []);
 
   return (
-    <motion.header
-      initial={{ y: "-100%" }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+    <header
       className={`top-0 sticky z-50 transition-all duration-300 ${
         scrolled
           ? "bg-[#0b0d10]/95 backdrop-blur-xl shadow-lg shadow-black/30 border-b border-white/5"
@@ -109,6 +106,6 @@ export default function Nav() {
           </Link>
         </motion.div>
       )}
-    </motion.header>
+    </header>
   );
 }
