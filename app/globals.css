@@ -16,6 +16,11 @@ section[id] {
   scroll-margin-top: 96px;
 }
 
+section:nth-of-type(n+3) {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 800px;
+}
+
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }

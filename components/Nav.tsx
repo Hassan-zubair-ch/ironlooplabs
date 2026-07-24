@@ -42,6 +42,7 @@ export default function Nav() {
             alt="IronLoop Labs"
             width={420}
             height={120}
+            sizes="(max-width: 640px) 240px, (max-width: 1024px) 340px, 420px"
             className="h-14 sm:h-[4.5rem] lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
             priority
           />
