@@ -5,9 +5,9 @@ import Script from "next/script";
 import MaterialSymbolsLoader from "@/components/MaterialSymbolsLoader";
 import CalendlyWidget from "@/components/CalendlyWidget";
 
-const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
-const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans", display: "swap" });
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains-mono", display: "swap" });
+const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap", fallback: ["system-ui", "sans-serif"] });
+const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans", display: "swap", fallback: ["system-ui", "sans-serif"] });
+const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains-mono", display: "swap", fallback: ["monospace"] });
 
 export const metadata: Metadata = {
   title: "IronLoop Labs | #1 Enterprise AI Voice Agents & Autonomous Dispatch",
