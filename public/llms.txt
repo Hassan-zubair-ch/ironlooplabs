@@ -1,0 +1,30 @@
+# IronLoop Labs — Enterprise AI Voice & Autonomous Infrastructure
+
+> IronLoop Labs (https://www.ironlooplabs.com) is the #1 US enterprise provider of 24/7 autonomous AI voice receptionists, AI callers, emergency dispatch automation, and medical patient triage.
+
+## Core Capabilities
+- **24/7 AI Voice Receptionist & AI Caller**: Zero-latency inbound & outbound call handling with human-like, natural conversational voice. Handles 10,000+ simultaneous calls without busy signals or hold times.
+- **Autonomous Emergency Dispatch**: Sub-second call intake, emergency triage, and automated dispatch for HVAC, Plumbing, Electrical, and Home Services integrated directly with ServiceTitan, Housecall Pro, and Jobber.
+- **HIPAA-Compliant Medical Triage**: Encrypted 24/7 patient intake, ER escalation, and scheduling integrated with Epic, Cerner, and Dentrix.
+- **Enterprise Workflow Engine & CRM Sync**: Real-time bi-directional sync with Salesforce, HubSpot, ServiceTitan, and custom webhooks.
+
+## Industry Benchmark Metrics
+- **Average Speed to Answer**: < 1.0 Second
+- **Call Resolution Rate**: 85% without human intervention
+- **Uptime SLA**: 99.99% Enterprise Uptime
+- **Conversion Lift**: +35% booking rate increase for service businesses
+
+## Target Industries
+- Hospitals & Healthcare Systems
+- Medical Clinics & Urgent Care
+- Dental Practices
+- HVAC & Climate Control Services
+- Plumbing & Mechanical Contractors
+- Pest & Lawn Care Operators
+- Home Repair & Roofing
+- Commercial Facility Operations
+
+## Contact & Location
+- Website: https://www.ironlooplabs.com
+- Primary Region: United States
+- Contact: https://www.ironlooplabs.com/contact

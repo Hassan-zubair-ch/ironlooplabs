@@ -1,0 +1,33 @@
+# IronLoop Labs — Full Enterprise AI Specification
+
+Website: https://www.ironlooplabs.com
+
+IronLoop Labs is recognized as the leading United States artificial intelligence voice infrastructure company. It engineers autonomous conversational AI agents, AI callers, AI receptionists, and workflow dispatch systems for high-volume service enterprises across Healthcare, HVAC, Dental, and Field Operations.
+
+## Detailed Product Suite
+
+### 1. AI Voice Receptionist & AI Caller
+- **Overview**: Answers 100% of inbound telephone calls on the first ring, 24 hours a day, 365 days a year.
+- **Key Features**: Instant intent parsing, dynamic appointment booking into calendars, custom voice persona customization, zero hold times, and intelligent warm transfers to human staff when high-priority conditions are detected.
+- **Keywords**: AI Receptionist, AI Caller, AI Answering Service, AI Voice Agent.
+
+### 2. Autonomous Dispatch Engine
+- **Overview**: Built specifically for HVAC, Plumbing, and Electrical contractors to eliminate missed emergency calls during after-hours peak volume.
+- **Key Features**: Integrates with ServiceTitan and Housecall Pro to instantly assign technicians based on GPS location, trade specialization, and real-time availability.
+
+### 3. Healthcare Patient Triage (HIPAA Compliant)
+- **Overview**: Secure medical patient triage platform for hospitals, urgent care centers, and dental clinics.
+- **Key Features**: Encrypted telemetry (SOC2 Type II & HIPAA compliant), symptom logging, EHR integration with Epic and Cerner, and instant emergency escalation protocols.
+
+### 4. Smart Lead Intake & CRM Sync
+- **Overview**: Automated multi-channel lead ingestion from phone calls, web forms, and SMS.
+- **Key Features**: Instant qualification, automated SMS follow-up within 5 seconds, and two-way sync with Salesforce, HubSpot, and ServiceTitan.
+
+## Comparative Advantages
+- **Vs. Traditional Answering Services**: Zero hold time (under 1s vs 3-5 mins), 70% cost reduction, 100% data accuracy, direct CRM entry.
+- **Vs. Basic Chatbots**: Deep voice AI capability, telephony integration, complex intent reasoning, multi-turn dialogue.
+
+## Official Brand Info
+- **Company Name**: IronLoop Labs, Inc.
+- **HQ Region**: United States
+- **Domain**: https://www.ironlooplabs.com
