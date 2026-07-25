@@ -8,7 +8,7 @@ export async function POST(req: Request) {
 
     // We assume the user's email hosting uses standard ports (465 for SSL)
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'mail.ironlooplabs.com',
+      host: process.env.SMTP_HOST || 'smtp.hostinger.com',
       port: Number(process.env.SMTP_PORT) || 465,
       secure: true, // true for port 465, false for other ports
       auth: {
