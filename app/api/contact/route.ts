@@ -13,7 +13,7 @@ export async function POST(req: Request) {
       secure: true, // true for port 465, false for other ports
       auth: {
         user: process.env.SMTP_USER || 'hassan@ironlooplabs.com',
-        pass: process.env.SMTP_PASS,
+        pass: process.env.SMTP_PASS || 'macbookPro@2030',
       },
     });
 
