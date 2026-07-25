@@ -12,14 +12,16 @@ export async function POST(req: Request) {
       port: Number(process.env.SMTP_PORT) || 465,
       secure: true, // true for port 465, false for other ports
       auth: {
-        user: process.env.SMTP_USER,
+        user: process.env.SMTP_USER || 'hassan@ironlooplabs.com',
         pass: process.env.SMTP_PASS,
       },
     });
 
+    const recipientEmail = process.env.SMTP_USER || 'hassan@ironlooplabs.com';
+
     const mailOptions = {
-      from: process.env.SMTP_USER,
-      to: process.env.SMTP_USER, // The inbox where leads should arrive
+      from: recipientEmail,
+      to: recipientEmail, // The inbox where leads should arrive
       subject: `New Lead: ${firstName} ${lastName} - ${businessName}`,
       html: `
         <h2>New Inbound Lead / Request</h2>

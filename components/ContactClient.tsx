@@ -85,7 +85,7 @@ export default function ContactClient() {
                  </div>
                  <h4 className="font-display font-bold text-white mb-1">Email Us</h4>
                  <p className="text-sm text-white/60 mb-2">For general inquiries</p>
-                 <a href="mailto:info@ironlooplabs.com" className="text-sm font-mono text-[#a3e635] hover:underline">info@ironlooplabs.com</a>
+                 <a href="mailto:hassan@ironlooplabs.com" className="text-sm font-mono text-[#a3e635] hover:underline">hassan@ironlooplabs.com</a>
                </div>
                
                <div className="p-6 rounded-2xl bg-[#0b0d10] border border-white/[0.05] hover:border-[#38bdf8]/20 transition-all">
