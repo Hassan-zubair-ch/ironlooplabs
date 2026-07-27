@@ -6,7 +6,15 @@ import Reveal from "./Reveal";
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative overflow-hidden pt-20 pb-32 bg-background">
+    <section id="hero" className="relative overflow-hidden pt-20 pb-32 bg-[#050505]">
+      {/* Background Dot Texture */}
+      <div
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(#ffffff 1px, transparent 1px)`,
+          backgroundSize: `24px 24px`,
+        }}
+      />
       <motion.div
         className="absolute inset-0 pointer-events-none opacity-10"
         style={{

@@ -5,12 +5,21 @@ import Link from "next/link";
 import { productsData } from "@/lib/productsData";
 
 export default function ProductsPreview() {
-  const topProducts = productsData.slice(0, 3);
+  const topSolutions = productsData.slice(0, 3);
 
   return (
-    <section className="py-24 lg:py-32 bg-[#050608] relative">
+    <section className="py-24 lg:py-32 bg-[#050505] relative overflow-hidden">
+      {/* Background Dot Texture */}
+      <div
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(#ffffff 1px, transparent 1px)`,
+          backgroundSize: `24px 24px`,
+        }}
+      />
+
       <div className="max-w-container-max mx-auto px-6 lg:px-margin-desktop relative z-10">
-        
+        {/* Section Header */}
         <div className="mb-16 lg:mb-20 text-center max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -18,72 +27,90 @@ export default function ProductsPreview() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
-              Enterprise Automation <span className="text-[#a3e635]">Ecosystem</span>
+            <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#C5E033] inline-block mb-4">
+              READY-TO-DEPLOY AUTOMATION
+            </span>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-4 tracking-tight leading-tight">
+              Turn on what you need today. <br />
+              <span className="text-[#C5E033]">Add more as you grow.</span>
             </h2>
-            <p className="font-body text-lg text-white/60 leading-relaxed">
-              Modular AI capabilities designed to seamlessly integrate and scale your service operations.
+            <p className="font-body text-base sm:text-lg text-white/60 leading-relaxed max-w-xl mx-auto">
+              Explore our modular AI capabilities built specifically for trade, contractor, and home service operations.
             </p>
           </motion.div>
         </div>
 
+        {/* 3 Top Solution Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {topProducts.map((prod, i) => (
+          {topSolutions.map((prod, i) => (
             <motion.div
               key={prod.slug}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true, margin: "-50px" }}
-              className="group relative flex flex-col h-full"
+              className="group relative flex flex-col h-full bg-[#0f1016]/90 border border-white/[0.08] hover:border-[#C5E033]/40 rounded-3xl p-8 transition-all duration-300 shadow-2xl justify-between"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#111318] to-[#090a0f] rounded-3xl border border-white/[0.06] shadow-2xl transition-all duration-500 group-hover:border-[#a3e635]/30 group-hover:shadow-[0_0_40px_rgba(163,230,53,0.1)]" />
-              
-              <div className="relative p-8 lg:p-10 flex flex-col flex-grow">
-                <div className="w-14 h-14 rounded-2xl bg-[#a3e635]/10 border border-[#a3e635]/20 flex items-center justify-center text-[#a3e635] mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-3">
-                  <span className="material-symbols-outlined text-2xl">{prod.heroIcon}</span>
+              <div>
+                {/* Module Tag & Icon */}
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-white/40">
+                    {prod.moduleNumber || `Module 0${i + 1}`}
+                  </span>
+                  <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-[#C5E033] group-hover:scale-110 transition-transform">
+                    <span className="material-symbols-outlined text-xl">{prod.heroIcon}</span>
+                  </div>
                 </div>
-                
-                <h3 className="font-display text-2xl text-white font-bold mb-3">{prod.name}</h3>
-                <p className="font-body text-white/50 leading-relaxed mb-8 flex-grow">{prod.shortDesc}</p>
-                
+
+                {/* Name & Short Desc */}
+                <h3 className="font-display text-2xl text-white font-bold mb-3 group-hover:text-[#C5E033] transition-colors">
+                  {prod.name}
+                </h3>
+                <p className="font-body text-xs sm:text-sm text-white/60 leading-relaxed mb-8 flex-grow">
+                  {prod.shortDesc}
+                </p>
+
+                {/* Feature List */}
                 <div className="space-y-3 mb-10">
                   {prod.features.slice(0, 3).map((feat, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
-                      <span className="material-symbols-outlined text-[#a3e635] text-lg shrink-0 mt-0.5">check</span>
-                      <span className="font-body text-sm text-white/70">{feat.title}</span>
+                    <div key={idx} className="flex items-center gap-3">
+                      <span className="material-symbols-outlined text-[#C5E033] text-base shrink-0">
+                        check
+                      </span>
+                      <span className="font-body text-xs text-white/80">{feat.title}</span>
                     </div>
                   ))}
                 </div>
-
-                <Link 
-                  href={`/solutions/${prod.slug}`}
-                  className="inline-flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-white/[0.03] border border-white/[0.06] text-white font-display text-sm font-bold uppercase tracking-wide hover:bg-[#a3e635] hover:text-[#050608] hover:border-[#a3e635] transition-all duration-300"
-                >
-                  Explore Solution
-                  <span className="material-symbols-outlined text-lg">arrow_forward</span>
-                </Link>
               </div>
+
+              {/* Card Action Link */}
+              <Link
+                href={`/solutions/${prod.slug}`}
+                className="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-white/[0.04] border border-white/10 text-white font-display text-xs font-bold uppercase tracking-wider hover:bg-[#C5E033] hover:text-[#0b0d10] hover:border-[#C5E033] transition-all"
+              >
+                View Module Details
+                <span className="material-symbols-outlined text-base">arrow_forward</span>
+              </Link>
             </motion.div>
           ))}
         </div>
 
+        {/* Bottom Callout Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
           className="text-center"
         >
-          <Link 
+          <Link
             href="/solutions"
-            className="inline-flex items-center gap-2 text-white/70 hover:text-white font-mono text-sm tracking-widest uppercase font-bold transition-colors group"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-[#050608] font-display text-sm font-extrabold hover:bg-[#C5E033] hover:text-[#0b0d10] active:scale-95 transition-all shadow-xl"
           >
-            Explore All Solutions
-            <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            View All 13 Solutions
+            <span className="material-symbols-outlined text-lg">arrow_forward</span>
           </Link>
         </motion.div>
-
       </div>
     </section>
   );

@@ -7,8 +7,16 @@ import Link from "next/link";
 
 export default function Dashboard() {
   return (
-    <section className="py-24 bg-background">
-      <Reveal className="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-16 items-center bg-surface-container-low rounded-2xl p-12 border border-outline shadow-2xl">
+    <section className="py-24 bg-[#050505] relative overflow-hidden">
+      {/* Background Dot Texture */}
+      <div
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(#ffffff 1px, transparent 1px)`,
+          backgroundSize: `24px 24px`,
+        }}
+      />
+      <Reveal className="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-16 items-center bg-surface-container-low rounded-2xl p-12 border border-outline shadow-2xl relative z-10">
         <MCPServerDiagram />
         <div className="space-y-8">
           <h2 className="font-display text-headline-lg text-white">
@@ -34,10 +42,10 @@ export default function Dashboard() {
           </div>
           <div className="pt-4">
             <Link 
-              href="/success-stories"
+              href="/case-studies"
               className="inline-block bg-primary text-background px-8 py-3.5 rounded-lg font-display text-lg font-bold shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-transform text-center hover:shadow-[0_0_15px_rgba(180,244,44,0.5)]"
             >
-              View Success Stories
+              View Case Studies
             </Link>
           </div>
         </div>

@@ -12,7 +12,7 @@ const CASE_CARDS = [
     metricSub: "Real AI call recordings",
     desc: "Listen to actual AI conversations handling inbound leads, follow-ups, and appointment booking — from real customer interactions.",
     linkText: "Listen now →",
-    href: "/success-stories",
+    href: "/case-studies",
   },
   {
     floatingTag: "Screenshots & Results",
@@ -21,7 +21,7 @@ const CASE_CARDS = [
     metricSub: "Average pipeline growth",
     desc: "See actual dashboards, booking rates, revenue recovery numbers, and business outcomes — no hypotheticals.",
     linkText: "View results →",
-    href: "/success-stories",
+    href: "/case-studies",
   },
   {
     floatingTag: "Before & After Stories",
@@ -30,7 +30,7 @@ const CASE_CARDS = [
     metricSub: "Average time to first closed deal",
     desc: "Roofing, solar, HVAC, real estate — understand the challenges and see exactly how AI automation solved them.",
     linkText: "Read stories →",
-    href: "/success-stories",
+    href: "/case-studies",
   },
 ];
 
@@ -163,7 +163,7 @@ export default function CaseStudiesPreview() {
         {/* Bottom Callout Button */}
         <div className="text-center">
           <Link
-            href="/success-stories"
+            href="/case-studies"
             className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-[#050608] font-display text-sm font-extrabold hover:bg-[#C5E033] hover:text-[#0b0d10] active:scale-95 transition-all shadow-xl"
           >
             View All Case Studies

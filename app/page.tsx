@@ -2,7 +2,6 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Dashboard from "@/components/Dashboard";
 import WhatIronLoopDoes from "@/components/WhatIronLoopDoes";
-import Reliability from "@/components/Reliability";
 import ProductsPreview from "@/components/ProductsPreview";
 import ToolIntegrationsMarquee from "@/components/ToolIntegrationsMarquee";
 import Industries from "@/components/Industries";
@@ -19,7 +18,6 @@ export default function Home() {
         <Hero />
         <Dashboard />
         <WhatIronLoopDoes />
-        <Reliability />
         <ProductsPreview />
         <ToolIntegrationsMarquee />
         <Industries />

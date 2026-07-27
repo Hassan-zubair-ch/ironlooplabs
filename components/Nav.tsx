@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { href: "/industries", label: "Industries" },
   { href: "/pricing", label: "Pricing" },
   { href: "/compare", label: "Compare" },
-  { href: "/success-stories", label: "Case Studies" },
+  { href: "/case-studies", label: "Case Studies" },
 ];
 
 export default function Nav() {
