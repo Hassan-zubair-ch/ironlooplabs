@@ -16,16 +16,19 @@ export default function PlatformVideoSection() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const togglePlay = () => {
+  const handlePlay = () => {
     if (!videoRef.current) return;
     if (isPlaying) {
       videoRef.current.pause();
       setIsPlaying(false);
     } else {
-      videoRef.current.play().then(() => {
-        setIsPlaying(true);
-        setHasStarted(true);
-      }).catch(() => {});
+      videoRef.current
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+          setHasStarted(true);
+        })
+        .catch(() => {});
     }
   };
 
@@ -87,7 +90,7 @@ export default function PlatformVideoSection() {
         </p>
       </motion.div>
 
-      {/* Video Container (1080p High Quality + Custom Poster Thumbnail) */}
+      {/* Super Fast HTML5 Player with Exact Thumbnail Poster */}
       <motion.div
         ref={containerRef}
         initial={{ opacity: 0, y: 30, scale: 0.97 }}
@@ -100,9 +103,10 @@ export default function PlatformVideoSection() {
       >
         <video
           ref={videoRef}
-          src="https://embed-ssl.wistia.com/deliveries/bf914f7766cf61569471a1eba520cf32.bin"
+          src="/platform-demo-360p.mp4"
+          poster="/video-poster.jpg"
           playsInline
-          preload="metadata"
+          preload="auto"
           onTimeUpdate={() => {
             if (videoRef.current) setCurrentTime(videoRef.current.currentTime);
           }}
@@ -113,75 +117,25 @@ export default function PlatformVideoSection() {
             setIsPlaying(false);
             setHasStarted(false);
           }}
-          onClick={togglePlay}
+          onClick={handlePlay}
           className="w-full h-full object-cover cursor-pointer"
         />
 
-        {/* Custom Premium Thumbnail Poster (Shown before playback starts) */}
-        {!hasStarted && (
+        {/* Thumbnail Poster Play Button Overlay (First Click Plays Immediately) */}
+        {!isPlaying && (
           <div
-            onClick={togglePlay}
-            className="absolute inset-0 bg-[#090b10] flex flex-col items-center justify-center p-6 text-center cursor-pointer z-20 group/poster"
+            onClick={handlePlay}
+            className="absolute inset-0 bg-black/30 hover:bg-black/20 flex flex-col items-center justify-center cursor-pointer transition-all z-20 group/poster"
           >
-            {/* Background Texture & Glow */}
-            <div
-              className="absolute inset-0 opacity-25 pointer-events-none"
-              style={{
-                backgroundImage: `radial-gradient(#ffffff 1px, transparent 1px)`,
-                backgroundSize: `20px 20px`,
-              }}
-            />
-            <div className="absolute w-[350px] h-[350px] bg-[#C5E033]/15 rounded-full blur-[100px] pointer-events-none" />
-
-            <div className="relative z-10 max-w-xl space-y-4">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#C5E033]/30 bg-[#C5E033]/10 text-xs font-mono font-bold text-[#C5E033] uppercase tracking-widest">
-                <span className="w-2 h-2 rounded-full bg-[#C5E033] animate-pulse" />
-                PLATFORM DEMO • 1080P HD
-              </span>
-
-              <h3 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight font-display">
-                Here&apos;s Exactly What We Build.
-              </h3>
-
-              <p className="text-xs sm:text-sm text-white/70 max-w-md mx-auto">
-                Watch how IronLoop AI handles incoming calls, books appointments, and drives revenue 24/7.
-              </p>
-
-              {/* Big Pulsing Play Button */}
-              <div className="pt-2 flex justify-center">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#C5E033] text-[#050608] flex items-center justify-center shadow-[0_0_50px_rgba(197,224,51,0.6)] group-hover/poster:shadow-[0_0_70px_rgba(197,224,51,0.8)] transition-all"
-                >
-                  <span className="material-symbols-outlined text-4xl sm:text-5xl ml-1.5 font-black">
-                    play_arrow
-                  </span>
-                </motion.div>
-              </div>
-
-              <p className="text-[11px] font-mono text-white/40 pt-1">
-                Click anywhere to play video • HD 1080p
-              </p>
-            </div>
-          </div>
-        )}
-
-        {/* Center Pause/Play overlay when video is active but paused */}
-        {hasStarted && !isPlaying && (
-          <div
-            onClick={togglePlay}
-            className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-[2px] cursor-pointer z-20"
-          >
-            <motion.button
-              whileHover={{ scale: 1.1 }}
+            <motion.div
+              whileHover={{ scale: 1.12 }}
               whileTap={{ scale: 0.95 }}
-              className="w-20 h-20 rounded-full bg-[#C5E033] text-[#050608] flex items-center justify-center shadow-[0_0_40px_rgba(197,224,51,0.6)]"
+              className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#C5E033] text-[#050608] flex items-center justify-center shadow-[0_0_50px_rgba(197,224,51,0.7)] group-hover/poster:shadow-[0_0_80px_rgba(197,224,51,0.9)] transition-all"
             >
-              <span className="material-symbols-outlined text-4xl ml-1 font-bold">
+              <span className="material-symbols-outlined text-4xl sm:text-5xl ml-1.5 font-black">
                 play_arrow
               </span>
-            </motion.button>
+            </motion.div>
           </div>
         )}
 
@@ -208,7 +162,7 @@ export default function PlatformVideoSection() {
               {/* Play/Pause & Time */}
               <div className="flex items-center gap-4">
                 <button
-                  onClick={togglePlay}
+                  onClick={handlePlay}
                   className="text-white hover:text-[#C5E033] transition-colors"
                 >
                   <span className="material-symbols-outlined text-2xl">
@@ -249,7 +203,7 @@ export default function PlatformVideoSection() {
               {/* Title & Fullscreen */}
               <div className="flex items-center gap-3">
                 <span className="hidden md:block text-xs font-mono text-[#C5E033] uppercase tracking-wider">
-                  1080P HD QUALITY
+                  INSTANT PLAYBACK • NO ADS
                 </span>
 
                 <button
