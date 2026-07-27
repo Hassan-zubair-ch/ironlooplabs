@@ -14,15 +14,7 @@ const FOOTER_NAV_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#050505] text-white pt-16 pb-12 relative border-t border-white/[0.06] overflow-hidden">
-      {/* Background Dot Texture */}
-      <div
-        className="absolute inset-0 opacity-15 pointer-events-none"
-        style={{
-          backgroundImage: `radial-gradient(#ffffff 1px, transparent 1px)`,
-          backgroundSize: `24px 24px`,
-        }}
-      />
+    <footer className="bg-[#050505] text-white pt-16 pb-12 relative border-t border-white/[0.06]">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* TOP ROW: LOGO, NAV LINKS, SOCIALS */}

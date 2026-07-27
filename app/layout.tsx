@@ -206,10 +206,18 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-background text-on-background font-body overflow-x-hidden">
+      <body className="bg-[#050505] text-on-background font-body overflow-x-hidden relative">
+        {/* Global Dotted Background Texture */}
+        <div
+          className="fixed inset-0 opacity-20 pointer-events-none z-0"
+          style={{
+            backgroundImage: `radial-gradient(#ffffff 1px, transparent 1px)`,
+            backgroundSize: `24px 24px`,
+          }}
+        />
         <GoogleAnalytics gaId="G-VP9HC133R6" />
         <MaterialSymbolsLoader />
-        {children}
+        <div className="relative z-10">{children}</div>
         <CalendlyWidget />
       </body>
     </html>
