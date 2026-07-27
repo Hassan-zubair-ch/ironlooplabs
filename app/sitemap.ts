@@ -13,13 +13,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${BASE_URL}/products`,
+      url: `${BASE_URL}/solutions`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/industries`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/pricing`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/compare`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
@@ -50,8 +62,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  const productRoutes: MetadataRoute.Sitemap = productsData.map((prod) => ({
-    url: `${BASE_URL}/products/${prod.slug}`,
+  const solutionRoutes: MetadataRoute.Sitemap = productsData.map((prod) => ({
+    url: `${BASE_URL}/solutions/${prod.slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.9,
@@ -64,5 +76,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }))
 
-  return [...staticRoutes, ...productRoutes, ...industryRoutes]
+  return [...staticRoutes, ...solutionRoutes, ...industryRoutes]
 }

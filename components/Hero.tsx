@@ -42,10 +42,10 @@ export default function Hero() {
               Deploy AI Agents
             </Link>
             <Link
-              href="/products"
+              href="/solutions"
               className="border-2 border-surface-container-highest text-white px-8 py-4 rounded-xl font-display text-lg font-bold hover:bg-white/5 active:scale-95 transition-all text-center"
             >
-              Explore Ecosystem
+              Explore Solutions
             </Link>
           </div>
 

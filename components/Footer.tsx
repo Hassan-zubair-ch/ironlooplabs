@@ -64,11 +64,11 @@ export default function Footer() {
           {/* Links Columns */}
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 pt-2">
             <div>
-              <h3 className="font-display text-[15px] text-white font-semibold mb-6">Product</h3>
+              <h3 className="font-display text-[15px] text-white font-semibold mb-6">Solutions</h3>
               <ul className="space-y-4">
                 {productsData.map((prod) => (
                   <li key={prod.slug}>
-                    <Link href={`/products/${prod.slug}`} className="font-body text-[14px] text-white/70 hover:text-[#a3e635] transition-colors duration-200">
+                    <Link href={`/solutions/${prod.slug}`} className="font-body text-[14px] text-white/70 hover:text-[#a3e635] transition-colors duration-200">
                       {prod.name}
                     </Link>
                   </li>

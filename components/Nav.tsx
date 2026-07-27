@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const LINKS = [
   { href: "/", label: "Home" },
-  { href: "/products", label: "Products" },
+  { href: "/solutions", label: "Solutions" },
   { href: "/industries", label: "Industries" },
   { href: "/pricing", label: "Pricing" },
   { href: "/compare", label: "Compare" },
