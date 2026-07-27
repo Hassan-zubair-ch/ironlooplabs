@@ -15,7 +15,9 @@ interface CaseStudy {
   audioTitle?: string;
   audioUrl?: string;
   transcriptSnippet?: string;
-  imageCount: number;
+  scenarioText?: string;
+  resultText?: string;
+  images: { url: string; caption: string }[];
   challenge: string;
   solution: string;
   impact: string[];
@@ -34,11 +36,20 @@ const CASE_STUDIES: CaseStudy[] = [
       "A healthcare insurance company reactivated a long-unused lead database using IronLoop AI's outbound system, generating 20+ qualified appointments in just 9 days.",
     mainResult: "20+ Reactivated Appointments in 9 Days",
     hasAudio: true,
-    audioTitle: "Sample AI Patient Outreach & Intake Call",
+    audioTitle: "New Recording (Healthcare Lead Reactivation)",
     audioUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3",
+    scenarioText:
+      "Scenario: The AI reached out to a prospect who had previously inquired about family health coverage but never completed enrollment. The AI referenced their previous interest, confirmed if they were still exploring coverage options, identified plan cost changes, positioned a quick consultation with a licensed rep, and booked directly into the calendar.",
+    resultText:
+      "Result: The first structured call batch ran for approximately 9 days. Average pickup rate: ~20%. 20+ qualified appointments generated. All bookings sourced from previously untouched leads that had been labeled as 'dead leads'.",
     transcriptSnippet:
       "AI Rep: 'Hi Sarah, calling from Healthcare Direct regarding your coverage inquiry from last quarter. We have a new preventative care option available. Would Tuesday at 2 PM work for a quick specialist consult?'\nCustomer: 'Oh, yes actually! Tuesday at 2 PM works great.'\nAI Rep: 'Perfect, I have booked you for Tuesday at 2:00 PM EST with Dr. Miller. Confirmation sent to your SMS.'",
-    imageCount: 1,
+    images: [
+      {
+        url: "/video-poster.jpg",
+        caption: "CRM Lead Pipeline & Appointment Dispatch Audit Matrix",
+      },
+    ],
     challenge:
       "Over 5,000 dormant leads were sitting uncontacted in their CRM due to limited human phone rep availability. Previous email-only campaigns resulted in under 0.5% conversion rates.",
     solution:
@@ -67,11 +78,20 @@ const CASE_STUDIES: CaseStudy[] = [
       "A roofing company had hundreds of old leads sitting untouched in their CRM. Instead of hiring an expensive call center, IronLoop AI reactivated every single lead, generating 50+ booked appointments in weeks.",
     mainResult: "+50 Appointments Booked in 3 Weeks",
     hasAudio: true,
-    audioTitle: "Sample AI Outbound Roofing Inspection Booking Call",
+    audioTitle: "New Recording (Roofing Storm Inspection Dispatch)",
     audioUrl: "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a7e028.mp3",
+    scenarioText:
+      "Scenario: The AI followed up on storm damage inspection requests submitted over 6 months ago. Verified roof age, storm severity, insurance claim status, and assigned certified estimators directly into ServiceTitan.",
+    resultText:
+      "Result: 50+ inspection appointments booked in 3 weeks, converting over $140,000 in newly opened commercial roof replacement pipeline.",
     transcriptSnippet:
       "AI Rep: 'Hello Mark! This is Alex with Roofing Solutions following up on your storm inspection estimate request. Are you still experiencing any roof leaks or shingle damage?'\nCustomer: 'Yeah, we had some hail damage last week on the east side.'\nAI Rep: 'Got it. I can dispatch a certified technician for a free inspection this Thursday morning. Does 10 AM suit your schedule?'",
-    imageCount: 2,
+    images: [
+      {
+        url: "/video-poster.jpg",
+        caption: "ServiceTitan Real-Time Dispatch & Lead Reactivation Log",
+      },
+    ],
     challenge:
       "Over 800 storm damage inspection leads accumulated over 12 months were left unworked due to peak season operational overload.",
     solution:
@@ -100,11 +120,20 @@ const CASE_STUDIES: CaseStudy[] = [
       "A solar company was drowning in missed calls and unqualified ad leads. Deploying IronLoop AI across receptionist, lead qualifier, and reactivation engines yielded multiple streams of booked appointments without adding headcount.",
     mainResult: "Full Autonomous AI Sales Operation",
     hasAudio: true,
-    audioTitle: "Sample AI Solar Qualification & Audit Booking Call",
+    audioTitle: "New Recording (Solar Utility Audit Qualification)",
     audioUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3",
+    scenarioText:
+      "Scenario: AI answered incoming solar ad inquiries within 3 seconds, audited average monthly electric utility bills, verified homeownership, and scheduled engineering site audits.",
+    resultText:
+      "Result: 3.2x increase in consultation booking rate and 0 missed calls during 24/7 operation.",
     transcriptSnippet:
       "AI Rep: 'Thank you for calling SunPower Solutions. I can check your home's solar savings eligibility in about 60 seconds. May I ask your monthly electric bill average?'\nCustomer: 'It's around $280 a month.'\nAI Rep: 'Great news! That bill range qualifies for zero-down solar installation. Let's schedule a 15-minute engineering site audit for tomorrow at 3 PM.'",
-    imageCount: 1,
+    images: [
+      {
+        url: "/video-poster.jpg",
+        caption: "Solar Consultation Calendar & Instant Lead Capture Audit",
+      },
+    ],
     challenge:
       "Ad leads from Meta & Google Ads suffered 40% dropoff due to 30-minute manual callback delays. Inbound callers frequently landed on voicemail during peak hours.",
     solution:
@@ -133,11 +162,20 @@ const CASE_STUDIES: CaseStudy[] = [
       "A women-owned roofing company had ad leads slipping through the cracks without a structured CRM. IronLoop AI built their CRM pipeline from scratch, qualified incoming leads instantly, and recovered 25+ contracts in the first month.",
     mainResult: "25+ Recovered Contracts in 30 Days",
     hasAudio: true,
-    audioTitle: "Sample AI Lead Qualification & CRM Sync Call",
+    audioTitle: "New Recording (Lead Ad Immediate Outreach)",
     audioUrl: "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a7e028.mp3",
+    scenarioText:
+      "Scenario: Instant 5-second outbound call triggered upon Facebook Lead Ad form submission. Qualified roof replacement budget and scheduled estimator visits.",
+    resultText:
+      "Result: 25+ signed contracts in 30 days and 100% lead capture rate across all paid ad channels.",
     transcriptSnippet:
       "AI Rep: 'Hello! I noticed you submitted an inquiry for a roof replacement quote on Facebook. I can book an estimator to inspect your property today or tomorrow. Which works better?'\nCustomer: 'Tomorrow afternoon would be great.'\nAI Rep: 'All set for 2:30 PM tomorrow. Estimator Dave will bring material samples and a instant quote sheet.'",
-    imageCount: 1,
+    images: [
+      {
+        url: "/video-poster.jpg",
+        caption: "Automated Facebook Lead Ad to Estimator Dispatch Telemetry",
+      },
+    ],
     challenge:
       "Managing leads through scattered spreadsheets caused frequent missed opportunities and slow estimate delivery times.",
     solution:
@@ -165,6 +203,7 @@ export default function SuccessStoriesClient() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [activeModal, setActiveModal] = useState<CaseStudy | null>(null);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [isPlayingAudio, setIsPlayingAudio] = useState<boolean>(false);
   const [audioCurrentTime, setAudioCurrentTime] = useState<number>(0);
   const [audioDuration, setAudioDuration] = useState<number>(0);
@@ -175,13 +214,17 @@ export default function SuccessStoriesClient() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setActiveModal(null);
-        setIsPlayingAudio(false);
+        if (lightboxImage) {
+          setLightboxImage(null);
+        } else {
+          setActiveModal(null);
+          setIsPlayingAudio(false);
+        }
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [lightboxImage]);
 
   // Handle Play/Pause toggle
   const toggleAudioPlay = () => {
@@ -338,7 +381,7 @@ export default function SuccessStoriesClient() {
                     )}
                     <span className="flex items-center gap-1 text-[11px] font-mono text-white/40 bg-white/[0.02] px-2 py-0.5 rounded-md border border-white/5">
                       <span className="material-symbols-outlined text-[12px]">image</span>
-                      {cs.imageCount} Proof Img
+                      {cs.images.length} Img Proof
                     </span>
                   </div>
 
@@ -366,7 +409,7 @@ export default function SuccessStoriesClient() {
                   </div>
 
                   <div className="flex items-center gap-1 text-xs font-mono font-bold text-[#C5E033] group-hover:translate-x-1 transition-transform">
-                    Read Full Case Study & Listen →
+                    Read Case Study & Listen →
                   </div>
                 </div>
               </button>
@@ -374,7 +417,7 @@ export default function SuccessStoriesClient() {
           ))}
         </div>
 
-        {/* Modal Popup Overlay */}
+        {/* Modal Popup Overlay (Matching nouxelai.com case-studies) */}
         <AnimatePresence>
           {activeModal && (
             <div
@@ -425,9 +468,26 @@ export default function SuccessStoriesClient() {
                   </h2>
                 </div>
 
-                {/* Real HTML5 Audio Player */}
+                {/* Scenario & Result Description Box */}
+                {activeModal.scenarioText && (
+                  <div className="mb-8 p-5 rounded-2xl bg-white/[0.03] border border-white/10 space-y-3 text-xs sm:text-sm text-white/80 leading-relaxed font-body">
+                    <p className="font-semibold text-white/90">{activeModal.scenarioText}</p>
+                    {activeModal.resultText && (
+                      <p className="text-white/70 border-t border-white/10 pt-3">
+                        {activeModal.resultText}
+                      </p>
+                    )}
+                  </div>
+                )}
+
+                {/* REAL CALL EXAMPLE Audio Player */}
                 {activeModal.hasAudio && (
                   <div className="mb-8 p-5 rounded-2xl bg-white/[0.04] border border-white/10 space-y-4">
+                    <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#C5E033] uppercase tracking-wider">
+                      <span className="material-symbols-outlined text-base">volume_up</span>
+                      REAL CALL EXAMPLE
+                    </div>
+
                     <audio
                       ref={audioRef}
                       src={activeModal.audioUrl}
@@ -446,12 +506,11 @@ export default function SuccessStoriesClient() {
                     />
 
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono font-bold text-[#C5E033] flex items-center gap-2">
-                        <span className="material-symbols-outlined text-base">graphic_eq</span>
+                      <span className="text-xs font-mono font-bold text-white flex items-center gap-2">
                         {activeModal.audioTitle}
                       </span>
                       <span className="text-[11px] font-mono text-white/50">
-                        {formatTime(audioCurrentTime)} / {formatTime(audioDuration || 68)}
+                        {formatTime(audioCurrentTime)} / {formatTime(audioDuration || 271)}
                       </span>
                     </div>
 
@@ -500,6 +559,42 @@ export default function SuccessStoriesClient() {
                   </div>
                 )}
 
+                {/* SCREENSHOTS — Click to Expand Gallery */}
+                {activeModal.images.length > 0 && (
+                  <div className="mb-8 space-y-3">
+                    <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-white/50 flex items-center gap-2">
+                      <span className="material-symbols-outlined text-sm text-[#C5E033]">
+                        collections
+                      </span>
+                      SCREENSHOTS — click to expand
+                    </h4>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {activeModal.images.map((img, idx) => (
+                        <div
+                          key={idx}
+                          onClick={() => setLightboxImage(img.url)}
+                          className="group relative rounded-2xl overflow-hidden border border-white/15 bg-black cursor-pointer aspect-[16/9]"
+                        >
+                          <img
+                            src={img.url}
+                            alt={img.caption}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                          />
+                          <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                            <div className="w-12 h-12 rounded-full bg-black/70 border border-white/20 flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-lg">
+                              <span className="material-symbols-outlined text-xl">zoom_in</span>
+                            </div>
+                          </div>
+                          <div className="absolute bottom-0 inset-x-0 p-2.5 bg-black/80 backdrop-blur-sm text-[11px] font-mono text-white/80 border-t border-white/10 truncate">
+                            📷 {img.caption}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* Key Metrics Grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
                   {activeModal.metrics.map((m, idx) => (
@@ -518,45 +613,6 @@ export default function SuccessStoriesClient() {
                       </div>
                     </div>
                   ))}
-                </div>
-
-                {/* Interactive Proof Screenshot Image Card */}
-                <div className="mb-8 p-5 rounded-2xl bg-gradient-to-b from-white/[0.04] to-white/[0.02] border border-white/10 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold text-white/80 flex items-center gap-2">
-                      <span className="material-symbols-outlined text-base text-[#C5E033]">
-                        analytics
-                      </span>
-                      Verified CRM Pipeline & Dispatch Audit Proof
-                    </span>
-                    <span className="text-[10px] font-mono text-white/40">100% Live Telemetry</span>
-                  </div>
-
-                  {/* Visual Dashboard Card Mockup */}
-                  <div className="bg-[#050608] rounded-xl p-4 border border-white/10 space-y-3 font-mono text-xs">
-                    <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
-                      <span className="text-white/60">Campaign Status:</span>
-                      <span className="text-[#C5E033] font-bold flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-[#C5E033] animate-pulse" />
-                        ACTIVE DISPATCH
-                      </span>
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-2 text-center pt-1">
-                      <div className="bg-white/5 p-2 rounded-lg border border-white/5">
-                        <div className="text-white/40 text-[10px]">CRM LEADS PROCESSED</div>
-                        <div className="text-white font-bold text-sm mt-0.5">100%</div>
-                      </div>
-                      <div className="bg-white/5 p-2 rounded-lg border border-white/5">
-                        <div className="text-white/40 text-[10px]">AVG RESPONSE TIME</div>
-                        <div className="text-[#C5E033] font-bold text-sm mt-0.5">2.4 SEC</div>
-                      </div>
-                      <div className="bg-white/5 p-2 rounded-lg border border-white/5">
-                        <div className="text-white/40 text-[10px]">DIRECT CALENDAR SYNC</div>
-                        <div className="text-white font-bold text-sm mt-0.5">ServiceTitan / EHR</div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
                 {/* Challenge & Solution Content */}
@@ -621,6 +677,35 @@ export default function SuccessStoriesClient() {
                     Schedule a Demo to Get Similar Results →
                   </a>
                 </div>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
+
+        {/* Full-Screen Image Lightbox */}
+        <AnimatePresence>
+          {lightboxImage && (
+            <div
+              onClick={() => setLightboxImage(null)}
+              className="fixed inset-0 z-[120] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-8 cursor-zoom-out"
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                className="relative max-w-5xl max-h-[90vh] rounded-2xl overflow-hidden border border-white/20 shadow-2xl"
+              >
+                <button
+                  onClick={() => setLightboxImage(null)}
+                  className="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/80 text-white flex items-center justify-center hover:bg-[#C5E033] hover:text-black transition-colors"
+                >
+                  <span className="material-symbols-outlined text-xl">close</span>
+                </button>
+                <img
+                  src={lightboxImage}
+                  alt="Expanded Proof Screenshot"
+                  className="w-full h-full object-contain max-h-[85vh]"
+                />
               </motion.div>
             </div>
           )}
