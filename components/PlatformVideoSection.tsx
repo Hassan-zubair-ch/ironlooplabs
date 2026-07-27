@@ -125,12 +125,14 @@ export default function PlatformVideoSection() {
         {!isPlaying && (
           <div
             onClick={handlePlay}
-            className="absolute inset-0 bg-black/30 hover:bg-black/20 flex flex-col items-center justify-center cursor-pointer transition-all z-20 group/poster"
+            className="absolute inset-0 bg-cover bg-center flex flex-col items-center justify-center cursor-pointer transition-all z-20 group/poster"
+            style={{ backgroundImage: `url('/video-poster.jpg')` }}
           >
+            <div className="absolute inset-0 bg-black/40 hover:bg-black/30 transition-colors" />
             <motion.div
               whileHover={{ scale: 1.12 }}
               whileTap={{ scale: 0.95 }}
-              className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#C5E033] text-[#050608] flex items-center justify-center shadow-[0_0_50px_rgba(197,224,51,0.7)] group-hover/poster:shadow-[0_0_80px_rgba(197,224,51,0.9)] transition-all"
+              className="relative z-10 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#C5E033] text-[#050608] flex items-center justify-center shadow-[0_0_50px_rgba(197,224,51,0.7)] group-hover/poster:shadow-[0_0_80px_rgba(197,224,51,0.9)] transition-all"
             >
               <span className="material-symbols-outlined text-4xl sm:text-5xl ml-1.5 font-black">
                 play_arrow
