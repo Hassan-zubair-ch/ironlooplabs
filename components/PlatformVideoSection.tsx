@@ -12,6 +12,7 @@ export default function PlatformVideoSection() {
   const [isMuted, setIsMuted] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showControls, setShowControls] = useState(true);
+  const [showSubtitles, setShowSubtitles] = useState(false);
 
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -70,6 +71,9 @@ export default function PlatformVideoSection() {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
+  // Chapter markers for progress bar (like the screenshot dots)
+  const chapterDots = [0.1, 0.25, 0.4, 0.55, 0.7, 0.85];
+
   return (
     <section className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
       <motion.div
@@ -90,7 +94,7 @@ export default function PlatformVideoSection() {
         </p>
       </motion.div>
 
-      {/* Super Fast HTML5 Player with Exact Thumbnail Poster */}
+      {/* Video Container */}
       <motion.div
         ref={containerRef}
         initial={{ opacity: 0, y: 30, scale: 0.97 }}
@@ -121,6 +125,15 @@ export default function PlatformVideoSection() {
           className="w-full h-full object-cover cursor-pointer"
         />
 
+        {/* Subtitles Overlay Simulation */}
+        {showSubtitles && isPlaying && (
+          <div className="absolute bottom-20 left-0 right-0 text-center pointer-events-none z-20">
+            <span className="inline-block px-4 py-1.5 rounded-lg bg-black/80 text-white font-medium text-sm sm:text-base backdrop-blur-sm border border-white/10 shadow-lg">
+              IronLoop AI handles 100% of inbound calls and dispatches appointments in under 3 seconds.
+            </span>
+          </div>
+        )}
+
         {/* Thumbnail Poster Play Button Overlay (First Click Plays Immediately) */}
         {!isPlaying && (
           <div
@@ -141,85 +154,109 @@ export default function PlatformVideoSection() {
           </div>
         )}
 
-        {/* Custom Video Controls Bar */}
-        {hasStarted && (
-          <div
-            className={`absolute bottom-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-t from-black/90 via-black/60 to-transparent transition-opacity duration-300 z-30 ${
-              showControls || !isPlaying ? "opacity-100" : "opacity-0 pointer-events-none"
-            }`}
-          >
-            {/* Seek Bar */}
-            <div className="relative w-full mb-3 flex items-center">
+        {/* EXACT STYLED CONTROL BAR (Matching User Screenshot) */}
+        <div
+          className={`absolute bottom-3 left-3 right-3 sm:left-4 sm:right-4 z-30 transition-opacity duration-300 ${
+            showControls || !isPlaying ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+        >
+          <div className="flex items-center gap-3 px-3 py-2 sm:px-4 sm:py-2.5 rounded-2xl bg-[#8E36D1]/90 backdrop-blur-md border border-white/20 text-white shadow-[0_8px_32px_rgba(0,0,0,0.6)]">
+            {/* 1. Play/Pause Button */}
+            <button
+              onClick={handlePlay}
+              className="hover:scale-110 active:scale-95 transition-transform flex items-center justify-center text-white shrink-0"
+              aria-label="Play/Pause"
+            >
+              <span className="material-symbols-outlined text-2xl font-bold">
+                {isPlaying ? "pause" : "play_arrow"}
+              </span>
+            </button>
+
+            {/* 2. Timestamp */}
+            <span className="text-xs font-mono font-bold text-white shrink-0">
+              {formatTime(currentTime)}
+            </span>
+
+            {/* 3. Progress Seek Line with Dot Chapter Markers */}
+            <div className="relative flex-1 flex items-center group/range h-4">
               <input
                 type="range"
                 min={0}
                 max={duration || 100}
                 value={currentTime}
                 onChange={handleSeek}
-                className="w-full h-1.5 bg-white/20 rounded-lg appearance-none cursor-pointer accent-[#C5E033]"
+                className="w-full h-1.5 bg-white/30 rounded-full appearance-none cursor-pointer accent-white relative z-10"
               />
-            </div>
 
-            <div className="flex items-center justify-between">
-              {/* Play/Pause & Time */}
-              <div className="flex items-center gap-4">
-                <button
-                  onClick={handlePlay}
-                  className="text-white hover:text-[#C5E033] transition-colors"
-                >
-                  <span className="material-symbols-outlined text-2xl">
-                    {isPlaying ? "pause" : "play_arrow"}
-                  </span>
-                </button>
-
-                {/* Volume Slider */}
-                <div className="hidden sm:flex items-center gap-2">
-                  <button
-                    onClick={toggleMute}
-                    className="text-white/70 hover:text-white transition-colors"
-                  >
-                    <span className="material-symbols-outlined text-xl">
-                      {isMuted || volume === 0
-                        ? "volume_off"
-                        : volume < 0.5
-                        ? "volume_down"
-                        : "volume_up"}
-                    </span>
-                  </button>
-                  <input
-                    type="range"
-                    min={0}
-                    max={1}
-                    step={0.05}
-                    value={isMuted ? 0 : volume}
-                    onChange={handleVolumeChange}
-                    className="w-16 h-1 bg-white/20 rounded-lg appearance-none cursor-pointer accent-[#C5E033]"
+              {/* Chapter Dot Markers (Matching Screenshot •—o——o——o—•) */}
+              <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none px-1">
+                {chapterDots.map((ratio, idx) => (
+                  <span
+                    key={idx}
+                    className="w-2 h-2 rounded-full bg-white/70 border border-black/40 shadow-sm"
                   />
-                </div>
-
-                <span className="text-xs font-mono text-white/70">
-                  {formatTime(currentTime)} / {formatTime(duration)}
-                </span>
-              </div>
-
-              {/* Title & Fullscreen */}
-              <div className="flex items-center gap-3">
-                <span className="hidden md:block text-xs font-mono text-[#C5E033] uppercase tracking-wider">
-                  INSTANT PLAYBACK • NO ADS
-                </span>
-
-                <button
-                  onClick={toggleFullscreen}
-                  className="text-white/70 hover:text-white transition-colors"
-                >
-                  <span className="material-symbols-outlined text-xl">
-                    {isFullscreen ? "fullscreen_exit" : "fullscreen"}
-                  </span>
-                </button>
+                ))}
               </div>
             </div>
+
+            {/* 4. CC Subtitles Toggle Button */}
+            <button
+              onClick={() => setShowSubtitles(!showSubtitles)}
+              className={`px-1.5 py-0.5 rounded text-[10px] font-extrabold uppercase border transition-all ${
+                showSubtitles
+                  ? "bg-white text-[#8E36D1] border-white font-bold"
+                  : "bg-transparent text-white border-white/60 hover:border-white"
+              }`}
+              title="Toggle Subtitles (CC)"
+            >
+              CC
+            </button>
+
+            {/* 5. Volume Button */}
+            <div className="relative group/vol flex items-center">
+              <button
+                onClick={toggleMute}
+                className="hover:scale-110 transition-transform text-white"
+                title="Volume"
+              >
+                <span className="material-symbols-outlined text-xl">
+                  {isMuted || volume === 0
+                    ? "volume_off"
+                    : volume < 0.5
+                    ? "volume_down"
+                    : "volume_up"}
+                </span>
+              </button>
+            </div>
+
+            {/* 6. Settings Gear Icon Button */}
+            <button
+              className="hover:rotate-45 transition-transform text-white/80 hover:text-white"
+              title="Settings (1080p HD)"
+            >
+              <span className="material-symbols-outlined text-xl">settings</span>
+            </button>
+
+            {/* 7. Chapters List Icon Button */}
+            <button
+              className="hover:scale-110 transition-transform text-white/80 hover:text-white hidden sm:block"
+              title="Chapters"
+            >
+              <span className="material-symbols-outlined text-xl">format_list_bulleted</span>
+            </button>
+
+            {/* 8. Fullscreen Button */}
+            <button
+              onClick={toggleFullscreen}
+              className="hover:scale-110 transition-transform text-white shrink-0"
+              title="Fullscreen"
+            >
+              <span className="material-symbols-outlined text-xl">
+                {isFullscreen ? "fullscreen_exit" : "crop_free"}
+              </span>
+            </button>
           </div>
-        )}
+        </div>
       </motion.div>
 
       <p className="text-center font-mono text-xs text-white/40 mt-4">
