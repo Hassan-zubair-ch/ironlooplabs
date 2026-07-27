@@ -1,220 +1,493 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import HighEndCTA from "./HighEndCTA";
 
-const CASE_STUDIES = [
+interface CaseStudy {
+  id: string;
+  company: string;
+  industry: "Roofing" | "Solar" | "Healthcare & Insurance" | "Home Services";
+  badgeColor: string;
+  shortDesc: string;
+  mainResult: string;
+  hasAudio: boolean;
+  audioTitle?: string;
+  audioUrl?: string;
+  imageCount: number;
+  challenge: string;
+  solution: string;
+  impact: string[];
+  metrics: { value: string; label: string }[];
+  quote: string;
+  author: string;
+}
+
+const CASE_STUDIES: CaseStudy[] = [
   {
-    company: "Apex Air Solutions",
-    industry: "HVAC",
-    location: "Phoenix, AZ",
-    challenge: "Missing 40% of after-hours emergency calls during peak summer season, losing an estimated $18,000/month in potential revenue.",
-    solution: "Deployed IronLoop AI Receptionist with ServiceTitan integration for instant emergency dispatch and automated booking.",
-    results: [
-      { value: "450%", label: "ROI Increase" },
-      { value: "$12k", label: "Admin Savings" },
-      { value: "0%", label: "Missed Calls" },
-      { value: "12→24", label: "Fleet Growth" },
+    id: "healthcare-insurance",
+    company: "Confidential Healthcare & Insurance Provider",
+    industry: "Healthcare & Insurance",
+    badgeColor: "#5998E5",
+    shortDesc:
+      "A healthcare insurance company reactivated a long-unused lead database using IronLoop AI's outbound system, generating 20+ qualified appointments in just 9 days.",
+    mainResult: "20+ Reactivated Appointments in 9 Days",
+    hasAudio: true,
+    audioTitle: "Sample AI Outbound Patient Intake Call",
+    audioUrl: "https://fast.wistia.net/embed/iframe/lwmpa5uf3s",
+    imageCount: 1,
+    challenge:
+      "Over 5,000 dormant leads were sitting uncontacted in their CRM due to limited human phone rep availability. Previous email-only campaigns resulted in under 0.5% conversion rates.",
+    solution:
+      "IronLoop AI deployed a 10x concurrent outbound calling agent equipped with custom patient qualification scripts and direct EHR calendar booking.",
+    impact: [
+      "20+ high-intent appointments booked in the first 9 days.",
+      "Zero human staff time required for initial qualification calls.",
+      "100% compliant data collection with encrypted call audit logs.",
     ],
-    quote: "IronLoop didn't just save us money on an answering service; it changed how we do business. Every call is answered, every job is booked, and our staff is never overwhelmed.",
-    author: "Mark T., Owner & CEO",
+    metrics: [
+      { value: "20+", label: "Appointments in 9 Days" },
+      { value: "5,000", label: "Dormant Leads Worked" },
+      { value: "<3s", label: "Agent Speed to Connect" },
+      { value: "100%", label: "HIPAA Compliant" },
+    ],
+    quote:
+      "We turned 5,000 forgotten leads into 20+ booked appointments in less than two weeks without hiring a single rep.",
+    author: "VP of Business Development",
   },
   {
-    company: "Metro Health Partners",
-    industry: "Healthcare",
-    location: "Chicago, IL",
-    challenge: "Front desk overwhelmed with 200+ daily calls. Patient wait times averaging 8 minutes. 15% appointment no-show rate.",
-    solution: "Implemented IronLoop HIPAA-compliant AI intake with Epic EHR integration and 2-way SMS appointment confirmations.",
-    results: [
-      { value: "99.8%", label: "Intake Accuracy" },
-      { value: "18hrs", label: "Time Saved/Wk" },
-      { value: "-42%", label: "No-Shows" },
-      { value: "<3s", label: "Call Response" },
+    id: "roofing-reactivation",
+    company: "Confidential Commercial Roofing Enterprise",
+    industry: "Roofing",
+    badgeColor: "#C5E033",
+    shortDesc:
+      "A roofing company had hundreds of old leads sitting untouched in their CRM. Instead of hiring an expensive call center, IronLoop AI reactivated every single lead, generating 50+ booked appointments in weeks.",
+    mainResult: "+50 Appointments Booked in 3 Weeks",
+    hasAudio: true,
+    audioTitle: "Sample AI Outbound Roofing Inspection Booking Call",
+    imageCount: 2,
+    challenge:
+      "Over 800 storm damage inspection leads accumulated over 12 months were left unworked due to peak season operational overload.",
+    solution:
+      "IronLoop AI outbound reactivation engine systematically dialed through the database, verified roof age & storm damage needs, and scheduled inspection slots directly into ServiceTitan.",
+    impact: [
+      "50+ free roof inspection appointments booked within 21 days.",
+      "Over $140,000 in newly opened commercial pipeline revenue.",
+      "Saved an estimated $8,500/mo compared to hiring offshore BDRs.",
     ],
-    quote: "Patient intake that used to take 15 minutes per call now happens automatically. Our front desk staff finally has time to focus on in-office patients.",
-    author: "Dr. James K., Medical Director",
+    metrics: [
+      { value: "50+", label: "Appointments Booked" },
+      { value: "$140k+", label: "Pipeline Revenue" },
+      { value: "800+", label: "Old CRM Leads Reactivated" },
+      { value: "0", label: "Human Calls Needed" },
+    ],
+    quote:
+      "The AI reactivated leads we thought were dead forever. Booking 50+ inspections in 3 weeks completely transformed our quarter.",
+    author: "Managing Director of Operations",
   },
   {
-    company: "Summit Comfort Systems",
-    industry: "HVAC & Plumbing",
-    location: "Denver, CO",
-    challenge: "Traditional answering service was losing leads with slow callback times. Competitors were booking jobs before Summit could return calls.",
-    solution: "Replaced legacy answering service with IronLoop AI for instant call answering, diagnostic pre-screening, and Housecall Pro job creation.",
-    results: [
-      { value: "94%", label: "Job Conversion" },
-      { value: "48hrs", label: "Time to Go Live" },
-      { value: "$14k+", label: "Revenue Lift/mo" },
-      { value: "5.2x", label: "After-Hours ROI" },
+    id: "solar-omnichannel",
+    company: "Confidential Solar Installation Specialist",
+    industry: "Solar",
+    badgeColor: "#7A7EDC",
+    shortDesc:
+      "A solar company was drowning in missed calls and unqualified ad leads. Deploying IronLoop AI across receptionist, lead qualifier, and reactivation engines yielded multiple streams of booked appointments without adding headcount.",
+    mainResult: "Full Autonomous AI Sales Operation",
+    hasAudio: true,
+    audioTitle: "Sample AI Solar Qualification & Site Audit Booking",
+    imageCount: 1,
+    challenge:
+      "Ad leads from Meta & Google Ads suffered 40% dropoff due to 30-minute manual callback delays. Inbound callers frequently landed on voicemail during peak hours.",
+    solution:
+      "Deployed IronLoop AI 24/7 inbound receptionist and instant speed-to-lead voice agent to answer calls within 3 seconds, qualify roof angle/utility bill eligibility, and lock in site survey appointments.",
+    impact: [
+      "Zero missed calls across 24/7 operating hours.",
+      "Instant 3-second lead response time for all ad leads.",
+      "3.2x increase in qualified solar consultation bookings.",
     ],
-    quote: "We switched from a traditional service on Wednesday and were seeing ROI by Friday morning. The AI sounds more professional than our old team.",
-    author: "Sarah L., Operations Manager",
+    metrics: [
+      { value: "3.2x", label: "Consultation Booking Rate" },
+      { value: "<3-sec", label: "Inbound Call Response" },
+      { value: "100%", label: "Inbound Lead Capture" },
+      { value: "40%", label: "Lower Cost Per Booking" },
+    ],
+    quote:
+      "We replaced our delayed manual callbacks with instant AI voice qualification. Our site survey calendar stays packed week after week.",
+    author: "Chief Operations Officer",
   },
   {
-    company: "Bright Smile Dental Group",
-    industry: "Dental",
-    location: "Austin, TX",
-    challenge: "60% of hygiene recall patients were lapsing past 6 months. After-hours emergency toothache calls went to voicemail.",
-    solution: "Deployed IronLoop with Dentrix sync for automated hygiene recall campaigns and 24/7 emergency dental triage.",
-    results: [
-      { value: "+60%", label: "Hygiene Recalls" },
-      { value: "88%", label: "Emergencies Won" },
-      { value: "95%", label: "Chair Occupancy" },
-      { value: "3x", label: "New Patients" },
+    id: "women-owned-roofing",
+    company: "Confidential Women-Owned Roofing Contractor",
+    industry: "Roofing",
+    badgeColor: "#E53935",
+    shortDesc:
+      "A women-owned roofing company had ad leads slipping through the cracks without a structured CRM. IronLoop AI built their CRM pipeline from scratch, qualified incoming leads instantly, and recovered 25+ contracts in the first month.",
+    mainResult: "25+ Recovered Contracts in 30 Days",
+    hasAudio: true,
+    audioTitle: "Sample AI Lead Qualification & CRM Sync Call",
+    imageCount: 1,
+    challenge:
+      "Managing leads through scattered spreadsheets caused frequent missed opportunities and slow estimate delivery times.",
+    solution:
+      "Integrated IronLoop AI directly with Google/Meta Lead Ads for automated immediate phone call outreach, instant lead scoring, and automated estimator calendar booking.",
+    impact: [
+      "Built clean, automated sales pipeline from ground zero.",
+      "25+ roof repair and replacement contracts signed in 30 days.",
+      "Automated follow-ups cut lead drop-off to zero.",
     ],
-    quote: "Our hygiene schedule went from half-empty to consistently booked. The after-hours emergency capture alone pays for the entire system.",
-    author: "Dr. Lisa M., Practice Owner",
-  },
-  {
-    company: "GreenShield Pest Control",
-    industry: "Pest & Lawn",
-    location: "Orlando, FL",
-    challenge: "Seasonal call surges during spring/summer overwhelmed a 3-person phone team. Route inefficiency costing $4k/month in fuel.",
-    solution: "IronLoop AI with PestRoutes integration for neighborhood cluster booking, automated contract renewals, and seasonal outreach.",
-    results: [
-      { value: "+28%", label: "Route Efficiency" },
-      { value: "91%", label: "Contract Renewal" },
-      { value: "<10s", label: "Lead Response" },
-      { value: "$4k", label: "Fuel Savings/mo" },
+    metrics: [
+      { value: "25+", label: "Contracts Recovered" },
+      { value: "100%", label: "Lead Capture Rate" },
+      { value: "30 Days", label: "Time to Full ROI" },
+      { value: "$0", label: "Extra Headcount Cost" },
     ],
-    quote: "The neighborhood clustering alone saved us thousands in fuel. Now every technician's route is optimized before they start their day.",
-    author: "Carlos R., Regional Manager",
-  },
-  {
-    company: "ProBuild Contractors",
-    industry: "Home Services",
-    location: "Nashville, TN",
-    challenge: "After major storms, roofing estimate requests would spike 10x. The 2-person office couldn't keep up and leads went to competitors.",
-    solution: "IronLoop storm surge mode with AccuLynx integration for instant estimate scheduling, lead qualification, and estimator dispatch.",
-    results: [
-      { value: "48%", label: "Est. Conversion" },
-      { value: "0%", label: "Missed Calls" },
-      { value: "92%", label: "Tech Utilized" },
-      { value: "10x", label: "Surge Capacity" },
-    ],
-    quote: "After the last hailstorm we booked 47 estimates in one weekend — all automatically. Competitors were still checking voicemails on Monday.",
-    author: "David W., President",
+    quote:
+      "IronLoop AI gave us the professional sales backbone of a giant company overnight. Every ad dollar we spend now converts into booked work.",
+    author: "Founder & Lead Estimator",
   },
 ];
 
-export default function SuccessStoriesClient() {
-  return (
-    <main className="bg-[#0b0d10] text-white py-20 lg:py-28 relative overflow-hidden">
-      {/* Premium Background Glowing Orbs */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#a3e635]/[0.04] blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-40 left-0 w-[500px] h-[500px] bg-[#a3e635]/[0.03] blur-[100px] rounded-full pointer-events-none" />
-      
-      {/* Grid Pattern overlay */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.03]" 
-        style={{
-          backgroundImage: "radial-gradient(#fff 1.5px, transparent 1.5px)",
-          backgroundSize: "48px 48px"
-        }} 
-      />
+const CATEGORIES = ["All", "Roofing", "Solar", "Healthcare & Insurance"] as const;
 
-      <div className="max-w-container-max mx-auto px-6 lg:px-margin-desktop relative z-10">
+export default function SuccessStoriesClient() {
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [activeModal, setActiveModal] = useState<CaseStudy | null>(null);
+  const [isPlayingAudio, setIsPlayingAudio] = useState<boolean>(false);
+
+  const filteredCaseStudies = CASE_STUDIES.filter((cs) => {
+    const matchesCategory =
+      selectedCategory === "All" || cs.industry === selectedCategory;
+    const matchesSearch =
+      cs.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      cs.shortDesc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      cs.industry.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  return (
+    <main className="bg-[#050505] text-white py-20 lg:py-28 relative overflow-hidden min-h-screen">
+      {/* Background Orbs */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#C5E033]/[0.04] blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-40 left-0 w-[500px] h-[500px] bg-white/[0.03] blur-[140px] rounded-full pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Page Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-display text-5xl lg:text-7xl font-black tracking-tight text-white mb-6"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.04] text-xs font-mono font-bold text-[#C5E033] uppercase tracking-widest"
           >
-            Proof of <span className="text-[#a3e635] italic">Impact.</span>
-          </motion.h1>
-          <motion.p 
+            <span>✨ Real Proven Results</span>
+          </motion.div>
+
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-body text-xl text-white/60 leading-relaxed font-medium"
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1]"
           >
-            See how forward-thinking service companies are using IronLoop&apos;s AI infrastructure to eliminate missed calls, automate dispatch, and drive unprecedented revenue growth.
+            What happens when AI works{" "}
+            <span className="bg-gradient-to-r from-white via-white/80 to-[#C5E033] bg-clip-text text-transparent">
+              your sales floor.
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-base sm:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed"
+          >
+            See how roofing, solar, healthcare, and home service businesses use IronLoop AI to recover lost leads, book more jobs, and grow revenue — without adding headcount.
           </motion.p>
         </div>
 
-        <div className="space-y-12">
-          {CASE_STUDIES.map((cs, i) => (
+        {/* Search & Category Filter Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-10 bg-white/[0.02] p-4 rounded-2xl border border-white/[0.08]"
+        >
+          {/* Category Filter Pills */}
+          <div className="flex flex-wrap items-center gap-2">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+                  selectedCategory === cat
+                    ? "bg-[#C5E033] text-[#050608] font-bold shadow-[0_0_20px_rgba(197,224,51,0.3)]"
+                    : "bg-white/[0.04] text-white/60 hover:text-white hover:bg-white/[0.08] border border-white/[0.06]"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          {/* Search Input */}
+          <div className="relative w-full md:w-72">
+            <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-white/40 text-sm">
+              search
+            </span>
+            <input
+              type="text"
+              placeholder="Search case studies..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-white/40 focus:outline-none focus:border-[#C5E033] transition-colors"
+            />
+          </div>
+        </motion.div>
+
+        {/* Case Studies Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {filteredCaseStudies.map((cs, i) => (
             <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 40 }}
+              key={cs.id}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="group relative"
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true }}
             >
-              {/* Hover Glow Behind Card */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#a3e635]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[2.5rem] blur-2xl pointer-events-none" />
-              
-              <div className="bg-[#111318]/90 backdrop-blur-xl border border-white/[0.05] rounded-[2.5rem] p-8 lg:p-12 hover:border-[#a3e635]/30 transition-all duration-500 relative overflow-hidden shadow-2xl">
-                {/* Decorative corner accent */}
-                <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-[#a3e635]/10 to-transparent rounded-bl-[100px] transition-all duration-500 group-hover:from-[#a3e635]/20 pointer-events-none" />
+              <button
+                onClick={() => setActiveModal(cs)}
+                className="w-full text-left group relative rounded-3xl border border-white/[0.08] bg-white/[0.02] p-6 sm:p-8 overflow-hidden transition-all duration-300 hover:border-[#C5E033]/40 hover:bg-white/[0.04] hover:shadow-[0_0_40px_rgba(0,0,0,0.6)] flex flex-col justify-between h-full"
+              >
+                {/* Top Colored Accent Bar */}
+                <div
+                  className="absolute top-0 left-0 right-0 h-1"
+                  style={{
+                    background: `linear-gradient(90deg, transparent, ${cs.badgeColor}, transparent)`,
+                  }}
+                />
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 relative z-10">
-                  <div className="lg:col-span-7 space-y-8">
-                    
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span className="bg-[#a3e635] text-[#0b0d10] px-4 py-1.5 rounded-full font-mono text-xs font-bold tracking-widest uppercase">
-                        {cs.industry}
-                      </span>
-                      <span className="font-mono text-xs text-white/50 tracking-widest uppercase flex items-center gap-1.5 bg-white/5 px-4 py-1.5 rounded-full border border-white/5">
-                        <span className="material-symbols-outlined text-[14px]">location_on</span>
-                        {cs.location}
-                      </span>
-                    </div>
-
-                    <h2 className="font-display text-4xl lg:text-5xl text-white font-black tracking-tight">{cs.company}</h2>
-
-                    <div className="space-y-6">
-                      <div className="bg-white/[0.02] p-6 rounded-2xl border border-white/[0.03]">
-                        <span className="flex items-center gap-2 font-mono text-[11px] text-white/40 uppercase tracking-[0.2em] font-bold mb-3">
-                          <span className="w-2 h-2 rounded-full bg-red-500/80 shadow-[0_0_10px_rgba(239,68,68,0.5)]" />
-                          The Challenge
+                <div className="space-y-4 mb-6">
+                  {/* Category Pill & Badges */}
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span
+                      className="px-3 py-1 rounded-lg text-[11px] font-bold tracking-wider uppercase"
+                      style={{
+                        color: cs.badgeColor,
+                        backgroundColor: `${cs.badgeColor}15`,
+                        border: `1px solid ${cs.badgeColor}30`,
+                      }}
+                    >
+                      {cs.industry}
+                    </span>
+                    {cs.hasAudio && (
+                      <span className="flex items-center gap-1.5 text-[11px] font-mono text-white/50 bg-white/[0.04] px-2.5 py-1 rounded-lg border border-white/[0.06]">
+                        <span className="material-symbols-outlined text-[13px] text-[#C5E033]">
+                          graphic_eq
                         </span>
-                        <p className="font-body text-base lg:text-lg text-white/70 leading-relaxed font-medium">{cs.challenge}</p>
-                      </div>
-                      
-                      <div className="bg-[#a3e635]/[0.02] p-6 rounded-2xl border border-[#a3e635]/[0.05]">
-                        <span className="flex items-center gap-2 font-mono text-[11px] text-[#a3e635]/80 uppercase tracking-[0.2em] font-bold mb-3">
-                          <span className="w-2 h-2 rounded-full bg-[#a3e635] shadow-[0_0_10px_rgba(163,230,53,0.5)]" />
-                          IronLoop Solution
-                        </span>
-                        <p className="font-body text-base lg:text-lg text-white/90 leading-relaxed font-medium">{cs.solution}</p>
-                      </div>
-                    </div>
-
-                    <blockquote className="relative pl-8 py-2 mt-4">
-                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#a3e635] to-[#a3e635]/20 rounded-full" />
-                      <p className="font-body text-xl lg:text-2xl text-white italic leading-relaxed font-medium">&ldquo;{cs.quote}&rdquo;</p>
-                      <p className="font-display text-sm text-[#a3e635] mt-6 font-bold tracking-widest uppercase">&mdash; {cs.author}</p>
-                    </blockquote>
+                        Audio Demo
+                      </span>
+                    )}
                   </div>
 
-                  {/* Results Sidebar */}
-                  <div className="lg:col-span-5 flex flex-col justify-center">
-                    <div className="bg-[#090b0e]/80 border border-white/[0.04] rounded-[2rem] p-6 lg:p-8 grid grid-cols-2 gap-4 lg:gap-6 backdrop-blur-md shadow-inner">
-                      <div className="col-span-2 mb-2 flex items-center justify-between border-b border-white/[0.05] pb-4">
-                        <span className="font-mono text-[11px] text-white/40 uppercase tracking-[0.25em] font-bold flex items-center gap-2">
-                          <span className="material-symbols-outlined text-[16px]">monitoring</span>
-                          Measurable Impact
-                        </span>
-                      </div>
-                      {cs.results.map((stat, j) => (
-                        <div key={j} className="bg-[#111318] border border-white/[0.04] p-5 lg:p-6 rounded-2xl group-hover:border-[#a3e635]/20 hover:bg-[#1a1d24] transition-all duration-500 text-center flex flex-col justify-center min-h-[120px]">
-                          <div className="font-display text-3xl lg:text-4xl font-black text-[#a3e635] mb-2 drop-shadow-[0_0_15px_rgba(163,230,53,0.2)]">{stat.value}</div>
-                          <div className="font-mono text-[10px] text-white/60 uppercase tracking-widest">{stat.label}</div>
-                        </div>
-                      ))}
-                    </div>
+                  <h3 className="text-xl font-bold text-white leading-snug group-hover:text-[#C5E033] transition-colors">
+                    {cs.company}
+                  </h3>
+
+                  <p className="text-sm text-white/60 leading-relaxed line-clamp-3 font-body">
+                    {cs.shortDesc}
+                  </p>
+                </div>
+
+                {/* Highlighted Result Box */}
+                <div className="pt-4 border-t border-white/[0.08] space-y-3">
+                  <div className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-lg text-[#C5E033]">
+                      trending_up
+                    </span>
+                    <span
+                      className="text-base sm:text-lg font-black"
+                      style={{ color: cs.badgeColor }}
+                    >
+                      {cs.mainResult}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-1 text-xs font-mono font-bold text-[#C5E033] group-hover:translate-x-1 transition-transform">
+                    Read Full Case Study & Listen →
                   </div>
                 </div>
-              </div>
+              </button>
             </motion.div>
           ))}
         </div>
 
-        <div className="mt-32">
-           <HighEndCTA industryTitle="GROWTH" />
+        {/* Modal Popup */}
+        <AnimatePresence>
+          {activeModal && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md overflow-y-auto">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                className="relative w-full max-w-3xl bg-[#0c0e14] border border-white/15 rounded-3xl p-6 sm:p-10 shadow-[0_0_80px_rgba(0,0,0,0.9)] max-h-[90vh] overflow-y-auto"
+              >
+                {/* Close Button */}
+                <button
+                  onClick={() => {
+                    setActiveModal(null);
+                    setIsPlayingAudio(false);
+                  }}
+                  className="absolute top-6 right-6 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+                >
+                  <span className="material-symbols-outlined text-lg">close</span>
+                </button>
+
+                {/* Modal Header */}
+                <div className="space-y-3 mb-8 pr-8">
+                  <span
+                    className="inline-block px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider"
+                    style={{
+                      color: activeModal.badgeColor,
+                      backgroundColor: `${activeModal.badgeColor}15`,
+                      border: `1px solid ${activeModal.badgeColor}30`,
+                    }}
+                  >
+                    {activeModal.industry}
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+                    {activeModal.company}
+                  </h2>
+                </div>
+
+                {/* Audio Recording Player Simulation */}
+                {activeModal.hasAudio && (
+                  <div className="mb-8 p-5 rounded-2xl bg-white/[0.04] border border-white/10 space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-mono font-bold text-[#C5E033] flex items-center gap-2">
+                        <span className="material-symbols-outlined text-base">graphic_eq</span>
+                        {activeModal.audioTitle}
+                      </span>
+                      <span className="text-[10px] font-mono text-white/40">HD Voice Recording</span>
+                    </div>
+
+                    <div className="flex items-center gap-4 pt-1">
+                      <button
+                        onClick={() => setIsPlayingAudio(!isPlayingAudio)}
+                        className="w-12 h-12 rounded-full bg-[#C5E033] text-[#050608] flex items-center justify-center font-bold hover:scale-105 transition-transform shrink-0"
+                      >
+                        <span className="material-symbols-outlined text-2xl">
+                          {isPlayingAudio ? "pause" : "play_arrow"}
+                        </span>
+                      </button>
+
+                      {/* Animated Sound Waveform */}
+                      <div className="flex-1 flex items-center gap-1 h-8 bg-black/40 rounded-xl px-3 border border-white/5 overflow-hidden">
+                        {[40, 70, 30, 90, 50, 80, 40, 100, 60, 30, 85, 45, 95, 35, 75, 55, 90, 40].map(
+                          (height, idx) => (
+                            <motion.div
+                              key={idx}
+                              animate={
+                                isPlayingAudio
+                                  ? { height: [`${height}%`, "20%", `${height}%`] }
+                                  : { height: `${height * 0.4}%` }
+                              }
+                              transition={{
+                                repeat: Infinity,
+                                duration: 1,
+                                delay: idx * 0.05,
+                              }}
+                              className="flex-1 bg-[#C5E033] rounded-full min-w-[2px]"
+                            />
+                          )
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Key Metrics Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+                  {activeModal.metrics.map((m, idx) => (
+                    <div
+                      key={idx}
+                      className="p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-center"
+                    >
+                      <div
+                        className="text-xl sm:text-2xl font-black mb-1 font-display"
+                        style={{ color: activeModal.badgeColor }}
+                      >
+                        {m.value}
+                      </div>
+                      <div className="text-[10px] font-mono text-white/50 uppercase tracking-wider">
+                        {m.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Challenge & Solution Content */}
+                <div className="space-y-6 mb-8 text-sm sm:text-base text-white/70 leading-relaxed font-body">
+                  <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.05] space-y-2">
+                    <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-red-400 flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-red-400" />
+                      The Challenge
+                    </h4>
+                    <p>{activeModal.challenge}</p>
+                  </div>
+
+                  <div className="p-5 rounded-2xl bg-[#C5E033]/[0.03] border border-[#C5E033]/10 space-y-2">
+                    <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-[#C5E033] flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-[#C5E033]" />
+                      IronLoop AI Implementation
+                    </h4>
+                    <p className="text-white/90">{activeModal.solution}</p>
+                  </div>
+
+                  {/* Impact Highlights */}
+                  <div className="space-y-2 pt-2">
+                    <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-white/40">
+                      Key Outcomes & Business Impact
+                    </h4>
+                    <ul className="space-y-2">
+                      {activeModal.impact.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2.5 text-sm text-white/80">
+                          <span className="material-symbols-outlined text-[#C5E033] text-base shrink-0 mt-0.5">
+                            check_circle
+                          </span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Client Quote */}
+                  <blockquote className="border-l-2 border-[#C5E033] pl-4 py-1 italic text-white/90 text-sm sm:text-base">
+                    &ldquo;{activeModal.quote}&rdquo;
+                    <footer className="text-xs font-mono font-bold text-[#C5E033] not-italic mt-2">
+                      &mdash; {activeModal.author}
+                    </footer>
+                  </blockquote>
+                </div>
+
+                {/* Modal Action CTA */}
+                <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <span className="text-xs font-mono text-white/50">
+                    Ready for similar ROI in your enterprise?
+                  </span>
+                  <a
+                    href="/contact"
+                    className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#C5E033] text-[#050608] font-bold text-xs uppercase tracking-wider hover:bg-white transition-colors text-center"
+                  >
+                    Schedule a Demo →
+                  </a>
+                </div>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
+
+        <div className="mt-24">
+          <HighEndCTA industryTitle="GROWTH" />
         </div>
       </div>
     </main>
