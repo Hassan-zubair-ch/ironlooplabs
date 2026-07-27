@@ -1,113 +1,110 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const LINKS = [
+const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/solutions", label: "Solutions" },
   { href: "/industries", label: "Industries" },
   { href: "/pricing", label: "Pricing" },
   { href: "/compare", label: "Compare" },
-  { href: "/success-stories", label: "Success Stories" },
-  { href: "/contact", label: "Contact" },
+  { href: "/success-stories", label: "Case Studies" },
 ];
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <header
-      className={`top-0 sticky z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#0b0d10]/95 backdrop-blur-xl shadow-lg shadow-black/30 border-b border-white/5"
-          : "bg-[#0b0d10]/80 backdrop-blur-md border-b border-white/[0.03]"
-      }`}
-    >
-      <nav className="flex justify-between items-center h-20 sm:h-24 lg:h-28 px-6 lg:px-margin-desktop w-full max-w-container-max mx-auto">
-        {/* Logo — 50% bigger */}
+    <header className="sticky top-4 sm:top-6 z-50 px-4 sm:px-6 w-full max-w-7xl mx-auto pointer-events-none mb-8">
+      <nav className="pointer-events-auto rounded-full bg-[#0c0e14]/90 backdrop-blur-2xl border border-white/15 shadow-[0_10px_35px_rgba(0,0,0,0.8)] px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between transition-all duration-300">
+        
+        {/* LOGO */}
         <Link href="/" className="flex items-center group cursor-pointer shrink-0">
           <Image
             src="/logo-main.png"
             alt="IronLoop Labs"
-            width={420}
-            height={120}
-            sizes="(max-width: 640px) 240px, (max-width: 1024px) 340px, 420px"
-            className="h-14 sm:h-[4.5rem] lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+            width={360}
+            height={100}
             priority
+            className="h-9 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </Link>
 
-        {/* Desktop Links — bigger text */}
-        <div className="hidden lg:flex items-center gap-2">
-          {LINKS.map((link) => (
+        {/* LEFT VERTICAL DIVIDER */}
+        <div className="hidden lg:block w-[1px] h-6 bg-white/15 mx-4 shrink-0" />
+
+        {/* CENTER NAV LINKS */}
+        <div className="hidden lg:flex items-center gap-1 xl:gap-2 flex-grow justify-center">
+          {NAV_LINKS.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="font-display text-[15px] font-semibold px-5 py-2.5 text-white/70 hover:text-[#a3e635] transition-colors duration-200 tracking-wide"
+              className="font-display text-sm font-semibold px-4 py-2 text-white/70 hover:text-[#C5E033] transition-colors duration-200 tracking-wide rounded-full hover:bg-white/[0.04]"
             >
               {link.label}
             </Link>
           ))}
         </div>
 
-        <div className="flex items-center gap-4">
+        {/* RIGHT VERTICAL DIVIDER */}
+        <div className="hidden lg:block w-[1px] h-6 bg-white/15 mx-4 shrink-0" />
+
+        {/* RIGHT ACTION BUTTON */}
+        <div className="flex items-center gap-3">
           <Link
             href="/contact"
-            className="hidden sm:inline-flex bg-[#a3e635] text-[#0b0d10] px-7 py-3 rounded-xl font-display text-[15px] font-bold hover:brightness-110 active:scale-95 transition-all btn-glow-hover"
+            className="hidden sm:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#12141d] border border-white/20 text-white font-display text-sm font-bold hover:bg-white hover:text-[#050608] hover:border-white active:scale-95 transition-all shadow-md group"
           >
-            Book Consultation
+            Book a Demo
           </Link>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5"
-            aria-label="Menu"
+            className="lg:hidden w-9 h-9 rounded-full bg-white/5 border border-white/10 flex flex-col items-center justify-center gap-1 shrink-0"
+            aria-label="Toggle Menu"
           >
-            <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
-            <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
-            <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+            <span className={`w-4 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-1.5" : ""}`} />
+            <span className={`w-4 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
+            <span className={`w-4 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-1.5" : ""}`} />
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="lg:hidden bg-[#0b0d10] border-t border-white/[0.06] px-6 pb-6"
-        >
-          {LINKS.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
-              className="block font-display text-lg font-semibold text-white/80 hover:text-[#a3e635] py-3 border-b border-white/[0.04] transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            href="/contact"
-            onClick={() => setMobileOpen(false)}
-            className="mt-4 block text-center bg-[#a3e635] text-[#0b0d10] px-6 py-3 rounded-xl font-display text-base font-bold"
+      {/* MOBILE EXPANDED MENU */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.98 }}
+            transition={{ duration: 0.2 }}
+            className="pointer-events-auto mt-3 rounded-3xl bg-[#0c0e14]/95 backdrop-blur-2xl border border-white/15 p-6 shadow-2xl lg:hidden flex flex-col gap-3"
           >
-            Book Consultation
-          </Link>
-        </motion.div>
-      )}
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="font-display text-base font-semibold text-white/80 hover:text-[#C5E033] py-2 px-4 rounded-xl hover:bg-white/[0.04] transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+
+            <Link
+              href="/contact"
+              onClick={() => setMobileOpen(false)}
+              className="mt-2 block text-center py-3 px-6 rounded-full bg-[#C5E033] text-[#0b0d10] font-display text-base font-bold shadow-lg"
+            >
+              Book a Demo
+            </Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
