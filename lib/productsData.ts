@@ -28,379 +28,362 @@ export interface ProductData {
   workflowSteps: WorkflowStep[];
   features: FeatureItem[];
   integrations: string[];
+  moduleNumber?: string;
+  tag?: string;
 }
 
 export const productsData: ProductData[] = [
   {
+    slug: "speed-to-lead",
+    moduleNumber: "Module 01",
+    name: "Speed-to-Lead Response",
+    shortDesc: "Instant SMS & voice response the moment a new lead comes in from any source — ads, web forms, Angi, Meta, or Google.",
+    heroDesc: "Instant SMS/voice response the moment a new lead comes in from any source — ads, web forms, Angi, you name it. Never let a hot lead go cold while waiting for a callback.",
+    heroIcon: "bolt",
+    metrics: [
+      { label: "Response Speed", value: "<3 sec", subtext: "Instant multi-channel engagement" },
+      { label: "Conversion Lift", value: "9x", subtext: "Compared to 30-min delays" },
+      { label: "Lead Capture", value: "100%", subtext: "Zero dropped inquiries" },
+    ],
+    workflowTitle: "Instant Lead Intake Pipeline",
+    workflowSteps: [
+      { step: "01", title: "Lead Ingestion", desc: "Form submit, ad click, or incoming call triggers real-time webhook.", icon: "bolt" },
+      { step: "02", title: "AI Qualification", desc: "Conversational AI texts/calls immediately asking key intake questions.", icon: "psychology" },
+      { step: "03", title: "Live Calendar Booking", desc: "AI checks real-time technician availability and schedules the appointment.", icon: "event_available" },
+      { step: "04", title: "CRM Sync & Handoff", desc: "Log details directly in CRM and notify human reps for high-value deals.", icon: "cloud_sync" },
+    ],
+    features: [
+      { title: "Smart Reply Templates", desc: "Dynamic, contextual text and voice replies customized to ad keywords.", icon: "forum" },
+      { title: "Qualification Questionnaires", desc: "Filters leads by project type, timeline, and location.", icon: "rule" },
+      { title: "Seamless Human Handoff", desc: "Instantly transfers live calls to your sales team if requested.", icon: "phone_forwarded" },
+      { title: "Multi-Channel Fallback", desc: "Combines SMS, voice, and email outreach for 100% reach rate.", icon: "phonelink_ring" },
+    ],
+    integrations: ["Google Ads", "Facebook / Meta", "Angi", "ServiceTitan", "HubSpot"],
+  },
+  {
+    slug: "missed-call-recovery",
+    moduleNumber: "Module 02",
+    name: "Missed-Call Recovery",
+    shortDesc: "If your team can't get to a call, IronLoop AI texts back within seconds and keeps the conversation alive.",
+    heroDesc: "Turn missed calls into booked jobs. When your office lines are busy or staff is unavailable, IronLoop AI immediately sends a smart text-back to capture intent and book the appointment before they call a competitor.",
+    heroIcon: "phone_missed",
+    metrics: [
+      { label: "Text-Back Speed", value: "<5 sec", subtext: "Automatic trigger" },
+      { label: "Lead Recovery", value: "65%", subtext: "Booked via automated text" },
+      { label: "Revenue Saved", value: "$45K/mo", subtext: "Average client recovery" },
+    ],
+    workflowTitle: "Call Recovery & Booking Flow",
+    workflowSteps: [
+      { step: "01", title: "Missed Call Signal", desc: "Phone carrier detects unanswered ring or busy line.", icon: "call_end" },
+      { step: "02", title: "Instant Auto Text-Back", desc: "AI sends a personalized text asking how we can assist.", icon: "sms" },
+      { step: "03", title: "Two-Way AI Chat", desc: "Natural chat gathers service needs and offers calendar slots.", icon: "question_answer" },
+      { step: "04", title: "Booking Confirmation", desc: "Appointment is confirmed and dispatch notification is sent.", icon: "task_alt" },
+    ],
+    features: [
+      { title: "Auto Text-Back", desc: "Instant SMS sent the millisecond a call ends without an answer.", icon: "chat_bubble" },
+      { title: "Conversation Continuity", desc: "Remembers prior history and customer details across text and voice.", icon: "history" },
+      { title: "Booking Completion", desc: "Self-service scheduling links or direct chat-based appointment creation.", icon: "calendar_month" },
+      { title: "After-Hours Shift", desc: "Automatically takes over evenings, weekends, and holidays.", icon: "nights_stay" },
+    ],
+    integrations: ["ServiceTitan", "Jobber", "Housecall Pro", "Twilio"],
+  },
+  {
     slug: "ai-voice-agent",
-    name: "AI Voice Receptionist",
-    shortDesc: "24/7 autonomous call handling, appointment booking, and FAQ resolution.",
-    heroDesc: "Never miss a lead. Our AI Voice Agent handles inbound calls instantly, books appointments directly into your calendar, and routes complex inquiries to your on-call staff with zero hold time.",
+    moduleNumber: "Module 03",
+    name: "Inbound Voice Agent",
+    shortDesc: "A fully conversational AI that answers calls 24/7, handles FAQs, qualifies prospects, and books time on your calendar.",
+    heroDesc: "Never miss a lead. Our AI Voice Agent handles inbound calls instantly with natural human tone, answers technical FAQs, books appointments directly into your calendar, and routes urgent calls to on-call staff.",
     heroIcon: "record_voice_over",
     metrics: [
-      { label: "Uptime", value: "99.9%", subtext: "Enterprise reliability" },
-      { label: "Avg Speed to Answer", value: "<1s", subtext: "Zero hold time" },
-      { label: "Call Resolution", value: "85%", subtext: "Without human intervention" }
+      { label: "Uptime", value: "99.9%", subtext: "Enterprise availability" },
+      { label: "Avg Answer Speed", value: "<1s", subtext: "Zero hold time" },
+      { label: "Call Resolution", value: "85%", subtext: "Without human intervention" },
     ],
-    workflowTitle: "Autonomous Call Flow",
+    workflowTitle: "Autonomous Call Intake Pipeline",
     workflowSteps: [
-      {
-        step: "01",
-        title: "Inbound Call",
-        desc: "Customer calls your number. The AI answers immediately with a natural, localized voice.",
-        icon: "call"
-      },
-      {
-        step: "02",
-        title: "Intent Parsing",
-        desc: "Natural language processing determines if the caller wants to book, reschedule, or ask a question.",
-        icon: "psychology"
-      },
-      {
-        step: "03",
-        title: "Action Execution",
-        desc: "AI accesses your calendar in real-time, finds slots, and securely books the appointment.",
-        icon: "event_available"
-      },
-      {
-        step: "04",
-        title: "CRM Sync",
-        desc: "Call transcript, summary, and booking details are pushed instantly to your CRM.",
-        icon: "cloud_sync"
-      }
+      { step: "01", title: "Inbound Call", desc: "Customer calls. AI answers immediately with localized, natural voice.", icon: "call" },
+      { step: "02", title: "Intent Parsing", desc: "NLP determines if caller wants to book, reschedule, or ask a question.", icon: "psychology" },
+      { step: "03", title: "Action Execution", desc: "AI accesses live calendar, finds available slots, and books the job.", icon: "event_available" },
+      { step: "04", title: "CRM Synchronization", desc: "Call transcript, summary, and audio recording sync instantly to CRM.", icon: "cloud_sync" },
     ],
     features: [
-      {
-        title: "Natural Voice Synthesis",
-        desc: "Uses state-of-the-art TTS models for highly natural, empathetic conversational dynamics.",
-        icon: "spatial_audio_off"
-      },
-      {
-        title: "Smart Call Routing",
-        desc: "Escalates emergencies to human dispatchers based on specific keywords and caller sentiment.",
-        icon: "alt_route"
-      },
-      {
-        title: "Multilingual Support",
-        desc: "Automatically detects and switches languages dynamically to serve diverse customer bases.",
-        icon: "translate"
-      },
-      {
-        title: "Post-Call Summaries",
-        desc: "Generates bulleted summaries and sentiment scores for every single call.",
-        icon: "summarize"
-      }
+      { title: "Natural Voice Synthesis", desc: "State-of-the-art TTS models for human-like conversational dynamics.", icon: "spatial_audio_off" },
+      { title: "Smart Call Routing", desc: "Escalates high-value emergencies to on-call managers immediately.", icon: "alt_route" },
+      { title: "Multilingual Support", desc: "Detects and switches languages dynamically to serve all callers.", icon: "translate" },
+      { title: "Post-Call Summaries", desc: "Generates bulleted transcripts and sentiment scores for every call.", icon: "summarize" },
     ],
-    integrations: ["ServiceTitan", "Salesforce", "HubSpot", "Twilio"]
+    integrations: ["ServiceTitan", "Salesforce", "HubSpot", "Twilio"],
   },
   {
-    slug: "automated-dispatch",
-    name: "Automated Dispatch System",
-    shortDesc: "Smart scheduling and intelligent routing for field technicians.",
-    heroDesc: "Optimize your field operations. Our Automated Dispatch System calculates the most efficient routes, manages technician availability, and dynamically updates schedules based on emergency priority.",
-    heroIcon: "local_shipping",
+    slug: "direct-crm-booking",
+    moduleNumber: "Module 04",
+    name: "Direct CRM Booking",
+    shortDesc: "Routes jobs by territory, service type, and real-time technician availability with automated confirmations.",
+    heroDesc: "Eliminate manual data entry. Direct CRM Booking algorithmically matches job types with technician skillsets, checks real-time calendar availability, and creates dispatch-ready work orders in your CRM.",
+    heroIcon: "calendar_month",
     metrics: [
-      { label: "Route Efficiency", value: "+30%", subtext: "Reduced drive time" },
-      { label: "Jobs per Day", value: "+2.5", subtext: "Increased capacity" },
-      { label: "Dispatch Errors", value: "0%", subtext: "Algorithmically verified" }
+      { label: "Booking Speed", value: "<10s", subtext: "Real-time dispatch creation" },
+      { label: "Schedule Density", value: "+25%", subtext: "Optimized route grouping" },
+      { label: "Data Accuracy", value: "100%", subtext: "Direct API writeback" },
     ],
-    workflowTitle: "Intelligent Routing Pipeline",
+    workflowTitle: "Territory & Calendar Matching Pipeline",
     workflowSteps: [
-      {
-        step: "01",
-        title: "Job Ingestion",
-        desc: "New work order is created via AI Voice Agent or web booking.",
-        icon: "assignment"
-      },
-      {
-        step: "02",
-        title: "Skill & Geo Matching",
-        desc: "System analyzes technician skillsets, current locations, and inventory.",
-        icon: "person_search"
-      },
-      {
-        step: "03",
-        title: "Dynamic Scheduling",
-        desc: "Job is inserted into the optimal slot, instantly recalculating the entire day's route.",
-        icon: "calendar_clock"
-      },
-      {
-        step: "04",
-        title: "Tech & Client Alerts",
-        desc: "Technician receives dispatch details; customer receives \"On the way\" SMS.",
-        icon: "sms"
-      }
+      { step: "01", title: "Job Intake", desc: "Customer request received via AI agent or web booking widget.", icon: "assignment" },
+      { step: "02", title: "Territory & Skill Filter", desc: "System checks zip code, service type, and technician certifications.", icon: "pin_drop" },
+      { step: "03", title: "Slot Reservation", desc: "Reserves the optimal time slot without double-booking.", icon: "edit_calendar" },
+      { step: "04", title: "Auto Notifications", desc: "Customer receives SMS calendar invite; tech receives dispatch job.", icon: "send font" },
     ],
     features: [
-      {
-        title: "Geo-Fencing algorithms",
-        desc: "Calculates drive times using live traffic data to prevent late arrivals.",
-        icon: "map"
-      },
-      {
-        title: "Skill-Based Routing",
-        desc: "Ensures only qualified technicians are assigned to complex jobs (e.g., HVAC Level 3).",
-        icon: "engineering"
-      },
-      {
-        title: "Emergency Triage",
-        desc: "Automatically bumps lower-priority maintenance jobs to accommodate high-revenue emergencies.",
-        icon: "emergency"
-      },
-      {
-        title: "Inventory Verification",
-        desc: "Checks truck stock against job requirements before final dispatch.",
-        icon: "inventory_2"
-      }
+      { title: "Territory Routing", desc: "Groups bookings by geographical zone to reduce drive time.", icon: "map" },
+      { title: "Auto Confirmations", desc: "Instant calendar attachments and SMS confirmations.", icon: "mark_email_read" },
+      { title: "Reminder Sequences", desc: "Automated 24h and 1h arrival reminders to prevent no-shows.", icon: "alarm" },
+      { title: "Real-Time Availability", desc: "Live bi-directional sync with ServiceTitan, Jobber, and Salesforce.", icon: "sync" },
     ],
-    integrations: ["ServiceTitan", "Housecall Pro", "Google Maps", "Fleetmatics"]
+    integrations: ["ServiceTitan", "Jobber", "Housecall Pro", "Salesforce"],
   },
   {
-    slug: "crm-sync",
-    name: "Enterprise CRM Hub",
-    shortDesc: "Bi-directional data synchronization across all your tools.",
-    heroDesc: "Eliminate data silos. Our Integration Hub acts as the central nervous system for your business, seamlessly passing data between your phone system, CRM, marketing tools, and EHR platforms.",
-    heroIcon: "hub",
+    slug: "estimate-follow-up",
+    moduleNumber: "Module 05",
+    name: "Estimate Follow-Up AI",
+    shortDesc: "Polite, persistent multi-touch outreach by text, email, and voice until the estimate is closed or rescheduled.",
+    heroDesc: "Don't let open quotes sit idle. Our Estimate Follow-Up AI maintains structured multi-channel touchpoints with prospects, answering questions, addressing pricing objections, and closing pending estimates on autopilot.",
+    heroIcon: "rate_review",
     metrics: [
-      { label: "Data Latency", value: "<50ms", subtext: "Real-time sync" },
-      { label: "Data Accuracy", value: "100%", subtext: "No manual entry" },
-      { label: "API Uptime", value: "99.99%", subtext: "High availability" }
+      { label: "Quote Close Rate", value: "+28%", subtext: "Increased estimate conversion" },
+      { label: "Follow-Up Touchpoints", value: "5-7x", subtext: "Automated cadence" },
+      { label: "Sales Time Saved", value: "15 hrs/wk", subtext: "Per estimator" },
     ],
-    workflowTitle: "Data Synchronization Pipeline",
+    workflowTitle: "Multi-Touch Nurture Cadence",
     workflowSteps: [
-      {
-        step: "01",
-        title: "Webhook Trigger",
-        desc: "An event occurs (e.g., call ends, job completed).",
-        icon: "webhook"
-      },
-      {
-        step: "02",
-        title: "Data Transformation",
-        desc: "Payload is mapped and formatted to match the destination schema.",
-        icon: "transform"
-      },
-      {
-        step: "03",
-        title: "Bi-Directional Push",
-        desc: "Data is simultaneously updated in your CRM, billing software, and analytics dashboard.",
-        icon: "sync_alt"
-      },
-      {
-        step: "04",
-        title: "Validation & Log",
-        desc: "System verifies 200 OK status and logs the transaction for compliance.",
-        icon: "verified"
-      }
+      { step: "01", title: "Quote Creation", desc: "Estimator sends proposal from CRM.", icon: "description" },
+      { step: "02", title: "Day 1 Follow-Up", desc: "AI texts 24 hours later asking if the customer reviewed the quote.", icon: "sms" },
+      { step: "03", title: "Voice Outreach", desc: "AI places polite call on Day 4 to address questions and offer discounts if configured.", icon: "phone" },
+      { step: "04", title: "Closed-Won Trigger", desc: "Customer approves quote online; AI schedules job and updates CRM.", icon: "task_alt" },
     ],
     features: [
-      {
-        title: "Custom Data Mapping",
-        desc: "Visual interface for mapping complex fields between disparate legacy systems.",
-        icon: "schema"
-      },
-      {
-        title: "Retry Architecture",
-        desc: "Built-in exponential backoff ensures data is never lost if an endpoint goes down.",
-        icon: "replay"
-      },
-      {
-        title: "HIPAA Compliant Logging",
-        desc: "Maintains immutable audit trails for healthcare data compliance.",
-        icon: "admin_panel_settings"
-      },
-      {
-        title: "Webhooks & REST APIs",
-        desc: "Open architecture allows your dev team to build custom endpoints easily.",
-        icon: "api"
-      }
+      { title: "Multi-Channel Cadence", desc: "Combines text, email, and voice for maximum touchpoint coverage.", icon: "devices" },
+      { title: "Persistent Outreach", desc: "Configurable cadences (Day 1, Day 3, Day 7, Day 14) until resolved.", icon: "repeat" },
+      { title: "Status Tracking", desc: "Real-time updates in CRM when quotes are viewed, accepted, or declined.", icon: "analytics" },
+      { title: "Objection Handling", desc: "AI answers pricing and warranty questions using custom company guidelines.", icon: "forum" },
     ],
-    integrations: ["Salesforce", "HubSpot", "AthenaHealth", "Epic"]
+    integrations: ["ServiceTitan", "Jobber", "Salesforce", "Stripe"],
   },
   {
-    slug: "ai-estimating-agent",
-    name: "AI Estimating Agent",
-    shortDesc: "Instant, accurate quotes generated from voice descriptions and photos.",
-    heroDesc: "Close deals faster. Our AI Estimating Agent analyzes customer inputs, references your pricing books, and generates professional, accurate proposals in seconds, allowing your sales team to focus on closing rather than calculating.",
-    heroIcon: "calculate",
+    slug: "win-back-campaigns",
+    moduleNumber: "Module 06",
+    name: "Win-Back Campaigns",
+    shortDesc: "Re-engage past customers and cold leads with updated offers, seasonal promotions, and smart re-scheduling.",
+    heroDesc: "Reignite dormant pipeline. Win-Back Campaigns automatically segment past customers who haven't booked in 6–12 months, delivering personalized seasonal promotions and maintenance offers via text and voice.",
+    heroIcon: "published_with_changes",
     metrics: [
-      { label: "Quote Speed", value: "<10s", subtext: "From request to inbox" },
-      { label: "Close Rate", value: "+22%", subtext: "Due to faster response" },
-      { label: "Pricing Accuracy", value: "99%", subtext: "Tied to live catalogs" }
+      { label: "Re-Engagement", value: "18%", subtext: "Cold leads reactivated" },
+      { label: "Campaign ROI", value: "12x", subtext: "Average return on spend" },
+      { label: "Customer LTV", value: "+35%", subtext: "Increased repeat jobs" },
     ],
-    workflowTitle: "Automated Quoting Pipeline",
+    workflowTitle: "Re-Activation & Re-Engagement Pipeline",
     workflowSteps: [
-      {
-        step: "01",
-        title: "Request Intake",
-        desc: "Customer describes the issue via voice or text, and uploads photos if necessary.",
-        icon: "chat"
-      },
-      {
-        step: "02",
-        title: "Context Analysis",
-        desc: "AI parses the requirements and matches them against your service catalog and flat-rate book.",
-        icon: "troubleshoot"
-      },
-      {
-        step: "03",
-        title: "Proposal Generation",
-        desc: "A branded, itemized quote is instantly generated with good/better/best options.",
-        icon: "request_quote"
-      },
-      {
-        step: "04",
-        title: "Approval & Scheduling",
-        desc: "Customer approves online, triggering automatic deposit collection and job scheduling.",
-        icon: "task_alt"
-      }
+      { step: "01", title: "List Segmentation", desc: "Filters CRM for customers with no service history in 180+ days.", icon: "filter_alt" },
+      { step: "02", title: "Targeted Offer", desc: "AI constructs personalized SMS offer (e.g., Seasonal Inspection).", icon: "local_offer" },
+      { step: "03", title: "Conversational Booking", desc: "AI chats back-and-forth to confirm appointment slot.", icon: "chat" },
+      { step: "04", title: "Revenue Recovery", desc: "Completed job turns unbooked database into fresh revenue.", icon: "monetization_on" },
     ],
     features: [
-      {
-        title: "Visual AI Analysis",
-        desc: "Can identify basic parts or issues from customer-uploaded photos to refine quotes.",
-        icon: "image_search"
-      },
-      {
-        title: "Flat-Rate Integration",
-        desc: "Directly syncs with your price book to ensure margins are protected on every quote.",
-        icon: "price_check"
-      },
-      {
-        title: "Multi-Option Proposals",
-        desc: "Automatically builds Good/Better/Best options to increase average ticket size.",
-        icon: "view_column"
-      },
-      {
-        title: "Automated Follow-ups",
-        desc: "Chases unsold estimates via SMS and Email using personalized messaging.",
-        icon: "mark_email_unread"
-      }
+      { title: "Seasonal Promotions", desc: "Triggers pre-summer AC tune-up or pre-winter roof inspection offers.", icon: "thermostat" },
+      { title: "Smart Re-Engagement", desc: "Conversational outreach that feels personal and non-spammy.", icon: "mark_chat_unread" },
+      { title: "Automated Outreach", desc: "Scheduled drip campaigns executed automatically based on CRM age.", icon: "schedule" },
+      { title: "Performance Metrics", desc: "Tracks conversion rate, revenue generated, and ROI per campaign.", icon: "bar_chart" },
     ],
-    integrations: ["ServiceTitan", "Housecall Pro", "Stripe", "QuickBooks"]
+    integrations: ["ServiceTitan", "HubSpot", "Salesforce", "Klaviyo"],
   },
   {
-    slug: "automated-retention",
-    name: "Automated Retention System",
-    shortDesc: "AI-driven post-job follow-ups, review generation, and maintenance upselling.",
-    heroDesc: "Turn one-time customers into lifelong clients. This system automatically triggers customized outreach after every job to collect 5-star reviews, resolve silent complaints, and sell recurring maintenance plans without human effort.",
-    heroIcon: "campaign",
+    slug: "reviews-and-referrals",
+    moduleNumber: "Module 07",
+    name: "Reviews & Referrals AI",
+    shortDesc: "Request 5-star reviews at the perfect post-job moment and route negative feedback internally.",
+    heroDesc: "Dominate local search rankings. Reviews & Referrals AI texts happy customers immediately after job completion to collect 5-star Google reviews, while privately routing lower ratings to management for instant recovery.",
+    heroIcon: "star_rate",
     metrics: [
-      { label: "Review Volume", value: "3x", subtext: "Increase in 5-star reviews" },
-      { label: "Maintenance Conversion", value: "18%", subtext: "Automated upsells" },
-      { label: "Churn Reduction", value: "-40%", subtext: "Through proactive support" }
+      { label: "Google Reviews", value: "3.5x", subtext: "Increase in 5-star reviews" },
+      { label: "Review Rating", value: "4.9★", subtext: "Average reputation score" },
+      { label: "Private Recovery", value: "92%", subtext: "Unhappy customers intercepted" },
     ],
-    workflowTitle: "Customer Lifecycle Pipeline",
+    workflowTitle: "Reputation & Review Loop",
     workflowSteps: [
-      {
-        step: "01",
-        title: "Job Completion",
-        desc: "Technician marks the job complete in your CRM, triggering the retention flow.",
-        icon: "fact_check"
-      },
-      {
-        step: "02",
-        title: "Sentiment Check",
-        desc: "AI sends a quick SMS to gauge satisfaction before requesting a public review.",
-        icon: "thumbs_up_down"
-      },
-      {
-        step: "03",
-        title: "Review Routing",
-        desc: "Happy customers are sent to Google; unhappy customers are routed to a manager.",
-        icon: "reviews"
-      },
-      {
-        step: "04",
-        title: "Long-term Nurture",
-        desc: "System schedules check-ins and maintenance reminders 6-12 months out.",
-        icon: "calendar_month"
-      }
+      { step: "01", title: "Job Complete", desc: "Technician marks job completed in CRM.", icon: "done_all" },
+      { step: "02", title: "Sentiment Check", desc: "AI texts customer asking to rate their service on a 1-5 scale.", icon: "thumbs_up_down" },
+      { step: "03", title: "Smart Gating", desc: "4-5 stars routed to Google; 1-3 stars routed to internal manager.", icon: "verified" },
+      { step: "04", title: "Referral Request", desc: "Reviewers receive automated referral link offering rewards.", icon: "card_giftcard" },
     ],
     features: [
-      {
-        title: "Smart Review Gating",
-        desc: "Protects your online reputation by privately intercepting negative feedback.",
-        icon: "shield"
-      },
-      {
-        title: "Personalized SMS",
-        desc: "Uses details from the job notes to make automated texts feel highly personal.",
-        icon: "sms"
-      },
-      {
-        title: "Maintenance Upsells",
-        desc: "Automatically pitches seasonal tune-ups or club memberships at the perfect time.",
-        icon: "sell"
-      },
-      {
-        title: "Reputation Dashboard",
-        desc: "Aggregates all reviews and customer sentiment scores into one unified view.",
-        icon: "query_stats"
-      }
+      { title: "Timing Optimization", desc: "Triggers texts within 15 minutes of job completion for max response.", icon: "timer" },
+      { title: "Negative Review Gating", desc: "Intercepts bad feedback before it hits public review sites.", icon: "shield" },
+      { title: "Referral Engine", desc: "Automates word-of-mouth referral codes and incentive tracking.", icon: "groups" },
+      { title: "Reputation Dashboard", desc: "Consolidates Google, Yelp, and Facebook reviews into one view.", icon: "dashboard" },
     ],
-    integrations: ["Google Business", "Yelp", "ServiceTitan", "HubSpot"]
+    integrations: ["Google Business", "Yelp", "ServiceTitan", "HubSpot"],
   },
   {
-    slug: "smart-inventory",
-    name: "Smart Inventory Manager",
-    shortDesc: "Predictive parts ordering and automated warehouse stock management.",
-    heroDesc: "Never run out of critical parts. Our Smart Inventory Manager uses historical data and upcoming schedules to predict what you'll need, automatically drafting purchase orders and managing vendor relations.",
-    heroIcon: "warehouse",
+    slug: "membership-renewal",
+    moduleNumber: "Module 08",
+    name: "Membership & Renewal Reminders",
+    shortDesc: "Automated outreach for maintenance memberships, annual tune-ups, and recurring service plans.",
+    heroDesc: "Maximize recurring revenue. Membership & Renewal Reminders AI automates annual maintenance plan renewals, schedules recurring inspections, and collects recurring payments with zero staff effort.",
+    heroIcon: "workspace_premium",
     metrics: [
-      { label: "Stockouts", value: "0", subtext: "Eliminated entirely" },
-      { label: "Holding Costs", value: "-25%", subtext: "Optimized stock levels" },
-      { label: "Procurement Time", value: "-80%", subtext: "Automated POs" }
+      { label: "Renewal Rate", value: "88%", subtext: "Automated membership retention" },
+      { label: "Predictable MRR", value: "+40%", subtext: "Recurring contract growth" },
+      { label: "Admin Work", value: "-90%", subtext: "No manual renewal calls" },
     ],
-    workflowTitle: "Predictive Restock Pipeline",
+    workflowTitle: "Recurring Membership Lifecycle",
     workflowSteps: [
-      {
-        step: "01",
-        title: "Usage Tracking",
-        desc: "Technician logs a part used on a job, instantly decrementing virtual stock.",
-        icon: "qr_code_scanner"
-      },
-      {
-        step: "02",
-        title: "Predictive Analytics",
-        desc: "AI analyzes upcoming scheduled jobs and seasonal trends to forecast needs.",
-        icon: "timeline"
-      },
-      {
-        step: "03",
-        title: "PO Generation",
-        desc: "System automatically drafts a Purchase Order for the best vendor when stock is low.",
-        icon: "receipt"
-      },
-      {
-        step: "04",
-        title: "Vendor Sync",
-        desc: "PO is electronically sent to the supplier, and tracking information is logged.",
-        icon: "local_shipping"
-      }
+      { step: "01", title: "Expiration Trigger", desc: "CRM flags membership expiring in 30 days.", icon: "event_repeat" },
+      { step: "02", title: "Multi-Touch Reminder", desc: "AI sends SMS and email outlining member benefits.", icon: "notifications" },
+      { step: "03", title: "Auto-Renewal Charge", desc: "Customer clicks or confirms via text to renew and book tune-up.", icon: "credit_card" },
+      { step: "04", title: "Schedule Lock", desc: "Maintenance visit is added directly to technician schedule.", icon: "calendar_add_on" },
     ],
     features: [
-      {
-        title: "Barcode Scanning",
-        desc: "Mobile app integration allows technicians to scan parts right from the truck.",
-        icon: "qr_code"
-      },
-      {
-        title: "Multi-Vendor Routing",
-        desc: "Automatically compares pricing and availability across your approved suppliers.",
-        icon: "compare_arrows"
-      },
-      {
-        title: "Seasonality Adjustments",
-        desc: "Learns that you need more AC capacitors in July and pre-orders them in May.",
-        icon: "thermostat"
-      },
-      {
-        title: "Truck Restock Lists",
-        desc: "Generates daily pick-lists so warehouse staff know exactly what to put on each truck.",
-        icon: "list_alt"
-      }
+      { title: "Renewal Automation", desc: "Executes 30, 15, and 7-day automated renewal communications.", icon: "autorenew" },
+      { title: "Seasonal Reminders", desc: "Prompts members to schedule spring/fall system inspections.", icon: "today" },
+      { title: "Membership Tracking", desc: "Real-time sync of active, lapsed, and pending membership plans.", icon: "assignment_ind" },
+      { title: "Payment Integration", desc: "Links directly with Stripe or CRM merchant accounts.", icon: "payments" },
     ],
-    integrations: ["QuickBooks", "ServiceTitan", "Ferguson", "Johnstone Supply"]
-  }
+    integrations: ["ServiceTitan", "Housecall Pro", "Stripe", "Jobber"],
+  },
+  {
+    slug: "smart-lead-qualification",
+    moduleNumber: "Module 09",
+    name: "Smart Lead Qualification",
+    shortDesc: "Custom AI questionnaires that filter leads by job type, location, urgency, and budget before human involvement.",
+    heroDesc: "Stop wasting sales time on unqualified leads. Smart Lead Qualification uses dynamic AI dialogs to vet prospects, verify service area compatibility, check budget ranges, and prioritize high-margin work.",
+    heroIcon: "fact_check",
+    metrics: [
+      { label: "Lead Filter Rate", value: "100%", subtext: "Every lead vetted" },
+      { label: "Sales Efficiency", value: "+45%", subtext: "Reps focus on qualified buyers" },
+      { label: "Unqualified Cost", value: "$0", subtext: "Zero wasted drive time" },
+    ],
+    workflowTitle: "Intelligent Lead Vetting Pipeline",
+    workflowSteps: [
+      { step: "01", title: "Inbound Prospect", desc: "Prospect submits form or initiates phone call.", icon: "contact_mail" },
+      { step: "02", title: "Dynamic Vetting", desc: "AI asks location, job scope, timeline, and estimated budget.", icon: "checklist" },
+      { step: "03", title: "Score & Priority", desc: "High-value commercial or residential jobs are flagged VIP.", icon: "stars" },
+      { step: "04", title: "Targeted Routing", desc: "Qualified leads booked immediately; out-of-area leads politely declined.", icon: "alt_route" },
+    ],
+    features: [
+      { title: "Custom Questionnaires", desc: "Tailored intake flows for roofing, solar, HVAC, plumbing, or electrical.", icon: "quiz" },
+      { title: "Budget & Scope Filtering", desc: "Ensures projects meet your minimum job value threshold.", icon: "account_balance_wallet" },
+      { title: "Priority Scoring", desc: "High-margin or emergency leads bumped to the top of the queue.", icon: "grade" },
+      { title: "CRM Tagging", desc: "Tags contacts with budget, urgency, and job requirements in real-time.", icon: "label" },
+    ],
+    integrations: ["HubSpot", "ServiceTitan", "Salesforce", "Zapier"],
+  },
+  {
+    slug: "lead-source-integration",
+    moduleNumber: "Module 10",
+    name: "Lead Source Integration Hub",
+    shortDesc: "Plug directly into Google Ads, Facebook/Meta, Angi, HomeAdvisor, and lead providers for instant response.",
+    heroDesc: "Connect all your ad channels to one central AI brain. Lead Source Integration instantly ingests webhooks from Meta Ads, Google Local Services, Angi, and landing pages to ensure immediate 3-second engagement.",
+    heroIcon: "extension",
+    metrics: [
+      { label: "Integration Latency", value: "<100ms", subtext: "Instant payload ingestion" },
+      { label: "Channel Support", value: "50+", subtext: "Ad platforms & lead vendors" },
+      { label: "Ad ROI", value: "+32%", subtext: "From speed-to-lead conversion" },
+    ],
+    workflowTitle: "Unified Lead Channel Pipeline",
+    workflowSteps: [
+      { step: "01", title: "Ad Click / Lead Event", desc: "User submits lead form on Meta, Google, or Angi.", icon: "touch_app" },
+      { step: "02", title: "Payload Ingestion", desc: "IronLoop hub parses lead fields, phone, and source tracking.", icon: "data_object" },
+      { step: "03", title: "Immediate AI Outreach", desc: "Triggers Voice/SMS agent in under 3 seconds.", icon: "bolt" },
+      { step: "04", title: "Attribution Logging", desc: "Logs source and campaign ROI back to your analytics.", icon: "query_stats" },
+    ],
+    features: [
+      { title: "Google Local Services", desc: "Direct integration with LSA leads and Google Guarantee calls.", icon: "google" },
+      { title: "Facebook / Meta Lead Ads", desc: "Instant Webhook ingestion for Instant Forms and Messenger.", icon: "share" },
+      { title: "Angi & HomeAdvisor", desc: "Real-time API sync to beat competitors to purchased leads.", icon: "store" },
+      { title: "Custom Webhook API", desc: "Open API endpoint to connect custom landing pages and forms.", icon: "code" },
+    ],
+    integrations: ["Google Ads", "Meta Ads", "Angi", "Zapier"],
+  },
+  {
+    slug: "after-hours-coverage",
+    moduleNumber: "Module 11",
+    name: "After-Hours AI Coverage",
+    shortDesc: "When your office closes, IronLoop AI opens. Capture every evening and weekend lead and have them booked by morning.",
+    heroDesc: "Never lose after-hours revenue again. Over 35% of service leads occur outside 9-to-5 business hours. IronLoop AI operates 24/7/365, answering calls, qualifying prospects, and filling your morning schedule while your team sleeps.",
+    heroIcon: "dark_mode",
+    metrics: [
+      { label: "After-Hours Coverage", value: "100%", subtext: "Nights, weekends & holidays" },
+      { label: "Morning Bookings", value: "+12/wk", subtext: "Booked overnight" },
+      { label: "Reputation Boost", value: "24/7", subtext: "Always-on service" },
+    ],
+    workflowTitle: "Overnight & Weekend Intake Pipeline",
+    workflowSteps: [
+      { step: "01", title: "Office Hours End", desc: "Phone line automatically routes to IronLoop AI Coverage.", icon: "schedule font" },
+      { step: "02", title: "Overnight Call Handling", desc: "AI answers, qualifies caller, and answers service questions.", icon: "bedtime" },
+      { step: "03", title: "Next-Day Booking", desc: "Books appointment directly into tomorrow's open schedule slots.", icon: "event" },
+      { step: "04", title: "Morning Briefing", desc: "Office manager receives structured summary email at 7 AM.", icon: "mail" },
+    ],
+    features: [
+      { title: "24/7 Always-On", desc: "Zero downtime during nights, weekends, or national holidays.", icon: "schedule" },
+      { title: "Emergency Dispatch Triage", desc: "Alerts on-call technicians for true burst pipes or roof leaks.", icon: "warning" },
+      { title: "Morning Digest Reports", desc: "Complete transcript summaries sent to management before opening.", icon: "article" },
+      { title: "Automatic Slot Allocation", desc: "Reserves specific morning slots for urgent overnight calls.", icon: "alarm_add" },
+    ],
+    integrations: ["ServiceTitan", "Jobber", "Housecall Pro", "Twilio"],
+  },
+  {
+    slug: "outbound-pipeline-fill",
+    moduleNumber: "Module 12",
+    name: "Outbound Pipeline Fill",
+    shortDesc: "Slow day? IronLoop AI works through your warm list, calling and texting to fill open crew slots before it's too late.",
+    heroDesc: "Keep your crews 100% billable. When schedules show open technician slots for the upcoming days, Outbound Pipeline Fill automatically dials warm prospects and past customers to fill your calendar.",
+    heroIcon: "trending_up",
+    metrics: [
+      { label: "Schedule Density", value: "95%+", subtext: "Capacity utilization" },
+      { label: "Slot Fill Speed", value: "<24 hrs", subtext: "To fill open technician days" },
+      { label: "Unbilled Overhead", value: "$0", subtext: "Crews stay active" },
+    ],
+    workflowTitle: "Calendar Gap Fill Pipeline",
+    workflowSteps: [
+      { step: "01", title: "Gap Detection", desc: "System identifies unbooked technician slots for Thursday/Friday.", icon: "calendar_view_week" },
+      { step: "02", title: "Target List Selection", desc: "Selects unbooked estimates or maintenance due contacts.", icon: "contacts" },
+      { step: "03", title: "Proactive Dialing", desc: "AI contacts warm list offering priority scheduling incentives.", icon: "phone_in_talk" },
+      { step: "04", title: "Schedule Lock", desc: "Fills open slots and updates dispatch board in CRM.", icon: "lock" },
+    ],
+    features: [
+      { title: "Warm List Calling", desc: "Reaches out only to familiar prospects and prior customers.", icon: "contact_phone" },
+      { title: "Slot Filling Intelligence", desc: "Targets specific geographical routes to optimize drive times.", icon: "pin_drop" },
+      { title: "Proactive Outreach", desc: "Combines conversational phone calls and SMS touchpoints.", icon: "campaign" },
+      { title: "Incentive Routing", desc: "Offers dynamic discounts (e.g. $50 off today) to lock in slots.", icon: "local_activity" },
+    ],
+    integrations: ["ServiceTitan", "Jobber", "Salesforce", "HubSpot"],
+  },
+  {
+    slug: "dead-lead-reactivation",
+    moduleNumber: "Module 13",
+    name: "Dead Lead Reactivation",
+    shortDesc: "Simultaneous 10x concurrent calling to process dormant lead databases and turn forgotten contacts into booked jobs.",
+    heroDesc: "IronLoop Signature Module. Upload your dormant lead list from the past 6–12 months. Our AI dials through all of them simultaneously (up to 10 concurrent calls) with personalized outreach — turning cold databases into instant booked jobs.",
+    heroIcon: "sync",
+    metrics: [
+      { label: "Concurrent Calls", value: "10x", subtext: "Simultaneous AI outbound streams" },
+      { label: "Database Conversion", value: "15%", subtext: "Dormant leads turned into jobs" },
+      { label: "ROI per Campaign", value: "15x-25x", subtext: "Immediate cash injection" },
+    ],
+    workflowTitle: "High-Volume Reactivation Blitz",
+    workflowSteps: [
+      { step: "01", title: "Database Upload", desc: "Upload 500-5,000 cold leads from past marketing campaigns.", icon: "cloud_upload" },
+      { step: "02", title: "Concurrent Dial Blitz", desc: "10 AI lines call simultaneously using personalized scripts.", icon: "phone_forwarded" },
+      { step: "03", title: "Real-Time Qualification", desc: "AI checks current project needs and addresses past objections.", icon: "record_voice_over" },
+      { step: "04", title: "Instant Booking", desc: "Interested leads are booked directly onto your calendar.", icon: "event_available" },
+    ],
+    features: [
+      { title: "10x Concurrent Calling", desc: "Processes thousands of leads in hours rather than months.", icon: "alt_route" },
+      { title: "Personalized Scripts", desc: "References past estimate quotes, names, and property details.", icon: "edit_note" },
+      { title: "CRM Auto-Status Updates", desc: "Updates contact records, opt-outs, and interested buyers.", icon: "sync" },
+      { title: "Enterprise Scaling", desc: "Enterprise plans available for 20, 50, or 100+ concurrent channels.", icon: "domain" },
+    ],
+    integrations: ["ServiceTitan", "Salesforce", "HubSpot", "GoHighLevel"],
+  },
 ];
+
+export const solutionsData = productsData;

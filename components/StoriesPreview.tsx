@@ -1,171 +1,140 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 const TESTIMONIALS = [
   {
-    text: "They were great! We discussed everything we needed for an AI answering service and they delivered. We started booking emergency jobs right away from the new system. I had a question on a Sunday and they responded right away. Highly Recommend.",
-    author: "Wayne Meadows",
+    quote: "“Amazing AI Lol ! Honestly doubled our booked jobs in the first month.”",
+    name: "Maaz",
+    role: "Roofing • Zevoic",
+    initial: "M",
   },
   {
-    text: "Thanks so much for a job well done. I was so nervous hiring someone to take care of our patient intake, it took me 2 months to make that decision. We are only a month into our campaign and my biggest concern now is keeping up with the new patient volume, what a great problem to have. I would highly recommend you to anyone.",
-    author: "Rob Cavey",
+    quote: "“we really scale our revenue — calls answered at 2 AM with zero hold time.”",
+    name: "Sarah Jenkins",
+    role: "Contractor • Healthcare Insurance",
+    initial: "S",
   },
   {
-    text: "Thanks to the team for creating the very automation system we were envisioning! From start to finish they guided us along and were extremely knowledgeable. Requested workflow changes were made within hours, and phone calls returned promptly. I would highly recommend IronLoop!",
-    author: "Aimee Lindsley",
+    quote: "“The after-hours calls being answered instantly changed our whole business.”",
+    name: "Rob Cavey",
+    role: "HVAC & Plumbing • Elite Service",
+    initial: "R",
   },
 ];
 
 export default function StoriesPreview() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-
-  // Duplicate the testimonials to ensure enough width for seamless infinite scrolling
-  const duplicatedTestimonials = [...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS];
-
-  useEffect(() => {
-    let animationId: number;
-    let lastTime = performance.now();
-
-    const scroll = (time: number) => {
-      const element = scrollRef.current;
-      if (!element) return;
-
-      const deltaTime = time - lastTime;
-      lastTime = time;
-
-      if (!isHovered && !isDragging) {
-        element.scrollLeft += (0.05 * deltaTime); // Adjust auto-scroll speed
-        
-        // Loop back when we scroll past half the width (which is perfectly multiple full sets)
-        if (element.scrollLeft >= element.scrollWidth / 2) {
-          element.scrollLeft -= element.scrollWidth / 2;
-        }
-      }
-      animationId = requestAnimationFrame(scroll);
-    };
-
-    animationId = requestAnimationFrame(scroll);
-    return () => cancelAnimationFrame(animationId);
-  }, [isHovered, isDragging]);
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
-    setStartX(e.pageX - (scrollRef.current?.offsetLeft || 0));
-    setScrollLeft(scrollRef.current?.scrollLeft || 0);
-  };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-    setIsHovered(false);
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !scrollRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - (scrollRef.current.offsetLeft || 0);
-    const walk = (x - startX) * 2; // Scroll fast
-    scrollRef.current.scrollLeft = scrollLeft - walk;
-  };
-
-  const handleScroll = () => {
-    const element = scrollRef.current;
-    if (!element) return;
-    
-    // When manually scrolling (touch or trackpad), we still enforce the infinite loop constraints
-    if (element.scrollLeft >= element.scrollWidth / 2) {
-      element.scrollLeft -= element.scrollWidth / 2;
-    } else if (element.scrollLeft <= 0) {
-      element.scrollLeft += element.scrollWidth / 2;
-    }
-  };
-
   return (
-    <section className="py-20 lg:py-28 bg-[#08090a] border-t border-white/[0.04] overflow-hidden">
-      <div className="max-w-container-max mx-auto px-6 lg:px-margin-desktop">
-        
-        {/* Header Section */}
+    <section className="py-24 lg:py-32 bg-[#050505] relative overflow-hidden">
+      {/* Background Dot Texture */}
+      <div
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(#ffffff 1px, transparent 1px)`,
+          backgroundSize: `24px 24px`,
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="font-mono text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#a3e635] block mb-4">
-            CLIENT SUCCESS STORIES
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight mb-5">
-            What Our Clients <span className="text-[#a3e635]">Are Saying</span>
-          </h2>
-          <p className="font-body text-base text-white/70 leading-relaxed">
-            Don&apos;t just take our word for it.<br />
-            Here&apos;s what service and healthcare business owners have to say about working with us.
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-white/50 inline-block mb-4">
+              TESTIMONIALS
+            </span>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
+              Built for businesses that <br />
+              <span className="text-white">build America.</span>
+            </h2>
+            <p className="font-body text-base sm:text-lg text-white/60 leading-relaxed max-w-xl mx-auto">
+              Roofers, solar installers, trade, and home service companies trust IronLoop AI to run their sales floor 24/7.
+            </p>
+          </motion.div>
         </div>
 
-      </div>
-      
-      {/* Testimonials Carousel Wrapper */}
-      <div 
-        className="w-full relative group"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={handleMouseLeave}
-      >
-        <div 
-          ref={scrollRef}
-          className="flex gap-6 overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing px-6 lg:px-margin-desktop pb-8 scroll-smooth-disabled"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          onMouseMove={handleMouseMove}
-          onScroll={handleScroll}
-          onTouchStart={() => setIsHovered(true)}
-          onTouchEnd={() => setIsHovered(false)}
-        >
-          {duplicatedTestimonials.map((testimonial, i) => (
+        {/* 3 Short & Organic Testimonial Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-16 max-w-6xl mx-auto">
+          {TESTIMONIALS.map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="flex-shrink-0 w-[85vw] sm:w-[400px] md:w-[450px] bg-[#121316] rounded-2xl p-8 lg:p-10 relative overflow-hidden flex flex-col border border-white/[0.02]"
+              className="bg-[#0f1016]/90 border border-white/[0.08] hover:border-[#C5E033]/30 rounded-3xl p-8 flex flex-col justify-between shadow-xl transition-all duration-300 group"
             >
-              {/* Large Quote Icon Background */}
-              <svg 
-                className="absolute top-6 right-6 w-16 h-16 text-white/[0.03] fill-current pointer-events-none" 
-                viewBox="0 0 24 24"
-              >
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-              </svg>
-
-              {/* Stars & Lines Divider */}
-              <div className="flex items-center gap-4 mb-8">
-                <div className="h-px bg-[#a3e635]/40 flex-1"></div>
-                <div className="flex gap-1 text-[#facc15] text-[13px] tracking-widest">
-                  ★★★★★
+              <div>
+                {/* 5-Star Rating */}
+                <div className="flex gap-1 text-amber-400 text-sm mb-6">
+                  {"★".repeat(5)}
                 </div>
-                <div className="h-px bg-[#a3e635]/40 flex-1"></div>
-              </div>
 
-              {/* Testimonial Text */}
-              <div className="flex-1">
-                <p className="font-body text-[14px] text-white/85 leading-[1.8] relative z-10 mb-8 select-text">
-                  &quot;{testimonial.text}&quot;
+                {/* Short Organic Quote */}
+                <p className="font-body text-base text-white/90 leading-relaxed mb-8">
+                  {item.quote}
                 </p>
               </div>
 
-              {/* Author Name */}
-              <p className="font-display text-[15px] font-extrabold text-white relative z-10">
-                {testimonial.author}
-              </p>
+              {/* Author & Avatar */}
+              <div className="flex items-center gap-3.5 pt-4 border-t border-white/[0.06]">
+                <div className="w-10 h-10 rounded-full bg-white/10 border border-white/10 flex items-center justify-center font-display font-bold text-sm text-white group-hover:border-[#C5E033]/50 transition-colors">
+                  {item.initial}
+                </div>
+                <div>
+                  <h4 className="font-display text-sm font-bold text-white">{item.name}</h4>
+                  <p className="font-mono text-xs text-white/40">{item.role}</p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Badges & Action Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center space-y-8"
+        >
+          {/* Checkmarks */}
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-white/70 font-medium">
+            <span className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-[#C5E033] text-base">check</span>
+              No contracts
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-[#C5E033] text-base">check</span>
+              No lock-ins
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-[#C5E033] text-base">check</span>
+              Live in 14 days
+            </span>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="px-8 py-3.5 rounded-full bg-white text-[#050608] font-display text-sm font-extrabold hover:bg-[#C5E033] hover:text-[#0b0d10] active:scale-95 transition-all shadow-xl"
+            >
+              Book a Demo
+            </Link>
+            <Link
+              href="/compare"
+              className="px-8 py-3.5 rounded-full bg-white/[0.05] border border-white/15 text-white font-display text-sm font-bold hover:bg-white/10 active:scale-95 transition-all"
+            >
+              See How We Compare
+            </Link>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

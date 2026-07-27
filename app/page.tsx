@@ -1,9 +1,12 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Dashboard from "@/components/Dashboard";
+import WhatIronLoopDoes from "@/components/WhatIronLoopDoes";
 import Reliability from "@/components/Reliability";
 import ProductsPreview from "@/components/ProductsPreview";
+import ToolIntegrationsMarquee from "@/components/ToolIntegrationsMarquee";
 import Industries from "@/components/Industries";
+import CaseStudiesPreview from "@/components/CaseStudiesPreview";
 import StoriesPreview from "@/components/StoriesPreview";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -15,9 +18,12 @@ export default function Home() {
       <main>
         <Hero />
         <Dashboard />
+        <WhatIronLoopDoes />
         <Reliability />
         <ProductsPreview />
+        <ToolIntegrationsMarquee />
         <Industries />
+        <CaseStudiesPreview />
         <StoriesPreview />
         <CTA />
       </main>

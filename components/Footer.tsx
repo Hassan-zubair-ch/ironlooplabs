@@ -8,6 +8,8 @@ const FOOTER_LINKS = {
   Company: [
     { label: "Home", href: "/" },
     { label: "Industries", href: "/industries" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "Compare", href: "/compare" },
     { label: "Success Stories", href: "/success-stories" },
     { label: "Contact Us", href: "/contact" },
   ],

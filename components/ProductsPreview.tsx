@@ -57,10 +57,10 @@ export default function ProductsPreview() {
                 </div>
 
                 <Link 
-                  href={`/products/${prod.slug}`}
+                  href={`/solutions/${prod.slug}`}
                   className="inline-flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-white/[0.03] border border-white/[0.06] text-white font-display text-sm font-bold uppercase tracking-wide hover:bg-[#a3e635] hover:text-[#050608] hover:border-[#a3e635] transition-all duration-300"
                 >
-                  Explore Capabilities
+                  Explore Solution
                   <span className="material-symbols-outlined text-lg">arrow_forward</span>
                 </Link>
               </div>
@@ -76,10 +76,10 @@ export default function ProductsPreview() {
           className="text-center"
         >
           <Link 
-            href="/products"
+            href="/solutions"
             className="inline-flex items-center gap-2 text-white/70 hover:text-white font-mono text-sm tracking-widest uppercase font-bold transition-colors group"
           >
-            Explore All Products
+            Explore All Solutions
             <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
           </Link>
         </motion.div>
