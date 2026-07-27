@@ -72,10 +72,11 @@ export default function Hero() {
               <span className="material-symbols-outlined text-lg">arrow_forward</span>
             </Link>
             <Link
-              href="/contact"
-              className="px-8 py-4 rounded-full border border-white/20 text-white font-display text-base font-bold bg-white/5 hover:bg-white/10 hover:border-white/40 active:scale-95 transition-all flex items-center justify-center"
+              href="/compare"
+              className="px-8 py-4 rounded-full border border-white/20 text-white font-display text-base font-bold bg-white/5 hover:bg-white/10 hover:border-white/40 active:scale-95 transition-all flex items-center justify-center gap-2"
             >
-              Try the AI Demo
+              Compare Solutions
+              <span className="material-symbols-outlined text-lg">stacked_line_chart</span>
             </Link>
           </div>
           <p className="text-white/40 text-xs sm:text-sm font-mono mt-1">
