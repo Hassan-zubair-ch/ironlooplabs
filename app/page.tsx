@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import PlatformVideoSection from "@/components/PlatformVideoSection";
 import Dashboard from "@/components/Dashboard";
 import WhatIronLoopDoes from "@/components/WhatIronLoopDoes";
 import ProductsPreview from "@/components/ProductsPreview";
@@ -16,6 +17,7 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <PlatformVideoSection />
         <Dashboard />
         <WhatIronLoopDoes />
         <ProductsPreview />

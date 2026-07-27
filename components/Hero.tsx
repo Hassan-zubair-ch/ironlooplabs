@@ -2,11 +2,10 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Reveal from "./Reveal";
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative overflow-hidden pt-20 pb-32 bg-[#050505]">
+    <section id="hero" className="relative w-full flex flex-col items-center justify-center px-6 pt-16 pb-20 overflow-hidden bg-[#050505] text-center">
       {/* Background Dot Texture */}
       <div
         className="absolute inset-0 opacity-20 pointer-events-none"
@@ -15,123 +14,101 @@ export default function Hero() {
           backgroundSize: `24px 24px`,
         }}
       />
-      <motion.div
-        className="absolute inset-0 pointer-events-none opacity-10"
-        style={{
-          background:
-            "radial-gradient(circle at 20% 30%, rgba(197,224,51,1) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(197,224,51,0.4) 0%, transparent 50%)",
-        }}
-        animate={{ opacity: [0.05, 0.12, 0.05], scale: [1, 1.1, 1] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
 
-      <div className="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center relative z-10">
-        <div className="lg:col-span-7 space-y-8">
-          <div className="inline-flex items-center gap-2 bg-growth-green/10 px-4 py-1.5 rounded-full border border-growth-green/20">
-            <span className="font-mono text-label-sm text-growth-green uppercase">Active Automation</span>
-            <span className="w-2 h-2 rounded-full bg-growth-green status-pulse" />
+      {/* Ambient Glow Orbs */}
+      <div className="absolute top-[-80px] left-[-80px] w-[300px] h-[300px] bg-[#C5E033]/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[-80px] right-[-80px] w-[400px] h-[400px] bg-white/5 rounded-full blur-[160px] pointer-events-none" />
+
+      <div className="relative z-10 text-center max-w-4xl mx-auto space-y-8">
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex justify-center"
+        >
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/15 bg-white/[0.06] backdrop-blur-md text-xs sm:text-sm font-medium text-white/90 shadow-xl">
+            <span className="text-[#C5E033]">⚡</span>
+            AI-Powered Sales Automation for Home Services
           </div>
+        </motion.div>
 
-          <h1
-            className="font-display text-display-lg text-white"
-          >
-            The Autonomous Nerve Center For <span className="text-growth-green italic">Modern Services.</span>
-          </h1>
+        {/* Main Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.08] tracking-tight text-white font-display"
+        >
+          Your AI employee,<br />
+          <span className="bg-gradient-to-r from-white via-white/80 to-white/40 bg-clip-text text-transparent">
+            working 24/7
+          </span>
+        </motion.h1>
 
-          <p className="font-body text-body-lg text-on-surface-variant max-w-xl">
-            From zero-latency emergency dispatch to HIPAA-compliant medical triage, IronLoop&apos;s AI infrastructure answers every inbound call instantly, qualifies complex intent, and locks in high-value bookings with ruthless precision.
-          </p>
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-base sm:text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed font-body"
+        >
+          IronLoop AI answers every call, books every appointment, and reactivates every dead lead — automatically. Built for roofing, solar, trade, and home service companies.
+        </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+        {/* Action Buttons & Note */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex flex-col items-center gap-3 pt-2"
+        >
+          <div className="flex flex-wrap justify-center gap-4 w-full sm:w-auto">
             <Link
               href="/contact"
-              className="bg-growth-green text-deep-forest px-8 py-4 rounded-xl font-display text-lg font-bold shadow-lg shadow-growth-green/10 hover:scale-105 active:scale-95 transition-transform text-center btn-glow-hover"
+              className="px-8 py-4 rounded-full bg-white text-[#050608] font-display text-base font-extrabold hover:bg-[#C5E033] hover:text-[#0b0d10] active:scale-95 transition-all shadow-[0_0_30px_rgba(255,255,255,0.15)] flex items-center justify-center gap-2"
             >
-              Deploy AI Agents
+              Book a Free Demo
+              <span className="material-symbols-outlined text-lg">arrow_forward</span>
             </Link>
             <Link
-              href="/solutions"
-              className="border-2 border-surface-container-highest text-white px-8 py-4 rounded-xl font-display text-lg font-bold hover:bg-white/5 active:scale-95 transition-all text-center"
+              href="/contact"
+              className="px-8 py-4 rounded-full border border-white/20 text-white font-display text-base font-bold bg-white/5 hover:bg-white/10 hover:border-white/40 active:scale-95 transition-all flex items-center justify-center"
             >
-              Explore Solutions
+              Try the AI Demo
             </Link>
           </div>
+          <p className="text-white/40 text-xs sm:text-sm font-mono mt-1">
+            30-minute demo • No commitment
+          </p>
+        </motion.div>
 
-          <div className="grid grid-cols-3 gap-gutter pt-12 border-t border-white/10">
-            <div>
-              <p className="font-display text-headline-lg text-white">10k+</p>
-              <p className="font-mono text-label-sm text-on-surface-variant uppercase">Calls Handled</p>
-            </div>
-            <div>
-              <p className="font-display text-headline-lg text-white">24/7</p>
-              <p className="font-mono text-label-sm text-on-surface-variant uppercase">Availability</p>
-            </div>
-            <div>
-              <p className="font-display text-headline-lg text-white">35%</p>
-              <p className="font-mono text-label-sm text-on-surface-variant uppercase">Conversion Lift</p>
+        {/* Bottom Metrics Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto pt-12 border-t border-white/10 mt-12"
+        >
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-display">+85%</div>
+            <div className="text-white/40 text-[10px] sm:text-xs uppercase tracking-widest font-mono font-semibold">
+              More Booked Jobs
             </div>
           </div>
-        </div>
-
-        <div className="lg:col-span-5 relative">
-          <div className="bg-surface-container-low rounded-3xl shadow-2xl p-6 border border-white/5 relative z-10">
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center">
-                  <span className="material-symbols-outlined text-growth-green">record_voice_over</span>
-                </div>
-                <div>
-                  <p className="font-display text-sm text-white font-semibold">Incoming Call</p>
-                  <p className="font-mono text-xs text-on-surface-variant">No-Cooling Emergency</p>
-                </div>
-              </div>
-              <span className="bg-growth-green/20 text-growth-green font-mono text-[10px] px-2 py-1 rounded">
-                LIVE TRANSCRIPT
-              </span>
-            </div>
-
-            <div className="space-y-4 mb-6">
-              <div className="bg-surface-container-highest/50 p-4 rounded-2xl rounded-tl-none mr-8 transform hover:scale-[1.02] transition-transform">
-                <p className="text-sm font-body text-on-surface">
-                  &quot;Hi, my AC just stopped cooling and it&apos;s over 90 degrees today — can someone come out?&quot;
-                </p>
-              </div>
-              <div className="bg-growth-green/10 p-4 rounded-2xl rounded-tr-none ml-8 border-l-4 border-growth-green transform hover:scale-[1.02] transition-transform">
-                <p className="text-sm font-body text-growth-green italic">
-                  &quot;IronLoop: I&apos;m sorry to hear that — let&apos;s get a technician to you today. I have an
-                  opening at 2:00 PM, does that work?&quot;
-                </p>
-              </div>
-              <div className="bg-surface-container-highest/50 p-4 rounded-2xl rounded-tl-none mr-8 transform hover:scale-[1.02] transition-transform">
-                <p className="text-sm font-body text-on-surface">&quot;Yes, please — thank you so much!&quot;</p>
-              </div>
-            </div>
-
-            <div className="p-4 bg-background-subtle rounded-2xl flex items-center justify-between border border-white/5 group hover:border-growth-green/30 transition-colors">
-              <div className="flex items-center gap-2">
-                <span
-                  className="material-symbols-outlined text-action-yellow group-hover:scale-125 transition-transform"
-                  style={{ fontVariationSettings: "'FILL' 1" }}
-                >
-                  calendar_today
-                </span>
-                <span className="font-mono text-white text-sm">DISPATCH BOOKED</span>
-              </div>
-              <span className="font-mono text-growth-green text-sm">2:00 PM Today</span>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-display">3-sec</div>
+            <div className="text-white/40 text-[10px] sm:text-xs uppercase tracking-widest font-mono font-semibold">
+              Response Time
             </div>
           </div>
-
-          <motion.div
-            className="absolute -top-10 -right-10 w-64 h-64 bg-growth-green/5 rounded-full blur-3xl -z-10"
-            animate={{ opacity: [0.3, 0.6, 0.3] }}
-            transition={{ duration: 3, repeat: Infinity }}
-          />
-          <motion.div
-            className="absolute -bottom-10 -left-10 w-48 h-48 bg-primary-fixed/5 rounded-full blur-2xl -z-10"
-            animate={{ opacity: [0.3, 0.6, 0.3] }}
-            transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-          />
-        </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-display">10x</div>
+            <div className="text-white/40 text-[10px] sm:text-xs uppercase tracking-widest font-mono font-semibold">
+              Concurrent AI Calls
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
