@@ -110,7 +110,7 @@ export default function PlatformVideoSection() {
           src="https://embed-ssl.wistia.com/deliveries/bf914f7766cf61569471a1eba520cf32.bin"
           poster="/video-poster.jpg"
           playsInline
-          preload="metadata"
+          preload="none"
           onTimeUpdate={() => {
             if (videoRef.current) setCurrentTime(videoRef.current.currentTime);
           }}
