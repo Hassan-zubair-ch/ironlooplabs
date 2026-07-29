@@ -359,30 +359,6 @@ export default function VoiceDemoClient() {
                 </>
               )}
             </div>
-
-            {/* Captured Lead Alert Banner */}
-            <AnimatePresence>
-              {capturedLead && (
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="mt-8 w-full max-w-md bg-[#C5E033]/15 border border-[#C5E033]/40 rounded-2xl p-4 text-left flex items-start gap-3 shadow-lg"
-                >
-                  <span className="material-symbols-outlined text-[#C5E033] text-2xl shrink-0 mt-0.5">check_circle</span>
-                  <div>
-                    <h4 className="text-sm font-bold text-[#C5E033] font-display">Contact Info Captured & Transmitted!</h4>
-                    <p className="text-xs text-white/80 mt-1">
-                      <strong>Name:</strong> {capturedLead.name || "Provided"} &nbsp;|&nbsp; <strong>Email:</strong> {capturedLead.email || "Provided"}
-                    </p>
-                    <p className="text-[11px] text-white/50 mt-1">
-                      ✅ Notification email automatically sent to <code className="text-[#C5E033]">hassan@ironlooplabs.com</code> via Hostinger SMTP.
-                    </p>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
           </div>
 
           {/* LIVE TRANSCRIPT WINDOW */}
