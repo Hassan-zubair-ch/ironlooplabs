@@ -26,12 +26,12 @@ Early in the call, naturally request their name and email. As soon as you have B
 const assistantConfig: any = {
   name: "Iron Loop Labs Executive Receptionist",
   firstMessage:
-    "Welcome to IronLoop Labs. I'm your AI receptionist. May I have your name and email to get started?",
+    "Hi, thanks for calling IronLoop Labs! I'm the AI receptionist. Mind sharing your name and email so our team can follow up?",
   model: {
     provider: "openai",
     model: "gpt-4o-mini",
-    temperature: 0.2, // Fast deterministic inference
-    maxTokens: 80, // Concise 1-sentence responses
+    temperature: 0.5,
+    maxTokens: 100,
     messages: [{ role: "system", content: SYSTEM_PROMPT }],
     tools: [
       {
@@ -52,14 +52,27 @@ const assistantConfig: any = {
     ],
   },
   voice: {
-    provider: "azure",
-    voiceId: "en-US-JennyNeural",
+    provider: "11labs",
+    voiceId: "21m00Tcm4TlvDq8ikWAM",
   },
   silenceTimeoutSeconds: 30,
   maxDurationSeconds: 600,
-  backchannelingEnabled: false,
-  numWordsToInterrupt: 1, // Instantly interrupts on 1 word
   clientMessages: ["transcript", "tool-calls"],
+};
+
+const extractErrorMessage = (err: any): string => {
+  if (!err) return "Connection error";
+  if (typeof err === "string") return err;
+  if (err.error?.message && typeof err.error.message === "string") return err.error.message;
+  if (err.message && typeof err.message === "string") return err.message;
+  if (err.error && typeof err.error === "string") return err.error;
+  if (err.errorMsg && typeof err.errorMsg === "string") return err.errorMsg;
+  try {
+    const str = JSON.stringify(err);
+    return str !== "{}" ? str : "Audio stream error. Please check browser microphone settings.";
+  } catch {
+    return String(err);
+  }
 };
 
 export default function VoiceDemoClient() {
@@ -109,15 +122,14 @@ export default function VoiceDemoClient() {
     const publicKey = process.env.NEXT_PUBLIC_VAPI_PUBLIC_KEY || "31fd6b51-f0b8-45e7-88f9-37cffd69f920";
 
     try {
-      // Prompt browser for microphone permission
+      // Check for getUserMedia microphone permission
       if (typeof navigator !== "undefined" && navigator.mediaDevices?.getUserMedia) {
         try {
           const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-          // Release stream tracks after permission confirmation so Vapi can acquire it
           stream.getTracks().forEach((track) => track.stop());
         } catch (micErr: any) {
           console.warn("Microphone permission denied:", micErr);
-          setErrorMessage("Microphone access was denied. Please allow microphone permissions in your browser address bar.");
+          setErrorMessage("Microphone access was denied. Please allow microphone permission in your browser address bar.");
           setStatus("idle");
           return;
         }
@@ -164,16 +176,14 @@ export default function VoiceDemoClient() {
 
       vapi.on("error", (err: any) => {
         console.error("Vapi Error Event:", err);
-        const msg = typeof err === "string" ? err : err?.message || "Audio connection issue. Please verify microphone permission.";
-        setErrorMessage(msg);
+        setErrorMessage(extractErrorMessage(err));
         setStatus("idle");
       });
 
       await vapi.start(assistantConfig);
     } catch (err: any) {
       console.error("Vapi Start Error:", err);
-      const msg = err?.message || "Connection failed. Please allow microphone access.";
-      setErrorMessage(msg);
+      setErrorMessage(extractErrorMessage(err));
       setStatus("idle");
     }
   };
