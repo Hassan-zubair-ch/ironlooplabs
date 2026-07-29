@@ -1,15 +1,17 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import MissedCallCalculator from "@/components/MissedCallCalculator";
-import PlatformVideoSection from "@/components/PlatformVideoSection";
-import WhatIronLoopDoes from "@/components/WhatIronLoopDoes";
-import ProductsPreview from "@/components/ProductsPreview";
-import ToolIntegrationsMarquee from "@/components/ToolIntegrationsMarquee";
-import CaseStudiesPreview from "@/components/CaseStudiesPreview";
-import StoriesPreview from "@/components/StoriesPreview";
-import CTA from "@/components/CTA";
-import Footer from "@/components/Footer";
+import dynamic from "next/dynamic";
 import { Metadata } from "next";
+
+const PlatformVideoSection = dynamic(() => import("@/components/PlatformVideoSection"));
+const MissedCallCalculator = dynamic(() => import("@/components/MissedCallCalculator"));
+const WhatIronLoopDoes = dynamic(() => import("@/components/WhatIronLoopDoes"));
+const ProductsPreview = dynamic(() => import("@/components/ProductsPreview"));
+const ToolIntegrationsMarquee = dynamic(() => import("@/components/ToolIntegrationsMarquee"));
+const CaseStudiesPreview = dynamic(() => import("@/components/CaseStudiesPreview"));
+const StoriesPreview = dynamic(() => import("@/components/StoriesPreview"));
+const CTA = dynamic(() => import("@/components/CTA"));
+const Footer = dynamic(() => import("@/components/Footer"));
 
 export const metadata: Metadata = {
   title: "IronLoop Labs | Missed-Call Text-Back & 24/7 Answering for HVAC, Plumbing & Roofing",

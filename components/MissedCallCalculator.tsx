@@ -61,12 +61,14 @@ export default function MissedCallCalculator() {
               {/* Slider 1: Missed Calls per week */}
               <div className="space-y-3">
                 <div className="flex justify-between items-center text-sm font-medium">
-                  <label className="text-white/80 font-display">Missed Calls Per Week</label>
+                  <label htmlFor="missed-calls-input" className="text-white/90 font-display">Missed Calls Per Week</label>
                   <span className="font-mono text-[#C5E033] font-bold text-base bg-white/5 px-3 py-1 rounded-lg border border-white/10">
                     {missedCallsPerWeek} calls / wk
                   </span>
                 </div>
                 <input
+                  id="missed-calls-input"
+                  aria-label="Missed Calls Per Week"
                   type="range"
                   min={2}
                   max={50}
@@ -75,7 +77,7 @@ export default function MissedCallCalculator() {
                   onChange={(e) => setMissedCallsPerWeek(Number(e.target.value))}
                   className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#C5E033]"
                 />
-                <div className="flex justify-between text-[11px] font-mono text-white/40">
+                <div className="flex justify-between text-[11px] font-mono text-white/60">
                   <span>2 calls</span>
                   <span>25 calls</span>
                   <span>50+ calls</span>
@@ -85,12 +87,14 @@ export default function MissedCallCalculator() {
               {/* Slider 2: Average Job Value */}
               <div className="space-y-3">
                 <div className="flex justify-between items-center text-sm font-medium">
-                  <label className="text-white/80 font-display">Average Job Value ($)</label>
+                  <label htmlFor="avg-job-value-input" className="text-white/90 font-display">Average Job Value ($)</label>
                   <span className="font-mono text-[#C5E033] font-bold text-base bg-white/5 px-3 py-1 rounded-lg border border-white/10">
                     ${avgJobValue.toLocaleString()}
                   </span>
                 </div>
                 <input
+                  id="avg-job-value-input"
+                  aria-label="Average Job Value ($)"
                   type="range"
                   min={300}
                   max={10000}
@@ -99,7 +103,7 @@ export default function MissedCallCalculator() {
                   onChange={(e) => setAvgJobValue(Number(e.target.value))}
                   className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#C5E033]"
                 />
-                <div className="flex justify-between text-[11px] font-mono text-white/40">
+                <div className="flex justify-between text-[11px] font-mono text-white/60">
                   <span>$300 (Repair)</span>
                   <span>$5,000 (Install)</span>
                   <span>$10,000+ (Full System)</span>
@@ -109,12 +113,14 @@ export default function MissedCallCalculator() {
               {/* Slider 3: Close Rate */}
               <div className="space-y-3">
                 <div className="flex justify-between items-center text-sm font-medium">
-                  <label className="text-white/80 font-display">Estimate Close Rate (%)</label>
+                  <label htmlFor="close-rate-input" className="text-white/90 font-display">Estimate Close Rate (%)</label>
                   <span className="font-mono text-[#C5E033] font-bold text-base bg-white/5 px-3 py-1 rounded-lg border border-white/10">
                     {closeRate}%
                   </span>
                 </div>
                 <input
+                  id="close-rate-input"
+                  aria-label="Estimate Close Rate (%)"
                   type="range"
                   min={10}
                   max={90}
@@ -123,7 +129,7 @@ export default function MissedCallCalculator() {
                   onChange={(e) => setCloseRate(Number(e.target.value))}
                   className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#C5E033]"
                 />
-                <div className="flex justify-between text-[11px] font-mono text-white/40">
+                <div className="flex justify-between text-[11px] font-mono text-white/60">
                   <span>10% (Low)</span>
                   <span>35% (Avg)</span>
                   <span>90% (High)</span>
