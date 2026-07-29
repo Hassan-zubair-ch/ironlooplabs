@@ -20,19 +20,20 @@ export function generateMetadata({ params }: PageProps): Metadata {
   if (!prod) return { title: "Solution Not Found | IronLoop Labs" };
 
   const url = `https://www.ironlooplabs.com/solutions/${prod.slug}`;
-  const title = `${prod.name} - AI Solution Module | IronLoop Labs`;
-  const description = `${prod.heroDesc} Enterprise AI Automation Solution by IronLoop Labs.`;
+  const title = `${prod.name} for HVAC, Plumbing & Roofing | IronLoop Labs`;
+  const description = `${prod.heroDesc} Built for US home service contractors by IronLoop Labs.`;
 
   return {
     title,
     description,
     keywords: [
       prod.name,
+      `${prod.name} HVAC`,
+      `${prod.name} plumbing`,
+      `${prod.name} roofing`,
+      `${prod.name} contractors`,
       `IronLoop ${prod.name}`,
-      `AI ${prod.slug}`,
-      "AI automation module",
-      "enterprise AI solution",
-      "service automation",
+      "home service automation",
     ],
     alternates: {
       canonical: url,
@@ -44,6 +45,12 @@ export function generateMetadata({ params }: PageProps): Metadata {
       siteName: "IronLoop Labs",
       locale: "en_US",
       type: "website",
+      images: [{ url: "https://www.ironlooplabs.com/logo-main.png", width: 1200, height: 630, alt: `${prod.name} — IronLoop Labs` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }

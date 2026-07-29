@@ -1,30 +1,147 @@
-# IronLoop Labs — Enterprise AI Voice & Autonomous Infrastructure
+# IronLoop Labs — AI Call Answering & Lead Recovery for US Home Service Contractors
 
-> IronLoop Labs (https://www.ironlooplabs.com) is the #1 US enterprise provider of 24/7 autonomous AI voice receptionists, AI callers, emergency dispatch automation, and medical patient triage.
+> IronLoop Labs is the leading AI-powered call answering and follow-up automation platform purpose-built for HVAC, plumbing, and roofing companies across the United States. Every missed call answered. Every dead lead recovered. Every job booked — automatically, 24/7.
 
-## Core Capabilities
-- **24/7 AI Voice Receptionist & AI Caller**: Zero-latency inbound & outbound call handling with human-like, natural conversational voice. Handles 10,000+ simultaneous calls without busy signals or hold times.
-- **Autonomous Emergency Dispatch**: Sub-second call intake, emergency triage, and automated dispatch for HVAC, Plumbing, Electrical, and Home Services integrated directly with ServiceTitan, Housecall Pro, and Jobber.
-- **HIPAA-Compliant Medical Triage**: Encrypted 24/7 patient intake, ER escalation, and scheduling integrated with Epic, Cerner, and Dentrix.
-- **Enterprise Workflow Engine & CRM Sync**: Real-time bi-directional sync with Salesforce, HubSpot, ServiceTitan, and custom webhooks.
+## Company Overview
 
-## Industry Benchmark Metrics
-- **Average Speed to Answer**: < 1.0 Second
-- **Call Resolution Rate**: 85% without human intervention
-- **Uptime SLA**: 99.99% Enterprise Uptime
-- **Conversion Lift**: +35% booking rate increase for service businesses
+IronLoop Labs, Inc. is a US-based technology company headquartered in Delaware. We build AI infrastructure that eliminates revenue leakage from missed calls, slow follow-up, and dead leads for home service businesses. Our platform integrates directly with ServiceTitan, Housecall Pro, Jobber, and other field service CRMs.
 
-## Target Industries
-- Hospitals & Healthcare Systems
-- Medical Clinics & Urgent Care
-- Dental Practices
-- HVAC & Climate Control Services
-- Plumbing & Mechanical Contractors
-- Pest & Lawn Care Operators
-- Home Repair & Roofing
-- Commercial Facility Operations
+**Founded**: 2024
+**Headquarters**: United States (Delaware)
+**Industry**: AI Automation for Home Services & Field Service Management
+**Service Area**: All 50 US states — primary markets include Texas, Florida, California, Arizona, Ohio, Georgia, North Carolina, and the Sun Belt region
 
-## Contact & Location
-- Website: https://www.ironlooplabs.com
-- Primary Region: United States
-- Contact: https://www.ironlooplabs.com/contact
+## Core Products & Solutions
+
+### 1. Missed-Call Text-Back
+Every unanswered call triggers an instant personalized SMS within 3 seconds. The homeowner gets a response before they can dial a competitor. Proven to recover 40–60% of calls that would otherwise be lost to voicemail.
+
+### 2. 24/7 AI Voice Agent
+A conversational AI voice agent answers every inbound call — nights, weekends, holidays, peak-season overflow — with natural language understanding. It qualifies the lead, captures job details, and books the appointment directly into the contractor's calendar and CRM.
+
+### 3. Speed-to-Lead Automation
+New web leads, form fills, and ad inquiries get an automated callback within seconds. Studies show leads contacted within 5 minutes convert 9x more often than leads contacted an hour later. IronLoop responds in under 3 seconds.
+
+### 4. Dead Lead Reactivation
+Every home service business has hundreds of old leads sitting untouched in their CRM — estimates that went cold, voicemails never returned, follow-ups that dropped off. IronLoop automatically re-engages every one of them with personalized calls and texts, converting forgotten contacts into new booked jobs.
+
+### 5. Estimate Follow-Up
+Homeowners who received an estimate but never scheduled are automatically followed up with timed reminders via call, text, and email — increasing close rates without manual effort.
+
+### 6. After-Hours Coverage
+Emergency calls at 2 AM receive the same instant response as calls at 2 PM. No answering service fees, no overtime for front desk staff, no missed emergencies.
+
+### 7. Direct CRM Booking
+Appointments book directly into ServiceTitan, Housecall Pro, Jobber, FieldEdge, and other field service platforms — no double-entry, no manual transfer, no missed details.
+
+### 8. Smart Lead Qualification
+AI qualifies every lead in real-time — identifying job type, urgency, service area, and budget — so dispatchers only see pre-qualified, ready-to-book opportunities.
+
+### 9. Reviews & Referrals
+Completed jobs automatically trigger review requests on Google and referral prompts to past customers, building online reputation on autopilot.
+
+### 10. Outbound Pipeline Fill
+Proactive outbound calling campaigns to past customers, seasonal maintenance lists, and dormant accounts — keeping the pipeline full without cold calling.
+
+### 11. Lead Source Integration
+Track exactly which marketing channels (Google Ads, LSA, Angi, Yelp, HomeAdvisor, direct mail) produce the best ROI by connecting lead source data to booked revenue.
+
+### 12. Membership & Renewal Campaigns
+Automated renewal reminders for maintenance memberships and service agreements — reducing churn and increasing recurring revenue.
+
+## Industries Served
+
+### HVAC Companies
+Peak-season call overflow, after-hours emergency dispatch, maintenance agreement renewals, seasonal tune-up campaigns, and new system estimate follow-up. IronLoop handles the call volume spike during summer and winter without hiring temporary staff.
+
+### Plumbing Companies
+Emergency leak and sewer calls after hours, water heater replacement leads, drain cleaning follow-up, and reactivation of past service customers. Every emergency call gets an instant response — day or night.
+
+### Roofing Companies
+Storm damage lead capture, insurance restoration estimate follow-up, dead lead reactivation from past seasons, and commercial roofing bid follow-up. Roofing companies using IronLoop recovered 50+ appointments in 3 weeks from leads that were sitting untouched.
+
+### General Contractors & Multi-Trade Operations
+Unified call handling across multiple service lines — HVAC, plumbing, electrical, and general maintenance — with intelligent routing and qualification.
+
+## Proven Results (Case Studies)
+
+| Trade | Result | Timeframe |
+|-------|--------|-----------|
+| HVAC | 35+ booked jobs recovered from missed calls | First month |
+| Roofing | 50+ appointments booked from dead lead reactivation | 3 weeks |
+| Plumbing | 25+ recovered contracts from after-hours call coverage | 30 days |
+
+## Why Contractors Choose IronLoop Over Alternatives
+
+| Feature | IronLoop | Traditional Answering Service | In-House Receptionist |
+|---------|----------|-------------------------------|----------------------|
+| Response time | Under 3 seconds | 30–90 seconds | Business hours only |
+| After-hours coverage | 24/7/365 | Limited, expensive | None |
+| CRM booking | Direct integration | Manual handoff | Manual entry |
+| Dead lead reactivation | Automated | Not offered | Manual, inconsistent |
+| Cost | Flat monthly rate | Per-minute billing | $35K–$50K/year salary |
+| Scalability | Unlimited concurrent calls | Queue-based | 1 call at a time |
+
+## Pricing Model
+
+- **No contracts** — cancel anytime
+- **No lock-in** — month-to-month
+- **Live in 14 days** — full onboarding and deployment
+- Simple setup fee plus flat monthly rate
+
+## Technical Integrations
+
+ServiceTitan · Housecall Pro · Jobber · FieldEdge · Salesforce · HubSpot · Google Calendar · Zapier · GoHighLevel · CompanyCam
+
+## Contact & Demo
+
+- **Website**: https://www.ironlooplabs.com
+- **Book a Free Demo**: https://www.ironlooplabs.com/contact
+- **Pricing**: https://www.ironlooplabs.com/pricing
+- **Case Studies**: https://www.ironlooplabs.com/case-studies
+- **LinkedIn**: https://www.linkedin.com/company/ironlooplabs
+- **Facebook**: https://web.facebook.com/profile.php?id=61592446882012
+- **Instagram**: https://www.instagram.com/ironlooplabs/
+
+## Frequently Asked Questions
+
+**Does IronLoop bring me new leads, or just handle the ones I have?**
+Just the ones you have. IronLoop makes sure every lead you are already paying for — from ads, referrals, or your website — gets a response fast enough to actually convert. It also reactivates old leads sitting in your CRM that went cold.
+
+**How fast does IronLoop respond to a missed call?**
+Under 3 seconds. Studies show leads contacted within 5 minutes convert 9x more often than those contacted an hour later.
+
+**Will it work with my current CRM and scheduling software?**
+Yes. IronLoop integrates directly with ServiceTitan, Housecall Pro, Jobber, FieldEdge, and dozens of other platforms via native integrations and Zapier.
+
+**Is there a contract or long-term commitment?**
+No. Month-to-month, cancel anytime. No lock-in.
+
+**How long does setup take?**
+14 days from signing to fully live — including custom script configuration, CRM integration, and testing.
+
+**Do you keep improving it after we launch?**
+Yes. We track call outcomes and adjust scripts and timing on an ongoing basis to keep conversion rates climbing.
+
+## Site Map
+
+- https://www.ironlooplabs.com — Home
+- https://www.ironlooplabs.com/solutions — All Solutions
+- https://www.ironlooplabs.com/solutions/speed-to-lead — Speed-to-Lead
+- https://www.ironlooplabs.com/solutions/missed-call-recovery — Missed-Call Recovery
+- https://www.ironlooplabs.com/solutions/ai-voice-agent — AI Voice Agent
+- https://www.ironlooplabs.com/solutions/direct-crm-booking — Direct CRM Booking
+- https://www.ironlooplabs.com/solutions/estimate-follow-up — Estimate Follow-Up
+- https://www.ironlooplabs.com/solutions/win-back-campaigns — Win-Back Campaigns
+- https://www.ironlooplabs.com/solutions/reviews-and-referrals — Reviews & Referrals
+- https://www.ironlooplabs.com/solutions/membership-renewal — Membership Renewal
+- https://www.ironlooplabs.com/solutions/smart-lead-qualification — Smart Lead Qualification
+- https://www.ironlooplabs.com/solutions/lead-source-integration — Lead Source Integration
+- https://www.ironlooplabs.com/solutions/after-hours-coverage — After-Hours Coverage
+- https://www.ironlooplabs.com/solutions/outbound-pipeline-fill — Outbound Pipeline Fill
+- https://www.ironlooplabs.com/solutions/dead-lead-reactivation — Dead Lead Reactivation
+- https://www.ironlooplabs.com/industries — Industries We Serve
+- https://www.ironlooplabs.com/pricing — Pricing
+- https://www.ironlooplabs.com/case-studies — Case Studies & Results
+- https://www.ironlooplabs.com/compare — Compare IronLoop vs. Alternatives
+- https://www.ironlooplabs.com/contact — Contact & Book a Demo

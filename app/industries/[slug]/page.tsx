@@ -17,20 +17,20 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!industry) return { title: "Industry Not Found | IronLoop Labs" };
 
   const url = `https://www.ironlooplabs.com/industries/${industry.slug}`;
-  const title = `${industry.title} AI Automation & Voice Receptionist | IronLoop Labs`;
-  const description = `${industry.heroDesc} Dedicated enterprise AI solution for ${industry.title} in the United States.`;
+  const title = `${industry.title} Call Answering & Lead Follow-Up | IronLoop Labs`;
+  const description = `${industry.heroDesc} Built for US ${industry.title.toLowerCase()} companies by IronLoop Labs.`;
 
   return {
     title,
     description,
     keywords: [
-      `${industry.title} AI automation`,
-      `${industry.title} AI voice receptionist`,
-      `${industry.title} AI caller`,
-      `${industry.title} automated dispatch`,
+      `${industry.title} AI answering service`,
+      `${industry.title} missed call text back`,
+      `${industry.title} after hours answering`,
+      `${industry.title} lead follow up`,
+      `${industry.title} call answering`,
       `IronLoop Labs ${industry.slug}`,
-      `best AI for ${industry.title}`,
-      `US enterprise ${industry.category} AI`
+      `best answering service for ${industry.title.toLowerCase()}`
     ],
     alternates: {
       canonical: url,

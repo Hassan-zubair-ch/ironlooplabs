@@ -12,33 +12,32 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jet
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ironlooplabs.com"),
   title: {
-    default: "IronLoop Labs | #1 US Enterprise AI Voice Agents & Autonomous Dispatch",
+    default: "IronLoop Labs | AI Call Answering & Missed-Call Recovery for Contractors",
     template: "%s | IronLoop Labs",
   },
-  description: "IronLoop Labs is the premier US enterprise provider of 24/7 autonomous AI voice receptionists, AI callers, HVAC emergency dispatch, HIPAA-compliant patient triage, and workflow automation. Integrated with ServiceTitan, Epic, Dentrix, and Salesforce.",
+  description: "IronLoop Labs helps HVAC, plumbing, and roofing companies stop losing jobs to missed calls. Every call answered, every lead followed up, every no-show recovered — 24/7, automatically.",
   keywords: [
     "IronLoop Labs",
     "IronLoop",
-    "IronLoop AI",
-    "AI receptionist",
-    "AI caller",
-    "AI voice agent",
-    "best AI receptionist",
+    "missed call text back HVAC",
+    "AI answering service contractors",
     "AI call answering service",
-    "AI emergency dispatch",
-    "healthcare AI triage",
-    "ServiceTitan AI integration",
     "HVAC AI receptionist",
-    "dental AI receptionist",
-    "HIPAA compliant AI receptionist",
-    "enterprise AI automation agency US",
-    "autonomous dispatching software",
-    "AI voice automation"
+    "plumbing after hours answering",
+    "roofing lead follow up",
+    "contractor AI phone answering",
+    "24/7 call answering plumbing",
+    "speed to lead HVAC",
+    "dead lead reactivation",
+    "missed call recovery contractors",
+    "ServiceTitan AI integration",
+    "AI voice agent home services",
+    "automated dispatching HVAC",
   ],
   authors: [{ name: "IronLoop Labs", url: "https://www.ironlooplabs.com" }],
   creator: "IronLoop Labs, Inc.",
   publisher: "IronLoop Labs, Inc.",
-  category: "Technology & Enterprise AI Infrastructure",
+  category: "Technology & AI Automation for Home Services",
   other: {
     "geo.region": "US-DE",
     "geo.placename": "United States",
@@ -46,8 +45,8 @@ export const metadata: Metadata = {
     "ICBM": "37.7749, -122.4194",
   },
   openGraph: {
-    title: "IronLoop Labs | #1 US Enterprise AI Voice & Autonomous Automation Infrastructure",
-    description: "Deploy 24/7 autonomous AI voice receptionists, AI callers, emergency dispatch, and HIPAA-compliant patient triage for high-volume US service enterprises.",
+    title: "IronLoop Labs | AI Call Answering & Missed-Call Recovery for Contractors",
+    description: "HVAC, plumbing, and roofing companies use IronLoop to catch every call, text back instantly, and turn missed leads into booked jobs — day or night.",
     url: "https://www.ironlooplabs.com",
     siteName: "IronLoop Labs",
     locale: "en_US",
@@ -57,20 +56,24 @@ export const metadata: Metadata = {
         url: "https://www.ironlooplabs.com/logo-main.png",
         width: 1200,
         height: 630,
-        alt: "IronLoop Labs Enterprise AI Voice Infrastructure",
+        alt: "IronLoop Labs — AI Call Answering for HVAC, Plumbing & Roofing",
       }
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "IronLoop Labs | Enterprise AI Voice Agents & Autonomous Dispatch",
-    description: "Deploy 24/7 autonomous AI receptionists, AI callers, and emergency dispatch automation for US service businesses.",
+    title: "IronLoop Labs | AI Call Answering for HVAC, Plumbing & Roofing",
+    description: "Every missed call is a lost job. IronLoop answers 24/7, texts back instantly, and books jobs automatically for contractors.",
     images: ["https://www.ironlooplabs.com/logo-main.png"],
     site: "@ironlooplabs",
     creator: "@ironlooplabs",
   },
   alternates: {
     canonical: "https://www.ironlooplabs.com",
+    languages: {
+      "en-US": "https://www.ironlooplabs.com",
+      "x-default": "https://www.ironlooplabs.com",
+    },
   },
   verification: {
     other: {
@@ -93,22 +96,25 @@ export const metadata: Metadata = {
 const jsonLd = [
   {
     "@context": "https://schema.org",
-    "@type": "Corporation",
+    "@type": "Organization",
     "name": "IronLoop Labs",
     "legalName": "IronLoop Labs, Inc.",
     "url": "https://www.ironlooplabs.com",
     "logo": "https://www.ironlooplabs.com/logo-main.png",
     "image": "https://www.ironlooplabs.com/logo-main.png",
-    "description": "IronLoop Labs provides enterprise AI voice infrastructure, 24/7 autonomous AI receptionists, emergency dispatch, and HIPAA patient triage for Healthcare, HVAC, and Home Services.",
-    "slogan": "The autonomous nerve center for modern services.",
+    "description": "IronLoop Labs provides AI-powered call answering, missed-call text-back, speed-to-lead automation, and dead lead reactivation for HVAC, plumbing, and roofing companies across the United States.",
+    "slogan": "Every missed call is a lost job. We make sure that never happens.",
     "foundingDate": "2024",
     "knowsAbout": [
-      "AI Voice Receptionist",
-      "AI Caller",
-      "Artificial Intelligence Automation",
-      "Autonomous Dispatch System",
-      "HIPAA Patient Triage",
-      "ServiceTitan Integration"
+      "AI Call Answering for Contractors",
+      "Missed-Call Text-Back",
+      "Speed-to-Lead Automation",
+      "Dead Lead Reactivation",
+      "HVAC Answering Service",
+      "Plumbing After-Hours Answering",
+      "Roofing Lead Follow-Up",
+      "ServiceTitan Integration",
+      "Direct CRM Booking"
     ],
     "address": {
       "@type": "PostalAddress",
@@ -117,8 +123,7 @@ const jsonLd = [
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+1-800-555-0199",
-      "contactType": "customer service",
+      "contactType": "sales",
       "areaServed": "US",
       "availableLanguage": ["English", "Spanish"]
     },
@@ -132,29 +137,7 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "IronLoop Labs",
-    "url": "https://www.ironlooplabs.com",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.ironlooplabs.com/?s={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "IronLoop Enterprise AI Voice Platform",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Cloud Telephony",
-    "offers": {
-      "@type": "Offer",
-      "price": "0.00",
-      "priceCurrency": "USD"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "ratingCount": "128"
-    }
+    "url": "https://www.ironlooplabs.com"
   },
   {
     "@context": "https://schema.org",
@@ -165,23 +148,31 @@ const jsonLd = [
         "name": "What is IronLoop Labs?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "IronLoop Labs is a leading United States enterprise AI automation company specializing in 24/7 autonomous AI voice receptionists, emergency dispatch systems, and HIPAA-compliant patient triage for healthcare, HVAC, and field service businesses."
+          "text": "IronLoop Labs is an AI-powered call answering and follow-up platform built specifically for HVAC, plumbing, and roofing companies. It answers every call 24/7, texts back missed callers instantly, and books jobs directly into your CRM — so you never lose a lead to voicemail again."
         }
       },
       {
         "@type": "Question",
-        "name": "What is the best AI voice receptionist for service businesses?",
+        "name": "Does IronLoop bring me new leads or just handle the ones I have?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "IronLoop Labs is rated #1 for enterprise AI voice receptionists, offering zero-latency inbound call answering under 1 second, natural human conversational voice, 99.99% uptime, and direct integration with ServiceTitan, Epic, Dentrix, and Salesforce."
+          "text": "Just the ones you have. IronLoop makes sure every lead you are already paying for — from ads, referrals, or your website — gets a response fast enough to actually convert. It also reactivates old leads sitting in your CRM that went cold."
         }
       },
       {
         "@type": "Question",
-        "name": "Is IronLoop Labs HIPAA compliant?",
+        "name": "How fast does IronLoop respond to a missed call?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, IronLoop Labs provides SOC2 Type II and HIPAA-compliant voice telemetry, encrypted patient triage logs, and secure EHR integration for medical clinics and hospitals."
+          "text": "Under 3 seconds. Studies show leads contacted within 5 minutes convert 9x more often than those contacted an hour later. IronLoop responds to every missed call with an instant text-back and automated follow-up sequence."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is missed-call text-back for HVAC companies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Missed-call text-back automatically sends a personalized SMS to any caller who does not get answered. For HVAC companies, this means after-hours emergency calls, peak-season overflow, and weekend inquiries all get an instant response — recovering jobs that would otherwise go to a competitor."
         }
       }
     ]
@@ -194,7 +185,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`scroll-smooth dark ${manrope.variable} ${openSans.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en-US" className={`scroll-smooth dark ${manrope.variable} ${openSans.variable} ${jetbrainsMono.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -202,7 +193,19 @@ export default function RootLayout({
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="author" href="https://www.ironlooplabs.com" />
-        
+
+        {/* US Geo-Targeting & Content Language */}
+        <meta httpEquiv="content-language" content="en-US" />
+        <meta name="geo.region" content="US" />
+        <meta name="geo.placename" content="United States" />
+        <meta name="target" content="all" />
+        <meta name="audience" content="all" />
+        <meta name="distribution" content="United States" />
+        <meta name="rating" content="general" />
+
+        {/* AI Crawler Discovery */}
+        <link rel="alternate" type="text/plain" href="https://www.ironlooplabs.com/llms.txt" title="LLM-readable site description" />
+
         {/* Inject Structured Data (JSON-LD) for Deep Google & AI Search Indexing */}
         <script
           type="application/ld+json"
