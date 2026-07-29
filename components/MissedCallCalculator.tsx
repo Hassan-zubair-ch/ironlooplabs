@@ -16,7 +16,16 @@ export default function MissedCallCalculator() {
   const lostRevenuePerYear = lostRevenuePerMonth * 12;
 
   return (
-    <section className="py-20 bg-[#07080b] border-y border-white/10 relative overflow-hidden">
+    <section className="py-20 bg-[#050505] bg-dark-grid border-y border-white/10 relative overflow-hidden">
+      {/* Background Dot Texture */}
+      <div
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(#ffffff 1px, transparent 1px)`,
+          backgroundSize: `24px 24px`,
+        }}
+      />
+
       {/* Glow Orbs */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#C5E033]/[0.04] blur-[150px] rounded-full pointer-events-none" />
 
@@ -124,17 +133,17 @@ export default function MissedCallCalculator() {
             </div>
 
             {/* Results Panel (5 Columns) */}
-            <div className="lg:col-span-5 bg-gradient-to-br from-[#151720] to-[#0d0e14] border border-[#C5E033]/30 rounded-2xl p-6 sm:p-8 flex flex-col justify-between text-center relative overflow-hidden shadow-xl">
-              <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#C5E033]/10 blur-2xl rounded-full pointer-events-none" />
+            <div className="lg:col-span-5 bg-gradient-to-br from-[#181115] to-[#0d0e14] border border-red-500/30 rounded-2xl p-6 sm:p-8 flex flex-col justify-between text-center relative overflow-hidden shadow-xl">
+              <div className="absolute -top-12 -right-12 w-32 h-32 bg-red-500/10 blur-2xl rounded-full pointer-events-none" />
 
               <div>
-                <span className="text-[11px] font-mono font-bold text-[#C5E033] uppercase tracking-wider block mb-2">
+                <span className="text-[11px] font-mono font-bold text-red-400 uppercase tracking-wider block mb-2">
                   ESTIMATED REVENUE LEAKAGE
                 </span>
 
                 <div className="my-4">
                   <div className="text-white/60 text-xs font-mono mb-1">ESTIMATED LOST REVENUE / YEAR</div>
-                  <div className="text-4xl sm:text-5xl font-extrabold text-[#C5E033] font-mono tracking-tight">
+                  <div className="text-4xl sm:text-5xl font-extrabold text-red-500 font-mono tracking-tight drop-shadow-[0_0_15px_rgba(239,68,68,0.3)]">
                     ${lostRevenuePerYear.toLocaleString()}
                   </div>
                 </div>
@@ -142,11 +151,11 @@ export default function MissedCallCalculator() {
                 <div className="pt-4 border-t border-white/10 grid grid-cols-2 gap-4 text-left">
                   <div>
                     <div className="text-[11px] font-mono text-white/40 uppercase">Lost / Month</div>
-                    <div className="text-lg font-bold text-white font-mono">${lostRevenuePerMonth.toLocaleString()}</div>
+                    <div className="text-lg font-bold text-red-400 font-mono">${lostRevenuePerMonth.toLocaleString()}</div>
                   </div>
                   <div>
                     <div className="text-[11px] font-mono text-white/40 uppercase">Lost Jobs / Mo</div>
-                    <div className="text-lg font-bold text-white font-mono">{lostJobsPerMonth} jobs</div>
+                    <div className="text-lg font-bold text-red-400 font-mono">{lostJobsPerMonth} jobs</div>
                   </div>
                 </div>
               </div>

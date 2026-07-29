@@ -255,7 +255,16 @@ export default function SuccessStoriesClient() {
   };
 
   return (
-    <main className="bg-[#050505] text-white py-20 lg:py-28 relative overflow-hidden min-h-screen">
+    <main className="bg-[#050505] bg-dark-grid text-white py-20 lg:py-28 relative overflow-hidden min-h-screen">
+      {/* Background Dot Texture */}
+      <div
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(#ffffff 1px, transparent 1px)`,
+          backgroundSize: `24px 24px`,
+        }}
+      />
+
       {/* Background Orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#C5E033]/[0.04] blur-[140px] rounded-full pointer-events-none" />
       <div className="absolute bottom-40 left-0 w-[500px] h-[500px] bg-white/[0.03] blur-[140px] rounded-full pointer-events-none" />

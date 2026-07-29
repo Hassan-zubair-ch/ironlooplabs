@@ -23,8 +23,8 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <MissedCallCalculator />
         <PlatformVideoSection />
+        <MissedCallCalculator />
         <WhatIronLoopDoes />
         <ProductsPreview />
         <ToolIntegrationsMarquee />
