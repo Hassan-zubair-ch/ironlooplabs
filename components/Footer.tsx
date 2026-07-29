@@ -100,8 +100,8 @@ export default function Footer() {
             >
               <input
                 type="email"
-                placeholder="Get AI sales tips in your inbox"
-                aria-label="Get AI sales tips in your inbox"
+                placeholder="Enter your email address"
+                aria-label="Enter your email address"
                 className="px-6 py-3.5 rounded-full bg-white/[0.04] border border-white/10 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-[#C5E033]/50 flex-grow"
               />
               <button

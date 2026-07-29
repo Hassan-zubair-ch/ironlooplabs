@@ -228,10 +228,10 @@ export default function ContactClient() {
                         required
                         type="text"
                         name="firstName"
-                        placeholder="John"
+                        placeholder="First name"
                         value={formData.firstName}
                         onChange={handleChange}
-                        className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/20 focus:border-[#C5E033] focus:outline-none transition-colors"
+                        className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#C5E033] focus:outline-none transition-colors"
                       />
                     </div>
                     <div className="space-y-1.5">
@@ -242,10 +242,10 @@ export default function ContactClient() {
                         required
                         type="text"
                         name="lastName"
-                        placeholder="Doe"
+                        placeholder="Last name"
                         value={formData.lastName}
                         onChange={handleChange}
-                        className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/20 focus:border-[#C5E033] focus:outline-none transition-colors"
+                        className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#C5E033] focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
@@ -258,10 +258,10 @@ export default function ContactClient() {
                       required
                       type="text"
                       name="businessName"
-                      placeholder="Apex Roofing & Solar"
+                      placeholder="Your company name"
                       value={formData.businessName}
                       onChange={handleChange}
-                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/20 focus:border-[#C5E033] focus:outline-none transition-colors"
+                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#C5E033] focus:outline-none transition-colors"
                     />
                   </div>
 
@@ -274,10 +274,10 @@ export default function ContactClient() {
                         required
                         type="email"
                         name="email"
-                        placeholder="john@company.com"
+                        placeholder="name@company.com"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/20 focus:border-[#C5E033] focus:outline-none transition-colors"
+                        className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#C5E033] focus:outline-none transition-colors"
                       />
                     </div>
                     <div className="space-y-1.5">
@@ -288,10 +288,10 @@ export default function ContactClient() {
                         required
                         type="tel"
                         name="phone"
-                        placeholder="(555) 000-0000"
+                        placeholder="(555) 234-5678"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/20 focus:border-[#C5E033] focus:outline-none transition-colors"
+                        className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#C5E033] focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
@@ -330,10 +330,10 @@ export default function ContactClient() {
                     <textarea
                       rows={3}
                       name="scope"
-                      placeholder="e.g. We have 2,000 old CRM leads we want to reactivate and schedule inspection appointments automatically..."
+                      placeholder="Tell us about your business, current missed call challenges, or tools you use (e.g. ServiceTitan, Housecall Pro)..."
                       value={formData.scope}
                       onChange={handleChange}
-                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/20 focus:border-[#C5E033] focus:outline-none transition-colors resize-none"
+                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#C5E033] focus:outline-none transition-colors resize-none"
                     />
                   </div>
 
