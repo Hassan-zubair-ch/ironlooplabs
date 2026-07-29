@@ -30,8 +30,8 @@ const assistantConfig: any = {
   model: {
     provider: "openai",
     model: "gpt-4o-mini",
-    temperature: 0.5,
-    maxTokens: 100,
+    temperature: 0.3,
+    maxTokens: 80,
     messages: [{ role: "system", content: SYSTEM_PROMPT }],
     tools: [
       {
@@ -52,11 +52,13 @@ const assistantConfig: any = {
     ],
   },
   voice: {
-    provider: "11labs",
-    voiceId: "21m00Tcm4TlvDq8ikWAM",
+    provider: "azure",
+    voiceId: "en-US-JennyNeural",
   },
   silenceTimeoutSeconds: 30,
   maxDurationSeconds: 600,
+  backchannelingEnabled: false,
+  numWordsToInterrupt: 1,
   clientMessages: ["transcript", "tool-calls"],
 };
 
@@ -69,7 +71,7 @@ const extractErrorMessage = (err: any): string => {
   if (err.errorMsg && typeof err.errorMsg === "string") return err.errorMsg;
   try {
     const str = JSON.stringify(err);
-    return str !== "{}" ? str : "Audio stream error. Please check browser microphone settings.";
+    return str !== "{}" ? str : "Audio connection issue. Please allow microphone permission in your browser.";
   } catch {
     return String(err);
   }
@@ -268,7 +270,7 @@ export default function VoiceDemoClient() {
             <div className="flex items-center gap-3">
               <span className="w-3 h-3 rounded-full bg-[#C5E033]" />
               <span className="font-mono text-xs text-white/70 font-bold uppercase tracking-wider">
-                Engine: Deepgram Nova-2 + Azure Neural + GPT-4o
+                Engine: Azure Neural + GPT-4o Mini
               </span>
             </div>
             <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 font-mono text-[11px] text-[#C5E033]">
@@ -328,7 +330,7 @@ export default function VoiceDemoClient() {
               {status === "connecting" && (
                 <div className="space-y-1">
                   <h3 className="text-2xl font-bold text-[#C5E033] font-display animate-pulse">Initializing Stream…</h3>
-                  <p className="text-sm text-white/50">Connecting Deepgram Speech-to-Text & Neural Voice Engine</p>
+                  <p className="text-sm text-white/50">Connecting Audio Stream & Neural Voice Engine</p>
                 </div>
               )}
               {status === "active" && (
@@ -452,9 +454,9 @@ export default function VoiceDemoClient() {
             <div className="w-10 h-10 rounded-xl bg-[#C5E033]/10 border border-[#C5E033]/30 flex items-center justify-center text-[#C5E033] mb-4">
               <span className="material-symbols-outlined">bolt</span>
             </div>
-            <h4 className="text-lg font-bold text-white font-display mb-2">Deepgram Nova-2 STT</h4>
+            <h4 className="text-lg font-bold text-white font-display mb-2">Azure Neural STT & TTS</h4>
             <p className="text-sm text-white/60 leading-relaxed font-body">
-              Instant speech-to-text recognition under 100ms for immediate conversational comprehension.
+              Sub-second speech recognition and natural voice synthesis for instant conversation.
             </p>
           </div>
 
