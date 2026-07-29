@@ -41,14 +41,14 @@ export default function SolutionsListClient() {
             transition={{ duration: 0.5 }}
           >
             <span className="inline-block px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-[#C5E033] font-mono text-xs font-semibold tracking-wider uppercase mb-6">
-              Full Platform Overview
+              Contractor Modular Solutions
             </span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
-              Everything your sales floor needs. <br />
-              <span className="text-[#C5E033]">None of the overhead.</span>
+              Pick what you need. <br />
+              <span className="text-[#C5E033]">Add more as you grow.</span>
             </h1>
             <p className="font-body text-lg text-white/60 leading-relaxed mb-8 max-w-2xl mx-auto">
-              IronLoop AI is a complete revenue automation system built for trade, enterprise, and home service businesses. Every lead, every call, every follow-up — handled.
+              You don&apos;t need the whole system on day one. Most owners start with one problem — missed calls, or leads that go cold — and add the rest once they see it working.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

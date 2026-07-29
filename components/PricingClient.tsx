@@ -86,28 +86,28 @@ export default function PricingClient() {
             transition={{ duration: 0.5 }}
           >
             <span className="inline-block px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-[#C5E033] font-mono text-xs font-semibold tracking-wider uppercase mb-6">
-              Simple, Transparent Pricing
+              Contractor Answering &amp; Follow-Up Pricing
             </span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
-              Build your IronLoop AI system. <br />
-              <span className="text-[#C5E033]">Pay for what you use.</span>
+              Straightforward pricing.<br />
+              <span className="text-[#C5E033]">No surprise invoices.</span>
             </h1>
             <p className="font-body text-lg text-white/60 leading-relaxed mb-8 max-w-2xl">
-              Start with the Core Engine, then add the modules your business needs. Every plan is custom-quoted — but here's what to expect.
+              One-time setup to get everything connected to your CRM and phone system, then a flat monthly rate. No per-call fees, no long-term contract.
             </p>
 
-            <div className="flex flex-wrap gap-6 text-sm text-white/70 font-medium">
+            <div className="flex flex-wrap gap-6 text-sm text-white/70 font-medium font-mono">
               <span className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-[#C5E033] text-lg">check_circle</span>
-                No long-term contracts
+                No contracts
               </span>
               <span className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-[#C5E033] text-lg">check_circle</span>
-                No setup surprises
+                Cancel anytime
               </span>
               <span className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-[#C5E033] text-lg">check_circle</span>
-                Pricing confirmed on your demo call
+                Live in 14 days
               </span>
             </div>
           </motion.div>

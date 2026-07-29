@@ -1,10 +1,12 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CompareClient from "@/components/CompareClient";
+import { Metadata } from "next";
 
-export const metadata = {
-  title: "Compare IronLoop AI | IronLoop AI vs. Alternatives",
-  description: "See why trade, home service, and enterprise companies choose IronLoop AI over traditional call centers and generic chatbots.",
+export const metadata: Metadata = {
+  title: "IronLoop Labs vs. Traditional Answering Services & In-House Front Desk",
+  description:
+    "How IronLoop Labs compares to a traditional answering service or an in-house receptionist for HVAC, plumbing, and roofing companies.",
 };
 
 export default function ComparePage() {

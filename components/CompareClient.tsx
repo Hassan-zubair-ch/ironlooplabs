@@ -59,13 +59,14 @@ export default function CompareClient() {
             transition={{ duration: 0.5 }}
           >
             <span className="inline-block px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-[#C5E033] font-mono text-xs font-semibold tracking-wider uppercase mb-6">
-              Side-by-Side Comparison
+              Honest Contractor Comparison
             </span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
-              IronLoop AI vs. <span className="text-[#C5E033]">the alternatives</span>
+              Why contractors switch to <br />
+              <span className="text-[#C5E033]">IronLoop Labs</span>
             </h1>
             <p className="font-body text-lg text-white/60 leading-relaxed">
-              See why trade, home service, and enterprise companies choose IronLoop AI over traditional call centers, generic chatbots, and fragmented tools.
+              How IronLoop Labs compares to a traditional answering service or an in-house receptionist for HVAC, plumbing, and roofing companies.
             </p>
           </motion.div>
         </div>
@@ -82,94 +83,57 @@ export default function CompareClient() {
             <table className="w-full text-left border-collapse min-w-[640px]">
               <thead>
                 <tr className="border-b border-white/10 text-xs font-mono tracking-wider uppercase">
-                  <th className="py-4 px-4 text-white font-bold">Feature</th>
+                  <th className="py-4 px-4 text-white font-bold">Feature / Capability</th>
                   <th className="py-4 px-4 text-[#C5E033] font-bold text-center bg-[#C5E033]/5 rounded-t-xl">
-                    IronLoop AI
+                    IronLoop Labs
                   </th>
-                  <th className="py-4 px-4 text-white/70 text-center">Call Center</th>
-                  <th className="py-4 px-4 text-white/70 text-center">Generic Chatbot</th>
-                  <th className="py-4 px-4 text-white/70 text-center">Other AI Tools</th>
+                  <th className="py-4 px-4 text-white/70 text-center">Answering Service</th>
+                  <th className="py-4 px-4 text-white/70 text-center">In-House Front Desk</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/[0.06] text-sm">
                 {[
                   {
-                    feature: "24/7 voice + text + email",
-                    ironloop: "✅",
-                    callCenter: "❌ (costly)",
-                    chatbot: "⚠️ text only",
-                    other: "⚠️ varies",
+                    feature: "Available 24/7 (Nights & Weekends)",
+                    ironloop: "Yes",
+                    answeringService: "Sometimes",
+                    frontDesk: "No",
                   },
                   {
-                    feature: "Direct CRM booking",
-                    ironloop: "✅",
-                    callCenter: "❌",
-                    chatbot: "❌",
-                    other: "⚠️ varies",
+                    feature: "Books directly to your calendar",
+                    ironloop: "Yes",
+                    answeringService: "Rarely",
+                    frontDesk: "Yes",
                   },
                   {
-                    feature: "Dead lead reactivation (10x)",
-                    ironloop: "✅",
-                    callCenter: "❌",
-                    chatbot: "❌",
-                    other: "❌",
+                    feature: "Follows up on old leads",
+                    ironloop: "Yes",
+                    answeringService: "No",
+                    frontDesk: "Rarely (time)",
                   },
                   {
-                    feature: "Industry-trained AI",
-                    ironloop: "✅",
-                    callCenter: "⚠️",
-                    chatbot: "❌",
-                    other: "⚠️",
+                    feature: "Cost Model",
+                    ironloop: "Flat monthly",
+                    answeringService: "Per-minute fees",
+                    frontDesk: "Salary + benefits",
                   },
                   {
-                    feature: "No long-term contract",
-                    ironloop: "✅",
-                    callCenter: "❌",
-                    chatbot: "✅",
-                    other: "⚠️",
-                  },
-                  {
-                    feature: "Live in 14 days",
-                    ironloop: "✅",
-                    callCenter: "❌",
-                    chatbot: "⚠️",
-                    other: "⚠️",
-                  },
-                  {
-                    feature: "Trade & Service specific",
-                    ironloop: "✅",
-                    callCenter: "❌",
-                    chatbot: "❌",
-                    other: "❌",
+                    feature: "Setup time",
+                    ironloop: "14 days",
+                    answeringService: "Days",
+                    frontDesk: "Weeks (hiring)",
                   },
                 ].map((row, idx) => (
                   <tr key={idx} className="hover:bg-white/[0.02] transition-colors">
                     <td className="py-4 px-4 font-medium text-white">{row.feature}</td>
-                    <td className="py-4 px-4 text-center bg-[#C5E033]/5 text-emerald-400 font-bold text-lg">
+                    <td className="py-4 px-4 text-center bg-[#C5E033]/5 text-[#C5E033] font-mono font-bold text-base">
                       {row.ironloop}
                     </td>
-                    <td className="py-4 px-4 text-center text-white/70">
-                      {row.callCenter.includes("❌") ? (
-                        <span className="text-red-400 font-medium">{row.callCenter}</span>
-                      ) : (
-                        <span className="text-amber-400">{row.callCenter}</span>
-                      )}
+                    <td className="py-4 px-4 text-center text-white/70 font-mono text-sm">
+                      {row.answeringService}
                     </td>
-                    <td className="py-4 px-4 text-center text-white/70">
-                      {row.chatbot.includes("❌") ? (
-                        <span className="text-red-400 font-medium">{row.chatbot}</span>
-                      ) : row.chatbot.includes("✅") ? (
-                        <span className="text-emerald-400">{row.chatbot}</span>
-                      ) : (
-                        <span className="text-amber-400">{row.chatbot}</span>
-                      )}
-                    </td>
-                    <td className="py-4 px-4 text-center text-white/70">
-                      {row.other.includes("❌") ? (
-                        <span className="text-red-400 font-medium">{row.other}</span>
-                      ) : (
-                        <span className="text-amber-400">{row.other}</span>
-                      )}
+                    <td className="py-4 px-4 text-center text-white/70 font-mono text-sm">
+                      {row.frontDesk}
                     </td>
                   </tr>
                 ))}

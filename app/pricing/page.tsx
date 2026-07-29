@@ -1,10 +1,12 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import PricingClient from "@/components/PricingClient";
+import { Metadata } from "next";
 
-export const metadata = {
-  title: "Pricing | IronLoop AI Plans",
-  description: "Transparent, modular pricing for AI automation. Start with the Core Engine and add what you need.",
+export const metadata: Metadata = {
+  title: "Pricing | IronLoop Labs — Call Answering & Follow-Up Automation for Contractors",
+  description:
+    "Simple setup fee plus monthly plan. No contracts, no lock-in, live in 14 days. See IronLoop Labs pricing for HVAC, plumbing, and roofing companies.",
 };
 
 export default function PricingPage() {

@@ -1,10 +1,12 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import SuccessStoriesClient from "@/components/SuccessStoriesClient";
+import { Metadata } from "next";
 
-export const metadata = {
-  title: "Case Studies | IronLoop AI",
-  description: "See how roofing companies, solar installers, healthcare providers, and home service businesses use IronLoop AI to recover lost leads and book more jobs.",
+export const metadata: Metadata = {
+  title: "Case Studies | Real Results from HVAC, Roofing & Plumbing Companies — IronLoop Labs",
+  description:
+    "Real call recordings, booking numbers, and revenue results from home service companies using IronLoop Labs.",
 };
 
 export default function CaseStudiesPage() {

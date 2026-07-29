@@ -29,7 +29,7 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/15 bg-white/[0.06] backdrop-blur-md text-xs sm:text-sm font-medium text-white/90 shadow-xl">
             <span className="text-[#C5E033]">⚡</span>
-            AI-Powered Sales Automation for Home Services
+            Built for HVAC, Plumbing &amp; Roofing Companies
           </div>
         </motion.div>
 
@@ -40,9 +40,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.08] tracking-tight text-white font-display"
         >
-          Your AI employee,<br />
-          <span className="bg-gradient-to-r from-white via-white/80 to-white/40 bg-clip-text text-transparent">
-            working 24/7
+          Stop losing jobs<br />
+          <span className="bg-gradient-to-r from-white via-white/80 to-[#C5E033] bg-clip-text text-transparent">
+            to missed calls.
           </span>
         </motion.h1>
 
@@ -53,7 +53,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-base sm:text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed font-body"
         >
-          IronLoop AI answers every call, books every appointment, and reactivates every dead lead — automatically. Built for roofing, solar, trade, and home service companies.
+          Every call answered. Every lead followed up. Every no-show turned into a booked job. IronLoop Labs runs your phones and follow-ups so your team stays on the tools — not stuck answering calls all day.
         </motion.p>
 
         {/* Action Buttons & Note */}
@@ -75,12 +75,12 @@ export default function Hero() {
               href="/compare"
               className="px-8 py-4 rounded-full border border-white/20 text-white font-display text-base font-bold bg-white/5 hover:bg-white/10 hover:border-white/40 active:scale-95 transition-all flex items-center justify-center gap-2"
             >
-              Compare Solutions
-              <span className="material-symbols-outlined text-lg">stacked_line_chart</span>
+              See How It Works
+              <span className="material-symbols-outlined text-lg">play_circle</span>
             </Link>
           </div>
           <p className="text-white/40 text-xs sm:text-sm font-mono mt-1">
-            30-minute demo • No commitment
+            15-minute call. No contract. See it working before you decide anything.
           </p>
         </motion.div>
 
@@ -98,15 +98,15 @@ export default function Hero() {
             </div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-display">3-sec</div>
+            <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-display">&lt; 10s</div>
             <div className="text-white/40 text-[10px] sm:text-xs uppercase tracking-widest font-mono font-semibold">
               Response Time
             </div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-display">10x</div>
+            <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-display">Zero</div>
             <div className="text-white/40 text-[10px] sm:text-xs uppercase tracking-widest font-mono font-semibold">
-              Concurrent AI Calls
+              Missed Calls, Day or Night
             </div>
           </div>
         </motion.div>

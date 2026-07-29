@@ -269,7 +269,7 @@ export default function SuccessStoriesClient() {
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.04] text-xs font-mono font-bold text-[#C5E033] uppercase tracking-widest"
           >
-            <span>✨ Real Proven Results</span>
+            <span>✨ Verified Contractor Audits</span>
           </motion.div>
 
           <motion.h1
@@ -278,9 +278,9 @@ export default function SuccessStoriesClient() {
             transition={{ delay: 0.1 }}
             className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1]"
           >
-            What happens when AI works{" "}
+            Real conversations.<br />
             <span className="bg-gradient-to-r from-white via-white/80 to-[#C5E033] bg-clip-text text-transparent">
-              your sales floor.
+              Real numbers.
             </span>
           </motion.h1>
 
@@ -290,8 +290,23 @@ export default function SuccessStoriesClient() {
             transition={{ delay: 0.2 }}
             className="text-base sm:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed"
           >
-            See how roofing, solar, healthcare, and home service businesses use IronLoop AI to recover lost leads, book more jobs, and grow revenue — without adding headcount.
+            Real call recordings, booking numbers, and revenue results from HVAC, plumbing, and roofing companies using IronLoop Labs.
           </motion.p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 max-w-2xl mx-auto font-mono text-xs text-white/80">
+            <div className="p-3 rounded-xl bg-white/[0.03] border border-white/10 text-center">
+              <div className="text-xl font-bold text-[#C5E033] font-display">100+</div>
+              <div>Real Call Recordings</div>
+            </div>
+            <div className="p-3 rounded-xl bg-white/[0.03] border border-white/10 text-center">
+              <div className="text-xl font-bold text-[#C5E033] font-display">3x</div>
+              <div>Avg Pipeline Growth</div>
+            </div>
+            <div className="p-3 rounded-xl bg-white/[0.03] border border-white/10 text-center">
+              <div className="text-xl font-bold text-[#C5E033] font-display">14 Days</div>
+              <div>Time to 1st Booked Job</div>
+            </div>
+          </div>
         </div>
 
         {/* Search & Category Filter Bar */}

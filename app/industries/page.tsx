@@ -1,27 +1,21 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import PageBanner from "@/components/PageBanner";
 import IndustriesListClient from "@/components/IndustriesListClient";
+import { Metadata } from "next";
 
-export const metadata = {
-  title: "Industries We Serve | IronLoop Labs",
-  description: "Explore AI automation solutions for healthcare, HVAC, plumbing, dental, and more high-growth industries.",
+export const metadata: Metadata = {
+  title: "Industries | AI Answering & Follow-Up for HVAC, Plumbing & Roofing — IronLoop Labs",
+  description:
+    "Purpose-built call answering and follow-up automation for HVAC, plumbing, roofing, and home service businesses across Texas and the US.",
 };
 
 export default function IndustriesPage() {
   return (
     <>
       <Nav />
-      <PageBanner
-        title="Industries We Automate"
-        subtitle="Purpose-built AI receptionist and workflow automation for healthcare, home services, and commercial operations. Each industry has a dedicated automation pipeline."
-        badge="8 SPECIALIZED VERTICALS"
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Industries" },
-        ]}
-      />
-      <IndustriesListClient />
+      <main className="bg-[#050505] text-white min-h-screen">
+        <IndustriesListClient />
+      </main>
       <Footer />
     </>
   );
