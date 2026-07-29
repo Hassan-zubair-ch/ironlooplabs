@@ -61,7 +61,7 @@ export default function ContactClient() {
   };
 
   return (
-    <main className="bg-[#050505] bg-dark-grid text-white py-16 sm:py-24 relative overflow-hidden min-h-screen">
+    <main className="bg-[#050505] text-white py-16 sm:py-24 relative overflow-hidden min-h-screen">
       {/* Background Dot Texture */}
       <div
         className="absolute inset-0 opacity-20 pointer-events-none"

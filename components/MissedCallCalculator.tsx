@@ -16,7 +16,7 @@ export default function MissedCallCalculator() {
   const lostRevenuePerYear = lostRevenuePerMonth * 12;
 
   return (
-    <section className="py-20 bg-[#050505] bg-dark-grid border-y border-white/10 relative overflow-hidden">
+    <section className="py-20 bg-[#050505] border-y border-white/10 relative overflow-hidden">
       {/* Background Dot Texture */}
       <div
         className="absolute inset-0 opacity-20 pointer-events-none"
