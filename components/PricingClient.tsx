@@ -129,160 +129,128 @@ export default function PricingClient() {
           </div>
         </motion.div>
 
-        {/* MODULAR CARDS (4 COLUMNS) */}
+        {/* MODULAR CARDS (3 COLUMNS) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-28"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-28"
         >
-          {/* Card 1: Core Engine */}
-          <div className="bg-[#0f1016]/90 border border-[#C5E033]/30 rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden shadow-xl hover:border-[#C5E033] transition-colors">
+          {/* Tier 1: Missed-Call Recovery */}
+          <div className="bg-[#0f1016]/90 border border-white/[0.08] rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden shadow-xl hover:border-[#C5E033]/40 transition-colors">
+            <div>
+              <span className="text-[11px] font-mono font-bold text-white/60 uppercase tracking-wider block mb-3">
+                Tier 1 — Low-Risk Starter
+              </span>
+              <h3 className="font-display text-2xl font-bold text-white mb-1">Missed-Call Recovery</h3>
+              <p className="font-display text-3xl font-extrabold text-[#C5E033] mb-1">
+                $247 <span className="text-sm font-normal text-white/50">/ month</span>
+              </p>
+              <p className="text-white/50 font-mono text-xs mb-6">Setup: $397 (one-time)</p>
+
+              <p className="text-xs text-white/60 leading-relaxed mb-6 font-body">
+                Missed-call text-back + after-hours call answering. Entry point for owners who just want the bleeding stopped.
+              </p>
+
+              <ul className="space-y-3 mb-8">
+                {[
+                  "Missed-call instant text-back (<5s)",
+                  "After-hours call answering",
+                  "Basic SMS lead qualification",
+                  "Email & SMS notifications",
+                  "No long-term contract",
+                ].map((feat, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 text-xs text-white/70">
+                    <span className="material-symbols-outlined text-[#C5E033] text-sm shrink-0 mt-0.5">
+                      check
+                    </span>
+                    <span>{feat}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <Link
+              href="/contact"
+              className="w-full inline-flex items-center justify-center py-3.5 rounded-xl bg-white/[0.06] border border-white/10 text-white font-display text-xs font-bold uppercase tracking-wider hover:bg-white/10 transition-all text-center"
+            >
+              Get Started with Tier 1
+            </Link>
+          </div>
+
+          {/* Tier 2: Full Front Desk */}
+          <div className="bg-[#0f1016]/90 border border-[#C5E033]/40 rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden shadow-2xl hover:border-[#C5E033] transition-colors">
             <div className="absolute top-0 inset-x-0 h-1 bg-[#C5E033]" />
             <div>
-              <span className="text-[11px] font-mono font-bold text-[#C5E033] uppercase tracking-wider block mb-3">
-                Required for all plans
-              </span>
-              <h3 className="font-display text-xl font-bold text-white mb-1">Core Engine</h3>
-              <p className="font-display text-2xl font-extrabold text-[#C5E033] mb-1">
-                $1,100 – $1,750
-              </p>
-              <p className="text-white/40 font-mono text-xs mb-6">/ month</p>
-
-              <ul className="space-y-3 mb-8">
-                {[
-                  "All automation funnels + full API access",
-                  "Live reporting dashboard",
-                  "Priority support",
-                  "Dedicated account manager",
-                  "Professional script writing",
-                  "Custom funnel branches",
-                ].map((feat, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-xs text-white/70">
-                    <span className="material-symbols-outlined text-[#C5E033] text-sm shrink-0 mt-0.5">
-                      check
-                    </span>
-                    <span>{feat}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <p className="text-[11px] text-white/40 italic mb-4 leading-normal">
-                Exact pricing confirmed at demo. Varies by business size and CRM type.
-              </p>
-              <Link
-                href="/contact"
-                className="w-full inline-flex items-center justify-center py-3 rounded-xl bg-[#C5E033] text-[#0b0d10] font-display text-xs font-bold uppercase tracking-wider hover:brightness-110 transition-all"
-              >
-                Get My Quote
-              </Link>
-            </div>
-          </div>
-
-          {/* Card 2: Inbound Voice AI */}
-          <div className="bg-[#0f1016]/90 border border-white/[0.08] rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden shadow-xl hover:border-[#C5E033]/40 transition-colors">
-            <div>
-              <span className="text-[11px] font-mono font-bold text-purple-400 uppercase tracking-wider block mb-3">
-                24/7 Coverage
-              </span>
-              <h3 className="font-display text-xl font-bold text-white mb-1">Inbound Voice AI</h3>
-              <p className="font-display text-2xl font-extrabold text-white mb-1">
-                $900 – $1,250
-              </p>
-              <p className="text-white/40 font-mono text-xs mb-6">/ month</p>
-
-              <ul className="space-y-3 mb-8">
-                {[
-                  "24/7 AI call answering",
-                  "After-hours, weekend & holiday coverage",
-                  "Voice, text & email responses",
-                  "Lead qualification & intelligent routing",
-                  "CRM-synced call notes",
-                ].map((feat, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-xs text-white/70">
-                    <span className="material-symbols-outlined text-[#C5E033] text-sm shrink-0 mt-0.5">
-                      check
-                    </span>
-                    <span>{feat}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <Link
-              href="/contact"
-              className="w-full inline-flex items-center justify-center py-3 rounded-xl bg-white/[0.06] border border-white/10 text-white font-display text-xs font-bold uppercase tracking-wider hover:bg-white/10 transition-all"
-            >
-              Add to My Plan
-            </Link>
-          </div>
-
-          {/* Card 3: Outbound AI */}
-          <div className="bg-[#0f1016]/90 border border-white/[0.08] rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden shadow-xl hover:border-[#C5E033]/40 transition-colors">
-            <div>
-              <span className="text-[11px] font-mono font-bold text-indigo-400 uppercase tracking-wider block mb-3">
-                Proactive Outreach
-              </span>
-              <h3 className="font-display text-xl font-bold text-white mb-1">Outbound AI</h3>
-              <p className="font-display text-2xl font-extrabold text-white mb-1">
-                $1,000 – $1,500
-              </p>
-              <p className="text-white/40 font-mono text-xs mb-6">/ month</p>
-
-              <ul className="space-y-3 mb-8">
-                {[
-                  "Estimate follow-up campaigns",
-                  "Appointment reminders",
-                  "Re-engagement outreach",
-                  "Proactive pipeline-fill calling",
-                  "Performance reporting",
-                ].map((feat, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-xs text-white/70">
-                    <span className="material-symbols-outlined text-[#C5E033] text-sm shrink-0 mt-0.5">
-                      check
-                    </span>
-                    <span>{feat}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <Link
-              href="/contact"
-              className="w-full inline-flex items-center justify-center py-3 rounded-xl bg-white/[0.06] border border-white/10 text-white font-display text-xs font-bold uppercase tracking-wider hover:bg-white/10 transition-all"
-            >
-              Add to My Plan
-            </Link>
-          </div>
-
-          {/* Card 4: AI Reactivation */}
-          <div className="bg-[#0f1016]/90 border border-purple-500/40 rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden shadow-xl hover:border-[#C5E033] transition-colors">
-            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-purple-500 to-[#C5E033]" />
-            <div>
-              <div className="flex items-start justify-between mb-3">
-                <span className="text-[11px] font-mono font-bold text-purple-400 uppercase tracking-wider">
-                  Signature Module
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-[11px] font-mono font-bold text-[#C5E033] uppercase tracking-wider">
+                  Tier 2 — Standard Operational
                 </span>
-                <span className="px-2 py-0.5 rounded-full bg-[#C5E033]/10 border border-[#C5E033]/30 text-[#C5E033] text-[9px] font-mono font-bold uppercase">
-                  Most ROI
+                <span className="px-2.5 py-1 rounded-full bg-[#C5E033]/10 border border-[#C5E033]/30 text-[#C5E033] text-[9px] font-mono font-bold uppercase">
+                  ⭐ MOST POPULAR
                 </span>
               </div>
-              <h3 className="font-display text-xl font-bold text-white mb-1">AI Reactivation</h3>
-              <p className="font-display text-2xl font-extrabold text-[#C5E033] mb-1">
-                $1,500 – $2,500
+              <h3 className="font-display text-2xl font-bold text-white mb-1">Full Front Desk</h3>
+              <p className="font-display text-3xl font-extrabold text-[#C5E033] mb-1">
+                $497 <span className="text-sm font-normal text-white/50">/ month</span>
               </p>
-              <p className="text-white/40 font-mono text-xs mb-6">/ month</p>
+              <p className="text-[#C5E033]/80 font-mono text-xs mb-6">Setup: $697 (one-time)</p>
+
+              <p className="text-xs text-white/70 leading-relaxed mb-6 font-body">
+                Everything in Tier 1, plus speed-to-lead response, full 24/7 voice answering, and direct CRM booking. The tier most companies should land on.
+              </p>
 
               <ul className="space-y-3 mb-8">
                 {[
-                  "Up to 10 concurrent AI calls simultaneously",
-                  "Full dormant lead list processing",
-                  "Personalized call scripts per lead",
-                  "CRM integration for auto-status updates",
-                  "Enterprise tier (10+ calls) available",
+                  "Everything in Tier 1",
+                  "Speed-to-lead response (<10s)",
+                  "Full 24/7 AI voice answering",
+                  "Direct calendar & CRM booking",
+                  "ServiceTitan, Jobber & Housecall Pro sync",
+                ].map((feat, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 text-xs text-white/80">
+                    <span className="material-symbols-outlined text-[#C5E033] text-sm shrink-0 mt-0.5">
+                      check
+                    </span>
+                    <span>{feat}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <Link
+              href="/contact"
+              className="w-full inline-flex items-center justify-center py-3.5 rounded-xl bg-[#C5E033] text-[#0b0d10] font-display text-xs font-bold uppercase tracking-wider hover:brightness-110 transition-all text-center"
+            >
+              Get Started with Tier 2
+            </Link>
+          </div>
+
+          {/* Tier 3: Full Pipeline */}
+          <div className="bg-[#0f1016]/90 border border-purple-500/40 rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden shadow-xl hover:border-[#C5E033] transition-colors">
+            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-purple-500 to-[#C5E033]" />
+            <div>
+              <span className="text-[11px] font-mono font-bold text-purple-400 uppercase tracking-wider block mb-3">
+                Tier 3 — Enterprise Growth
+              </span>
+              <h3 className="font-display text-2xl font-bold text-white mb-1">Full Pipeline</h3>
+              <p className="font-display text-3xl font-extrabold text-[#C5E033] mb-1">
+                $897 <span className="text-sm font-normal text-white/50">/ month</span>
+              </p>
+              <p className="text-white/50 font-mono text-xs mb-6">Setup: $1,297 (one-time)</p>
+
+              <p className="text-xs text-white/60 leading-relaxed mb-6 font-body">
+                Everything in Tier 2, plus dead-lead reactivation and multi-touch follow-up sequences. For companies where a handful of recovered jobs a month easily justifies the cost.
+              </p>
+
+              <ul className="space-y-3 mb-8">
+                {[
+                  "Everything in Tier 2",
+                  "Dead-lead CRM reactivation engine",
+                  "Multi-touch follow-up sequences",
+                  "Unclosed estimate recovery",
+                  "14-day setup & dedicated onboarding",
                 ].map((feat, idx) => (
                   <li key={idx} className="flex items-start gap-2.5 text-xs text-white/70">
                     <span className="material-symbols-outlined text-[#C5E033] text-sm shrink-0 mt-0.5">
@@ -296,9 +264,9 @@ export default function PricingClient() {
 
             <Link
               href="/contact"
-              className="w-full inline-flex items-center justify-center py-3 rounded-xl bg-white/[0.06] border border-white/10 text-white font-display text-xs font-bold uppercase tracking-wider hover:bg-white/10 transition-all"
+              className="w-full inline-flex items-center justify-center py-3.5 rounded-xl bg-white/[0.06] border border-white/10 text-white font-display text-xs font-bold uppercase tracking-wider hover:bg-white/10 transition-all text-center"
             >
-              Add to My Plan
+              Get Started with Tier 3
             </Link>
           </div>
         </motion.div>
