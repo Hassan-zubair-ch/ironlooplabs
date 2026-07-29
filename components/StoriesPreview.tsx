@@ -5,19 +5,19 @@ import Link from "next/link";
 
 const TESTIMONIALS = [
   {
-    quote: "“Amazing AI Lol ! Honestly doubled our booked jobs in the first month.”",
+    quote: '"We used to lose calls to voicemail all day. Now every one gets a callback in seconds — booked jobs doubled in month one."',
     name: "Maaz",
     role: "Roofing • Zevoic",
     initial: "M",
   },
   {
-    quote: "“we really scale our revenue — calls answered at 2 AM with zero hold time.”",
+    quote: '"No new hires, no overtime — just more revenue. Calls at 2 AM get answered as fast as calls at 2 PM."',
     name: "Sarah Jenkins",
     role: "Contractor • Healthcare Insurance",
     initial: "S",
   },
   {
-    quote: "“The after-hours calls being answered instantly changed our whole business.”",
+    quote: '"The second we stopped missing after-hours calls, everything changed. That was the single biggest fix we made this year."',
     name: "Rob Cavey",
     role: "HVAC & Plumbing • Elite Service",
     initial: "R",
@@ -45,15 +45,15 @@ export default function StoriesPreview() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-white/50 inline-block mb-4">
-              TESTIMONIALS
+            <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#C5E033] inline-block mb-4">
+              REAL RESULTS
             </span>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
-              Built for businesses that <br />
-              <span className="text-white">build America.</span>
+              Every missed call is a lost job.<br />
+              <span className="text-[#C5E033]">We make sure that never happens.</span>
             </h2>
-            <p className="font-body text-base sm:text-lg text-white/60 leading-relaxed max-w-xl mx-auto">
-              Roofers, solar installers, trade, and home service companies trust IronLoop AI to run their sales floor 24/7.
+            <p className="font-body text-base sm:text-lg text-white/60 leading-relaxed max-w-2xl mx-auto">
+              HVAC, roofing, and plumbing companies use IronLoop to catch every call, text back instantly, and turn missed leads into booked jobs — day or night.
             </p>
           </motion.div>
         </div>
@@ -125,7 +125,7 @@ export default function StoriesPreview() {
               href="/contact"
               className="px-8 py-3.5 rounded-full bg-white text-[#050608] font-display text-sm font-extrabold hover:bg-[#C5E033] hover:text-[#0b0d10] active:scale-95 transition-all shadow-xl"
             >
-              Book a Demo
+              Book a Free Demo
             </Link>
             <Link
               href="/compare"

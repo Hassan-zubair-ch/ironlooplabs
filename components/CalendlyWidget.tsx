@@ -59,10 +59,10 @@ export default function CalendlyWidget() {
         onMouseEnter={preloadCalendly}
         onTouchStart={preloadCalendly}
         type="button"
-        aria-label="Schedule time with me"
+        aria-label="Talk to Us →"
         className="bg-primary text-on-primary py-6 px-3 rounded-r-xl font-bold shadow-2xl hover:bg-primary-fixed transition-colors text-sm sm:text-base border-t border-b border-r border-on-primary/10 [writing-mode:vertical-rl] rotate-180 tracking-wide cursor-pointer flex items-center gap-2"
       >
-        <span>Schedule time with me</span>
+        <span>Talk to Us →</span>
       </button>
     </div>
   );
