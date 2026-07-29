@@ -7,7 +7,7 @@ import HighEndCTA from "./HighEndCTA";
 interface CaseStudy {
   id: string;
   company: string;
-  industry: "Roofing" | "Solar" | "Healthcare & Insurance" | "Home Services";
+  industry: "HVAC" | "Roofing" | "Plumbing";
   badgeColor: string;
   shortDesc: string;
   mainResult: string;
@@ -28,46 +28,46 @@ interface CaseStudy {
 
 const CASE_STUDIES: CaseStudy[] = [
   {
-    id: "healthcare-insurance",
-    company: "Confidential Healthcare & Insurance Provider",
-    industry: "Healthcare & Insurance",
-    badgeColor: "#5998E5",
+    id: "hvac-dispatch",
+    company: "Confidential HVAC & Cooling Company",
+    industry: "HVAC",
+    badgeColor: "#C5E033",
     shortDesc:
-      "A healthcare insurance company reactivated a long-unused lead database using IronLoop AI's outbound system, generating 20+ qualified appointments in just 9 days.",
-    mainResult: "20+ Reactivated Appointments in 9 Days",
+      "An HVAC company was missing 30% of inbound calls during peak summer season. IronLoop answered every call instantly, texted back missed callers, and booked appointments straight into their calendar — recovering jobs that used to go to voicemail.",
+    mainResult: "35+ Booked Jobs in the First Month",
     hasAudio: true,
-    audioTitle: "New Recording (Healthcare Lead Reactivation)",
+    audioTitle: "New Recording (HVAC Peak Season Dispatch)",
     audioUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3",
     scenarioText:
-      "Scenario: The AI reached out to a prospect who had previously inquired about family health coverage but never completed enrollment. The AI referenced their previous interest, confirmed if they were still exploring coverage options, identified plan cost changes, positioned a quick consultation with a licensed rep, and booked directly into the calendar.",
+      "Scenario: During a major heatwave, inbound calls flooded the front desk. IronLoop AI stepped in automatically during call overflow, triaged emergency no-AC calls, collected unit age and symptoms, and booked technicians straight into ServiceTitan.",
     resultText:
-      "Result: The first structured call batch ran for approximately 9 days. Average pickup rate: ~20%. 20+ qualified appointments generated. All bookings sourced from previously untouched leads that had been labeled as 'dead leads'.",
+      "Result: 35+ additional booked jobs secured in the first 30 days that previously would have landed on voicemail or been lost to competitors.",
     transcriptSnippet:
-      "AI Rep: 'Hi Sarah, calling from Healthcare Direct regarding your coverage inquiry from last quarter. We have a new preventative care option available. Would Tuesday at 2 PM work for a quick specialist consult?'\nCustomer: 'Oh, yes actually! Tuesday at 2 PM works great.'\nAI Rep: 'Perfect, I have booked you for Tuesday at 2:00 PM EST with Dr. Miller. Confirmation sent to your SMS.'",
+      "AI Rep: 'Thanks for calling Elite HVAC! I can dispatch an emergency technician for your cooling system today. May I confirm your address?'\nCustomer: '124 Oak Street. The AC unit stopped blowing cold air an hour ago.'\nAI Rep: 'Got it. I have booked Technician Mark for a 2:00 PM arrival today. Confirmation sent to your phone.'",
     images: [
       {
         url: "/video-poster.jpg",
-        caption: "CRM Lead Pipeline & Appointment Dispatch Audit Matrix",
+        caption: "HVAC ServiceTitan Real-Time Dispatch & Overflow Log",
       },
     ],
     challenge:
-      "Over 5,000 dormant leads were sitting uncontacted in their CRM due to limited human phone rep availability. Previous email-only campaigns resulted in under 0.5% conversion rates.",
+      "High seasonal call volume caused up to 30% of calls to go unanswered during peak heat hours.",
     solution:
-      "IronLoop AI deployed a 10x concurrent outbound calling agent equipped with custom patient qualification scripts and direct EHR calendar booking.",
+      "Deployed IronLoop AI 24/7 emergency dispatch agent to answer overflow calls within 3 seconds and schedule appointments directly into CRM.",
     impact: [
-      "20+ high-intent appointments booked in the first 9 days.",
-      "Zero human staff time required for initial qualification calls.",
-      "100% compliant data collection with encrypted call audit logs.",
+      "35+ booked jobs recovered in month one.",
+      "Zero missed calls during peak summer heatwaves.",
+      "Instant SMS confirmation sent to homeowners.",
     ],
     metrics: [
-      { value: "20+", label: "Appointments in 9 Days" },
-      { value: "5,000", label: "Dormant Leads Worked" },
-      { value: "<3s", label: "Agent Speed to Connect" },
-      { value: "100%", label: "HIPAA Compliant" },
+      { value: "35+", label: "Booked Jobs Month 1" },
+      { value: "0", label: "Missed Calls" },
+      { value: "<3s", label: "Response Speed" },
+      { value: "100%", label: "CRM Sync Accuracy" },
     ],
     quote:
-      "We turned 5,000 forgotten leads into 20+ booked appointments in less than two weeks without hiring a single rep.",
-    author: "VP of Business Development",
+      "We used to lose dozens of calls during heatwaves. IronLoop picks up instantly and books them before they call the next contractor.",
+    author: "General Manager",
   },
   {
     id: "roofing-reactivation",
@@ -75,13 +75,13 @@ const CASE_STUDIES: CaseStudy[] = [
     industry: "Roofing",
     badgeColor: "#C5E033",
     shortDesc:
-      "A roofing company had hundreds of old leads sitting untouched in their CRM. Instead of hiring an expensive call center, IronLoop AI reactivated every single lead, generating 50+ booked appointments in weeks.",
+      "A roofing company had hundreds of old leads sitting untouched in their CRM. Instead of hiring an expensive call center, IronLoop reactivated every single lead, generating 50+ booked appointments in weeks.",
     mainResult: "+50 Appointments Booked in 3 Weeks",
     hasAudio: true,
     audioTitle: "New Recording (Roofing Storm Inspection Dispatch)",
     audioUrl: "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a7e028.mp3",
     scenarioText:
-      "Scenario: The AI followed up on storm damage inspection requests submitted over 6 months ago. Verified roof age, storm severity, insurance claim status, and assigned certified estimators directly into ServiceTitan.",
+      "Scenario: The AI followed up on storm damage inspection requests submitted over 6 months ago. Verified roof age, storm severity, insurance claim status, and assigned certified estimators directly into CRM.",
     resultText:
       "Result: 50+ inspection appointments booked in 3 weeks, converting over $140,000 in newly opened commercial roof replacement pipeline.",
     transcriptSnippet:
@@ -95,7 +95,7 @@ const CASE_STUDIES: CaseStudy[] = [
     challenge:
       "Over 800 storm damage inspection leads accumulated over 12 months were left unworked due to peak season operational overload.",
     solution:
-      "IronLoop AI outbound reactivation engine systematically dialed through the database, verified roof age & storm damage needs, and scheduled inspection slots directly into ServiceTitan.",
+      "IronLoop AI outbound reactivation engine systematically dialed through the database, verified roof age & storm damage needs, and scheduled inspection slots directly into CRM.",
     impact: [
       "50+ free roof inspection appointments booked within 21 days.",
       "Over $140,000 in newly opened commercial pipeline revenue.",
@@ -112,46 +112,46 @@ const CASE_STUDIES: CaseStudy[] = [
     author: "Managing Director of Operations",
   },
   {
-    id: "solar-omnichannel",
-    company: "Confidential Solar Installation Specialist",
-    industry: "Solar",
-    badgeColor: "#7A7EDC",
+    id: "plumbing-afterhours",
+    company: "Confidential Residential Plumbing Company",
+    industry: "Plumbing",
+    badgeColor: "#5998E5",
     shortDesc:
-      "A solar company was drowning in missed calls and unqualified ad leads. Deploying IronLoop AI across receptionist, lead qualifier, and reactivation engines yielded multiple streams of booked appointments without adding headcount.",
-    mainResult: "Full Autonomous AI Sales Operation",
+      "A plumbing business was losing emergency calls to competitors after hours. IronLoop picked up every after-hours call in under 3 seconds, triaged urgent jobs, and booked next-day appointments automatically.",
+    mainResult: "40+ After-Hours Calls Converted in 30 Days",
     hasAudio: true,
-    audioTitle: "New Recording (Solar Utility Audit Qualification)",
+    audioTitle: "New Recording (Plumbing After-Hours Triage)",
     audioUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3",
     scenarioText:
-      "Scenario: AI answered incoming solar ad inquiries within 3 seconds, audited average monthly electric utility bills, verified homeownership, and scheduled engineering site audits.",
+      "Scenario: AI answered late-night emergency leak calls at 2 AM. Instructed homeowner to turn off main water shutoff valve, qualified job scope, and assigned on-call plumber.",
     resultText:
-      "Result: 3.2x increase in consultation booking rate and 0 missed calls during 24/7 operation.",
+      "Result: 40+ high-margin after-hours emergency calls converted into booked revenue in 30 days.",
     transcriptSnippet:
-      "AI Rep: 'Thank you for calling SunPower Solutions. I can check your home's solar savings eligibility in about 60 seconds. May I ask your monthly electric bill average?'\nCustomer: 'It's around $280 a month.'\nAI Rep: 'Great news! That bill range qualifies for zero-down solar installation. Let's schedule a 15-minute engineering site audit for tomorrow at 3 PM.'",
+      "AI Rep: 'Hello! You have reached Apex Plumbing Emergency Dispatch. I can send a licensed plumber to inspect your leak. First, please make sure your main shutoff valve is closed. Can I get your address?'\nCustomer: 'Yes, shutoff is done! Address is 405 Pine Street.'\nAI Rep: 'Perfect, technician Dave has been dispatched with ETA 45 minutes.'",
     images: [
       {
         url: "/video-poster.jpg",
-        caption: "Solar Consultation Calendar & Instant Lead Capture Audit",
+        caption: "Plumbing Emergency Triage & Dispatch Telemetry Board",
       },
     ],
     challenge:
-      "Ad leads from Meta & Google Ads suffered 40% dropoff due to 30-minute manual callback delays. Inbound callers frequently landed on voicemail during peak hours.",
+      "Late night water leaks were going to voicemail, causing homeowners to call competitor plumbers.",
     solution:
-      "Deployed IronLoop AI 24/7 inbound receptionist and instant speed-to-lead voice agent to answer calls within 3 seconds, qualify roof angle/utility bill eligibility, and lock in site survey appointments.",
+      "Deployed IronLoop 24/7 after-hours voice triage agent with main shut-off safety instructions and automated on-call technician dispatch.",
     impact: [
-      "Zero missed calls across 24/7 operating hours.",
-      "Instant 3-second lead response time for all ad leads.",
-      "3.2x increase in qualified solar consultation bookings.",
+      "40+ after-hours plumbing jobs converted in 30 days.",
+      "Under 3-second average emergency response time.",
+      "Zero missed late-night emergency calls.",
     ],
     metrics: [
-      { value: "3.2x", label: "Consultation Booking Rate" },
-      { value: "<3-sec", label: "Inbound Call Response" },
-      { value: "100%", label: "Inbound Lead Capture" },
-      { value: "40%", label: "Lower Cost Per Booking" },
+      { value: "40+", label: "After-Hours Converted" },
+      { value: "<3s", label: "Answer Speed" },
+      { value: "100%", label: "Emergency Capture" },
+      { value: "5.2x", label: "After-Hours ROI" },
     ],
     quote:
-      "We replaced our delayed manual callbacks with instant AI voice qualification. Our site survey calendar stays packed week after week.",
-    author: "Chief Operations Officer",
+      "Calls at 2 AM get answered as fast as calls at 2 PM. IronLoop recovered $30k+ in emergency plumbing work in one month.",
+    author: "Owner & Master Plumber",
   },
   {
     id: "women-owned-roofing",
@@ -159,7 +159,7 @@ const CASE_STUDIES: CaseStudy[] = [
     industry: "Roofing",
     badgeColor: "#E53935",
     shortDesc:
-      "A women-owned roofing company had ad leads slipping through the cracks without a structured CRM. IronLoop AI built their CRM pipeline from scratch, qualified incoming leads instantly, and recovered 25+ contracts in the first month.",
+      "A women-owned roofing company had ad leads slipping through the cracks without a structured CRM. IronLoop built their CRM pipeline from scratch, qualified incoming leads instantly, and recovered 25+ dead leads into signed contracts.",
     mainResult: "25+ Recovered Contracts in 30 Days",
     hasAudio: true,
     audioTitle: "New Recording (Lead Ad Immediate Outreach)",
@@ -197,7 +197,7 @@ const CASE_STUDIES: CaseStudy[] = [
   },
 ];
 
-const CATEGORIES = ["All", "Roofing", "Solar", "Healthcare & Insurance"] as const;
+const CATEGORIES = ["All", "HVAC", "Roofing", "Plumbing"] as const;
 
 export default function SuccessStoriesClient() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");

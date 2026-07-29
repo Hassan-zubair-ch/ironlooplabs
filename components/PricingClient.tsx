@@ -6,56 +6,56 @@ import Link from "next/link";
 
 const FAQS = [
   {
-    q: "Is IronLoop AI a lead generation service?",
-    a: "No. IronLoop AI does not sell raw leads. We provide autonomous AI agents and infrastructure that work your existing inbound leads, past customer databases, and warm marketing leads 24/7.",
+    q: "Does IronLoop bring me new leads, or just handle the ones I have?",
+    a: "Just the ones you have. IronLoop makes sure every lead you're already paying for — from ads, referrals, or your website — gets a response fast enough to actually convert.",
   },
   {
-    q: "Can the AI actually book jobs in my CRM?",
-    a: "Yes! IronLoop AI integrates directly with major CRMs (HubSpot, Salesforce, ServiceTitan, Jobber, Housecall Pro, Zapier, etc.) to check real-time technician calendar availability, create jobs, and log every transcript.",
+    q: "Does it book directly into my calendar or CRM?",
+    a: "Yes. Every booked job lands in your existing system automatically, in real time. Nothing to copy over manually.",
   },
   {
-    q: "What happens to calls after hours and on weekends?",
-    a: "Our Voice AI handles 100% of after-hours and weekend calls in under 3 seconds. It qualifies callers, collects job details, schedules appointments, and sends instant SMS notifications to your emergency team if urgent.",
+    q: "What happens on nights, weekends, and holidays?",
+    a: "Same as any other hour — answered instantly, no voicemail, no waiting until Monday.",
   },
   {
-    q: "Will this replace my office staff?",
-    a: "No. IronLoop AI acts as a 24/7 force multiplier for your team. It handles repetitive phone intake, initial qualifying, estimate follow-ups, and cold lead reactivation so your human team can focus on high-value operations.",
+    q: "Am I firing my front desk for this?",
+    a: "No. IronLoop takes the repetitive, time-sensitive work off their plate — first response, scheduling, follow-up — so your staff can spend time on estimates and jobs already in motion.",
   },
   {
-    q: "How fast can we go live?",
-    a: "Onboarding and custom voice/script training typically takes 10 to 14 business days. We build your custom call flows, test CRM integrations, and launch with full QA oversight.",
+    q: "How long until we're actually live?",
+    a: "Two weeks, typically. Setup, integration, and testing included.",
   },
   {
-    q: "How does the Dead Lead Reactivation work?",
-    a: "You provide cold or unbooked lead lists from the past 6–12 months. Our AI dials through the list with up to 10 concurrent streams, engages prospects with personalized context, and books interested leads back onto your calendar.",
+    q: "What is Dead Lead Reactivation exactly?",
+    a: "We scan your CRM for leads that went quiet, then re-engage them automatically with follow-up outreach — turning old, forgotten contacts back into booked appointments.",
   },
   {
-    q: "Can the AI run more than 10 calls at once?",
-    a: "Yes. Enterprise tiers support 20, 50, or 100+ concurrent AI call channels simultaneously during major marketing campaigns or storm response events.",
+    q: "What if 20 calls come in at the exact same time?",
+    a: "All 20 get answered. There's no queue and no limit on simultaneous calls.",
   },
   {
-    q: "Is my customer data secure?",
-    a: "Absolutely. We enforce end-to-end encryption, strict data isolation, and enterprise security standards. Your lead data is never shared or trained on public models.",
+    q: "Is customer data safe with this?",
+    a: "Yes — everything is encrypted in transit and at rest, and it's never sold or shared.",
   },
   {
-    q: "Which CRMs do you support?",
-    a: "We natively support ServiceTitan, Jobber, Housecall Pro, Salesforce, HubSpot, GoHighLevel, Follow Up Boss, and custom webhooks/Zapier endpoints.",
+    q: "Does it work with the CRM I already use?",
+    a: "It works with every major CRM used in home services. If you're unsure about yours, ask us directly — we'll check before you sign anything.",
   },
   {
-    q: "How do I pause the AI for a specific customer?",
-    a: "You can instantly pause automated AI outreach for any account, contact, or deal directly from your CRM status tags or through your live IronLoop dashboard with a single click.",
+    q: "Can I route a specific customer straight to a human?",
+    a: "Yes, any time, from your dashboard — flag a contact and it skips straight to your team.",
   },
   {
-    q: "What if my CRM data isn't syncing correctly?",
-    a: "Our system includes dual-way fallback webhooks and real-time error alerts. If a sync delay occurs, data is queued securely until the connection is automatically restored.",
+    q: "What if my CRM stops syncing properly?",
+    a: "We monitor that on our end and fix it before it becomes your problem.",
   },
   {
-    q: "What's included in onboarding?",
-    a: "Onboarding includes full SOP script customization, CRM mapping, voice synthesis tuning, team training, and 14 days of live QA monitoring during soft launch.",
+    q: "What's actually included in onboarding?",
+    a: "Call flow setup, CRM integration, scripts written for your business specifically, and a live test run with your team before anything goes public.",
   },
   {
-    q: "Do you offer ongoing optimization?",
-    a: "Yes! Every plan includes continuous script refinement, monthly conversion performance audits, and quarterly AI model updates based on your business results.",
+    q: "Do you keep improving it after we launch?",
+    a: "Yes — we track call outcomes and adjust scripts and timing on an ongoing basis to keep conversion rates climbing.",
   },
 ];
 
@@ -275,49 +275,52 @@ export default function PricingClient() {
 
 
 
-        {/* REVENUE MULTIPLIER SECTION */}
+        {/* REVENUE MULTIPLIER / IMPACT SECTION */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="max-w-6xl mx-auto mb-28"
+          className="max-w-6xl mx-auto mb-28 text-center"
         >
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white mb-14 text-center">
-            This isn't a cost. It's a <span className="text-[#C5E033]">revenue multiplier.</span>
+          <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#C5E033] inline-block mb-3">
+            WHY IT PAYS FOR ITSELF
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-14 tracking-tight">
+            Stop paying for leads you <span className="text-[#C5E033]">never call back.</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-[#0f1016]/90 border border-white/[0.08] rounded-3xl p-8 text-center shadow-xl">
               <p className="font-display text-5xl font-black text-[#C5E033] mb-2">9x</p>
               <p className="text-xs font-mono uppercase tracking-wider text-white/40 mb-4">
-                Conversion boost
+                FASTER RESPONSE
               </p>
-              <h3 className="font-display text-lg font-bold text-white mb-2">More Conversions</h3>
+              <h3 className="font-display text-lg font-bold text-white mb-2">Speed Wins the Job</h3>
               <p className="font-body text-sm text-white/60 leading-relaxed">
-                AI responds in 3 seconds, 24/7. Leads contacted within 5 minutes are 9x more likely to convert. We give you a 3-second response every time.
+                Studies show leads contacted within 5 minutes convert 9x more often than leads contacted an hour later. IronLoop responds in under 3 seconds — every call, every time.
               </p>
             </div>
 
             <div className="bg-[#0f1016]/90 border border-white/[0.08] rounded-3xl p-8 text-center shadow-xl">
               <p className="font-display text-5xl font-black text-[#C5E033] mb-2">80%</p>
               <p className="text-xs font-mono uppercase tracking-wider text-white/40 mb-4">
-                Cost reduction
+                LESS OVERHEAD
               </p>
-              <h3 className="font-display text-lg font-bold text-white mb-2">Lower Overhead</h3>
+              <h3 className="font-display text-lg font-bold text-white mb-2">One Flat Rate. No Staffing Headaches.</h3>
               <p className="font-body text-sm text-white/60 leading-relaxed">
-                Replace costly call center headcount and manual follow-up labor with AI that costs a fraction of the price and works around the clock.
+                No after-hours answering service. No overtime for your front desk. No hiring, training, or turnover. IronLoop covers every call for a fraction of what a call center costs.
               </p>
             </div>
 
             <div className="bg-[#0f1016]/90 border border-white/[0.08] rounded-3xl p-8 text-center shadow-xl">
               <p className="font-display text-5xl font-black text-[#C5E033] mb-2">$$$</p>
               <p className="text-xs font-mono uppercase tracking-wider text-white/40 mb-4">
-                Revenue recovered
+                LEADS RESCUED
               </p>
-              <h3 className="font-display text-lg font-bold text-white mb-2">Recovered Revenue</h3>
+              <h3 className="font-display text-lg font-bold text-white mb-2">Your CRM Is Sitting on Free Money</h3>
               <p className="font-body text-sm text-white/60 leading-relaxed">
-                Dead lead lists represent thousands in unrealized revenue. Our Reactivation AI turns yesterday's cold leads into today's booked jobs.
+                Every home service business has a graveyard of old leads that went cold. Dead Lead Reactivation reopens those conversations automatically and turns forgotten contacts into new jobs.
               </p>
             </div>
           </div>
@@ -329,10 +332,13 @@ export default function PricingClient() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto mb-28"
+          className="max-w-3xl mx-auto mb-28 text-center"
         >
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white mb-10 text-center">
-            Frequently Asked <span className="text-[#C5E033]">Questions</span>
+          <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#C5E033] inline-block mb-3">
+            BEFORE YOU BOOK A CALL
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white mb-10">
+            Questions owners <span className="text-[#C5E033]">actually ask us.</span>
           </h2>
 
           <div className="space-y-4">

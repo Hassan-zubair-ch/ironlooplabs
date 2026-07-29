@@ -117,16 +117,6 @@ export default function IndustryDetailPage({ params }: { params: { slug: string 
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Nav />
-      <PageBanner
-        title={industry.heroHeadline}
-        subtitle={industry.heroDesc}
-        badge={industry.badge}
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Industries", href: "/industries" },
-          { label: industry.title },
-        ]}
-      />
       <IndustryDetailClient industry={industry} />
       <Footer />
     </>

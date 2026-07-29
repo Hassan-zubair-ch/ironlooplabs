@@ -54,37 +54,45 @@ export default function IndustryCard({ ind, index }: IndustryCardProps) {
           className="relative h-full bg-[#111318] border border-white/[0.06] rounded-2xl p-7 min-h-[260px] flex flex-col items-center text-center cursor-pointer group overflow-hidden transition-all duration-300 hover:border-[#a3e635]/40 hover:bg-[#15181e] shadow-lg"
           style={{ '--x': '50%', '--y': '50%' } as React.CSSProperties}
         >
-          {/* Interactive Glow Effect on Hover */}
+          {/* Interactive Radial Glow Effect on Hover */}
           <div
             className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
             style={{
-              background: `radial-gradient(300px circle at var(--x) var(--y), rgba(163, 230, 53, 0.06), transparent 50%)`,
+              background: `radial-gradient(350px circle at var(--x) var(--y), rgba(197, 224, 51, 0.12), transparent 60%)`,
             }}
           />
 
+          {/* Top Gradient Border Highlight on Hover */}
+          <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#C5E033] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
           <div className="relative z-10 flex flex-col items-center w-full">
-            {/* Icon Container with Professional Styling */}
+            {/* Prominent Icon Badge with Glow */}
             <div className="mb-5 relative">
-              <div className="absolute inset-0 bg-[#a3e635]/15 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="w-16 h-16 rounded-2xl bg-[#1a1d24] border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:border-[#a3e635]/40 transition-all duration-500 shadow-xl relative z-10">
+              <div className="absolute inset-0 bg-[#C5E033]/25 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="w-16 h-16 rounded-2xl bg-[#161922] border border-white/10 group-hover:border-[#C5E033]/50 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-2xl relative z-10">
                 {getIndustryIconComponent(ind.iconType, "w-10 h-10")}
               </div>
             </div>
             
-            {/* Texts */}
-            <h3 className="font-display text-lg font-bold text-white group-hover:text-[#a3e635] transition-colors duration-300 mb-2">
+            {/* Eyebrow / Category Tag */}
+            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#C5E033] mb-2 px-3 py-0.5 rounded-full bg-[#C5E033]/10 border border-[#C5E033]/20">
+              {ind.category}
+            </span>
+
+            {/* Title */}
+            <h3 className="font-display text-xl font-extrabold text-white group-hover:text-[#C5E033] transition-colors duration-300 mb-2">
               {ind.title}
             </h3>
             
-            {/* Always visible subtitle */}
-            <p className="font-body text-xs text-white/60 leading-relaxed max-w-[220px]">
+            {/* Subtitle */}
+            <p className="font-body text-xs text-white/60 leading-relaxed max-w-[240px] mb-4">
               {ind.subtitle}
             </p>
 
-            {/* Explore More link (appears on hover) */}
-            <div className="mt-auto pt-4 flex items-center justify-center gap-1.5 text-[#a3e635] opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0 transition-all duration-300 font-mono text-[11px] font-bold tracking-widest uppercase">
-              <span>Explore More</span>
-              <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+            {/* Explore Industry Solutions Link */}
+            <div className="mt-auto pt-4 flex items-center justify-center gap-1.5 text-[#C5E033] font-mono text-[11px] font-bold tracking-widest uppercase group-hover:translate-x-1 transition-transform duration-300">
+              <span>Explore Industry Solutions</span>
+              <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
             </div>
           </div>
         </div>
