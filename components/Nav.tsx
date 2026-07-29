@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/demo", label: "Voice Demo" },
+  { href: "/demo", label: "Demo" },
   { href: "/solutions", label: "Solutions" },
   { href: "/industries", label: "Industries" },
   { href: "/pricing", label: "Pricing" },
@@ -59,7 +59,7 @@ export default function Nav() {
             href="/contact"
             className="hidden sm:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#12141d] border border-white/20 text-white font-display text-sm font-bold hover:bg-white hover:text-[#050608] hover:border-white active:scale-95 transition-all shadow-md group"
           >
-            Book a Demo
+            Contact us
           </Link>
 
           {/* Mobile Menu Toggle Button */}
@@ -101,7 +101,7 @@ export default function Nav() {
               onClick={() => setMobileOpen(false)}
               className="mt-2 block text-center py-3 px-6 rounded-full bg-[#C5E033] text-[#0b0d10] font-display text-base font-bold shadow-lg"
             >
-              Book a Demo
+              Contact us
             </Link>
           </motion.div>
         )}

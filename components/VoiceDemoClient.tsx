@@ -65,8 +65,8 @@ const assistantConfig: any = {
     ],
   },
   voice: {
-    provider: "playht",
-    voiceId: "jennifer",
+    provider: "azure",
+    voiceId: "en-US-JennyNeural",
   },
   clientMessages: ["transcript", "tool-calls"],
 };
@@ -76,6 +76,7 @@ export default function VoiceDemoClient() {
   const [transcript, setTranscript] = useState<Array<{ role: string; text: string }>>([]);
   const [capturedLead, setCapturedLead] = useState<{ name?: string; email?: string } | null>(null);
   const [isMuted, setIsMuted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const transcriptRef = useRef<string[]>([]);
   const vapiRef = useRef<Vapi | null>(null);
   const chatScrollRef = useRef<HTMLDivElement>(null);
@@ -84,7 +85,11 @@ export default function VoiceDemoClient() {
   useEffect(() => {
     const publicKey = process.env.NEXT_PUBLIC_VAPI_PUBLIC_KEY || "31fd6b51-f0b8-45e7-88f9-37cffd69f920";
     if (publicKey && typeof window !== "undefined") {
-      vapiRef.current = new Vapi(publicKey);
+      try {
+        vapiRef.current = new Vapi(publicKey);
+      } catch (err) {
+        console.error("Vapi init error:", err);
+      }
     }
   }, []);
 
@@ -103,54 +108,77 @@ export default function VoiceDemoClient() {
     }).catch((err) => console.error("Lead notify failed:", err));
   };
 
-  const startCall = () => {
+  const startCall = async () => {
     setStatus("connecting");
+    setErrorMessage(null);
     setTranscript([]);
     setCapturedLead(null);
     transcriptRef.current = [];
 
-    const vapi = vapiRef.current || new Vapi(process.env.NEXT_PUBLIC_VAPI_PUBLIC_KEY || "31fd6b51-f0b8-45e7-88f9-37cffd69f920");
+    const publicKey = process.env.NEXT_PUBLIC_VAPI_PUBLIC_KEY || "31fd6b51-f0b8-45e7-88f9-37cffd69f920";
 
-    vapi.removeAllListeners();
-
-    vapi.on("call-start", () => setStatus("active"));
-
-    vapi.on("call-end", () => {
-      setStatus("idle");
-      notify({ type: "call-ended", transcript: transcriptRef.current });
-    });
-
-    vapi.on("message", (msg: any) => {
-      if (msg.type === "transcript" && msg.transcriptType === "final") {
-        const roleName = msg.role === "assistant" || msg.role === "bot" ? "AI Receptionist" : "You";
-        const entry = `${roleName}: ${msg.transcript}`;
-        transcriptRef.current.push(entry);
-        setTranscript((prev) => [...prev, { role: roleName, text: msg.transcript }]);
+    try {
+      let vapi = vapiRef.current;
+      if (!vapi) {
+        vapi = new Vapi(publicKey);
+        vapiRef.current = vapi;
       }
-      if (msg.type === "tool-calls") {
-        const call = msg.toolCallList?.[0];
-        if (call?.function?.name === "shareContactInfo") {
-          const args =
-            typeof call.function.arguments === "string"
-              ? JSON.parse(call.function.arguments)
-              : call.function.arguments;
-          setCapturedLead(args);
-          notify({ type: "contact-captured", ...args });
+
+      vapi.removeAllListeners();
+
+      vapi.on("call-start", () => {
+        setStatus("active");
+        setErrorMessage(null);
+      });
+
+      vapi.on("call-end", () => {
+        setStatus("idle");
+        notify({ type: "call-ended", transcript: transcriptRef.current });
+      });
+
+      vapi.on("message", (msg: any) => {
+        if (msg.type === "transcript" && msg.transcriptType === "final") {
+          const roleName = msg.role === "assistant" || msg.role === "bot" ? "AI Receptionist" : "You";
+          const entry = `${roleName}: ${msg.transcript}`;
+          transcriptRef.current.push(entry);
+          setTranscript((prev) => [...prev, { role: roleName, text: msg.transcript }]);
         }
-      }
-    });
+        if (msg.type === "tool-calls") {
+          const call = msg.toolCallList?.[0];
+          if (call?.function?.name === "shareContactInfo") {
+            const args =
+              typeof call.function.arguments === "string"
+                ? JSON.parse(call.function.arguments)
+                : call.function.arguments;
+            setCapturedLead(args);
+            notify({ type: "contact-captured", ...args });
+          }
+        }
+      });
 
-    vapi.on("error", (err: any) => {
-      console.error("Vapi call error:", err);
+      vapi.on("error", (err: any) => {
+        console.error("Vapi Error Event:", err);
+        const msg = typeof err === "string" ? err : err?.message || "Audio connection failed. Check microphone permission.";
+        setErrorMessage(msg);
+        setStatus("idle");
+      });
+
+      await vapi.start(assistantConfig);
+    } catch (err: any) {
+      console.error("Vapi Start Error:", err);
+      const msg = err?.message || "Could not start voice call. Please allow microphone access.";
+      setErrorMessage(msg);
       setStatus("idle");
-    });
-
-    vapi.start(assistantConfig);
+    }
   };
 
   const endCall = () => {
     if (vapiRef.current) {
-      vapiRef.current.stop();
+      try {
+        vapiRef.current.stop();
+      } catch (err) {
+        console.error("Stop call error:", err);
+      }
     }
     setStatus("idle");
   };
@@ -216,7 +244,7 @@ export default function VoiceDemoClient() {
           transition={{ delay: 0.3 }}
           className="rounded-3xl bg-[#0c0e14]/90 border border-white/15 p-8 sm:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.8)] backdrop-blur-xl relative overflow-hidden mb-12"
         >
-          {/* Subtle Corner Glow Accent */}
+          {/* Corner Glow Accent */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#C5E033]/10 blur-[80px] pointer-events-none" />
 
           <div className="flex flex-col items-center justify-center text-center">
@@ -272,6 +300,16 @@ export default function VoiceDemoClient() {
                 </div>
               )}
             </div>
+
+            {/* Error Banner */}
+            {errorMessage && (
+              <div className="mb-6 max-w-md w-full p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-mono text-left flex items-start gap-2">
+                <span className="material-symbols-outlined text-base shrink-0 mt-0.5">error</span>
+                <div>
+                  <strong>Connection Alert:</strong> {errorMessage}
+                </div>
+              </div>
+            )}
 
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -429,7 +467,7 @@ export default function VoiceDemoClient() {
             className="inline-flex items-center gap-2 text-white/70 hover:text-[#C5E033] font-display font-semibold text-sm transition-colors"
           >
             Ready to deploy this for your HVAC, Plumbing, or Roofing business?
-            <span className="text-[#C5E033] underline">Book a full 30-min strategy call →</span>
+            <span className="text-[#C5E033] underline">Contact us →</span>
           </Link>
         </div>
 
