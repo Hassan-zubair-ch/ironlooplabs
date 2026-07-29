@@ -14,13 +14,13 @@ export default function Industries() {
       <div className="max-w-container-max mx-auto px-margin-desktop relative z-10">
         <Reveal className="mb-16 text-center max-w-4xl mx-auto">
           <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#a3e635] mb-4 block font-bold">
-            INDUSTRIES WE SERVE
+            CONTRACTOR TRADE FOCUS
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold text-white mb-6 uppercase tracking-tight leading-[1.1]">
-            AUTOMATION EXPERTS FOR<br className="hidden lg:block" /> <span className="text-[#a3e635]">HIGH-GROWTH INDUSTRIES</span>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-[3.25rem] font-extrabold text-white mb-6 uppercase tracking-tight leading-[1.1]">
+            BUILT FOR HOME SERVICE BUSINESSES<br className="hidden lg:block" /> THAT <span className="text-[#a3e635]">CAN&apos;T AFFORD A MISSED CALL</span>
           </h2>
           <p className="font-body text-base sm:text-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
-            Purpose-built AI receptionist and workflow automation for healthcare, HVAC, and trade businesses. Each industry has a dedicated automation page.
+            Purpose-built call answering and follow-up automation for HVAC, plumbing, roofing, and home service businesses across Texas and the US.
           </p>
         </Reveal>
 

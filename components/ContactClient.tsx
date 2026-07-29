@@ -61,9 +61,18 @@ export default function ContactClient() {
   };
 
   return (
-    <main className="bg-[#050505] text-white py-16 sm:py-24 relative overflow-hidden min-h-screen">
+    <main className="bg-[#050505] bg-dark-grid text-white py-16 sm:py-24 relative overflow-hidden min-h-screen">
+      {/* Background Dot Texture */}
+      <div
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(#ffffff 1px, transparent 1px)`,
+          backgroundSize: `24px 24px`,
+        }}
+      />
+
       {/* Background Radial Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#C5E033]/[0.05] blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#C5E033]/[0.08] blur-[160px] rounded-full pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

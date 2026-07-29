@@ -5,7 +5,6 @@ import PlatformVideoSection from "@/components/PlatformVideoSection";
 import WhatIronLoopDoes from "@/components/WhatIronLoopDoes";
 import ProductsPreview from "@/components/ProductsPreview";
 import ToolIntegrationsMarquee from "@/components/ToolIntegrationsMarquee";
-import Industries from "@/components/Industries";
 import CaseStudiesPreview from "@/components/CaseStudiesPreview";
 import StoriesPreview from "@/components/StoriesPreview";
 import CTA from "@/components/CTA";
@@ -29,7 +28,6 @@ export default function Home() {
         <WhatIronLoopDoes />
         <ProductsPreview />
         <ToolIntegrationsMarquee />
-        <Industries />
         <CaseStudiesPreview />
         <StoriesPreview />
         <CTA />
