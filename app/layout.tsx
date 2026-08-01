@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
-import { Manrope, Open_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import dynamic from "next/dynamic";
 import MaterialSymbolsLoader from "@/components/MaterialSymbolsLoader";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const CalendlyWidget = dynamic(() => import("@/components/CalendlyWidget"), { ssr: false });
-
-const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap", fallback: ["system-ui", "sans-serif"], preload: false });
-const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans", display: "swap", fallback: ["system-ui", "sans-serif"], preload: false });
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains-mono", display: "swap", fallback: ["monospace"], preload: false });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ironlooplabs.com"),
@@ -187,7 +182,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-US" className={`scroll-smooth dark ${manrope.variable} ${openSans.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en-US" className="scroll-smooth dark">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
