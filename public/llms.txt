@@ -125,23 +125,24 @@ Yes. We track call outcomes and adjust scripts and timing on an ongoing basis to
 
 ## Site Map
 
-- https://www.ironlooplabs.com — Home
-- https://www.ironlooplabs.com/solutions — All Solutions
-- https://www.ironlooplabs.com/solutions/speed-to-lead — Speed-to-Lead
-- https://www.ironlooplabs.com/solutions/missed-call-recovery — Missed-Call Recovery
-- https://www.ironlooplabs.com/solutions/ai-voice-agent — AI Voice Agent
-- https://www.ironlooplabs.com/solutions/direct-crm-booking — Direct CRM Booking
-- https://www.ironlooplabs.com/solutions/estimate-follow-up — Estimate Follow-Up
-- https://www.ironlooplabs.com/solutions/win-back-campaigns — Win-Back Campaigns
-- https://www.ironlooplabs.com/solutions/reviews-and-referrals — Reviews & Referrals
-- https://www.ironlooplabs.com/solutions/membership-renewal — Membership Renewal
-- https://www.ironlooplabs.com/solutions/smart-lead-qualification — Smart Lead Qualification
-- https://www.ironlooplabs.com/solutions/lead-source-integration — Lead Source Integration
-- https://www.ironlooplabs.com/solutions/after-hours-coverage — After-Hours Coverage
-- https://www.ironlooplabs.com/solutions/outbound-pipeline-fill — Outbound Pipeline Fill
-- https://www.ironlooplabs.com/solutions/dead-lead-reactivation — Dead Lead Reactivation
-- https://www.ironlooplabs.com/industries — Industries We Serve
-- https://www.ironlooplabs.com/pricing — Pricing
-- https://www.ironlooplabs.com/case-studies — Case Studies & Results
-- https://www.ironlooplabs.com/compare — Compare IronLoop vs. Alternatives
-- https://www.ironlooplabs.com/contact — Contact & Book a Demo
+- [Home](https://www.ironlooplabs.com): AI call answering and lead recovery for HVAC, plumbing, and roofing contractors.
+- [All Solutions](https://www.ironlooplabs.com/solutions): Overview of all AI voice agents and lead recovery services.
+- [Speed-to-Lead](https://www.ironlooplabs.com/solutions/speed-to-lead): Automated instant callback and SMS response in under 3 seconds.
+- [Missed-Call Recovery](https://www.ironlooplabs.com/solutions/missed-call-recovery): Automated missed-call text-back system.
+- [AI Voice Agent](https://www.ironlooplabs.com/solutions/ai-voice-agent): 24/7 conversational AI phone receptionist.
+- [Direct CRM Booking](https://www.ironlooplabs.com/solutions/direct-crm-booking): Direct scheduling into ServiceTitan, Housecall Pro, and Jobber.
+- [Estimate Follow-Up](https://www.ironlooplabs.com/solutions/estimate-follow-up): Automated follow-up sequences for unscheduled estimates.
+- [Win-Back Campaigns](https://www.ironlooplabs.com/solutions/win-back-campaigns): Re-engagement of past customers and inactive accounts.
+- [Reviews & Referrals](https://www.ironlooplabs.com/solutions/reviews-and-referrals): Automated post-job Google review and referral requests.
+- [Membership Renewal](https://www.ironlooplabs.com/solutions/membership-renewal): Automated reminders for service agreements and maintenance plans.
+- [Smart Lead Qualification](https://www.ironlooplabs.com/solutions/smart-lead-qualification): Real-time AI lead qualification and dispatch.
+- [Lead Source Integration](https://www.ironlooplabs.com/solutions/lead-source-integration): Multi-channel lead tracking and ROI attribution.
+- [After-Hours Coverage](https://www.ironlooplabs.com/solutions/after-hours-coverage): 24/7 emergency dispatch and after-hours call handling.
+- [Outbound Pipeline Fill](https://www.ironlooplabs.com/solutions/outbound-pipeline-fill): Proactive outbound campaign automation.
+- [Dead Lead Reactivation](https://www.ironlooplabs.com/solutions/dead-lead-reactivation): Turn old CRM contacts into booked jobs.
+- [Industries We Serve](https://www.ironlooplabs.com/industries): Specialized solutions for HVAC, Plumbing, and Roofing.
+- [Pricing](https://www.ironlooplabs.com/pricing): Flat monthly pricing and 14-day deployment details.
+- [Case Studies & Results](https://www.ironlooplabs.com/case-studies): Real contractor case studies and ROI metrics.
+- [Compare IronLoop](https://www.ironlooplabs.com/compare): Comparison vs traditional answering services and internal staff.
+- [Contact & Book a Demo](https://www.ironlooplabs.com/contact): Schedule a free 15-minute live demo.
+

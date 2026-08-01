@@ -182,6 +182,7 @@ export default function CompareClient() {
                   max="20"
                   value={setters}
                   onChange={(e) => setSetters(Number(e.target.value))}
+                  aria-label="Number of setters or callers"
                   className="w-full accent-[#C5E033] bg-white/10 rounded-lg h-2 cursor-pointer"
                 />
                 <div className="flex justify-between text-[11px] font-mono text-white/40">
@@ -208,6 +209,7 @@ export default function CompareClient() {
                   step="100"
                   value={salary}
                   onChange={(e) => setSalary(Number(e.target.value))}
+                  aria-label="Monthly salary per setter"
                   className="w-full accent-[#C5E033] bg-white/10 rounded-lg h-2 cursor-pointer"
                 />
                 <div className="flex justify-between text-[11px] font-mono text-white/40">
@@ -234,6 +236,7 @@ export default function CompareClient() {
                   step="10"
                   value={inboundLeads}
                   onChange={(e) => setInboundLeads(Number(e.target.value))}
+                  aria-label="Inbound leads per month"
                   className="w-full accent-[#C5E033] bg-white/10 rounded-lg h-2 cursor-pointer"
                 />
                 <div className="flex justify-between text-[11px] font-mono text-white/40">
@@ -260,6 +263,7 @@ export default function CompareClient() {
                   step="50"
                   value={outboundCalls}
                   onChange={(e) => setOutboundCalls(Number(e.target.value))}
+                  aria-label="Outbound calls per month"
                   className="w-full accent-[#C5E033] bg-white/10 rounded-lg h-2 cursor-pointer"
                 />
                 <div className="flex justify-between text-[11px] font-mono text-white/40">
@@ -286,6 +290,7 @@ export default function CompareClient() {
                   step="250"
                   value={jobValue}
                   onChange={(e) => setJobValue(Number(e.target.value))}
+                  aria-label="Average job or project value"
                   className="w-full accent-[#C5E033] bg-white/10 rounded-lg h-2 cursor-pointer"
                 />
                 <div className="flex justify-between text-[11px] font-mono text-white/40">
@@ -312,6 +317,7 @@ export default function CompareClient() {
                   step="1"
                   value={conversionRate}
                   onChange={(e) => setConversionRate(Number(e.target.value))}
+                  aria-label="Lead to appointment conversion rate"
                   className="w-full accent-[#C5E033] bg-white/10 rounded-lg h-2 cursor-pointer"
                 />
                 <div className="flex justify-between text-[11px] font-mono text-white/40">

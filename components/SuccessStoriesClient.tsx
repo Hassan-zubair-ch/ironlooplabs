@@ -350,6 +350,7 @@ export default function SuccessStoriesClient() {
             <input
               type="text"
               placeholder="Search case studies..."
+              aria-label="Search case studies"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-white/40 focus:outline-none focus:border-[#C5E033] transition-colors"

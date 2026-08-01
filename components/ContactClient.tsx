@@ -221,11 +221,12 @@ export default function ContactClient() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <label className="block text-[11px] font-mono font-bold uppercase tracking-wider text-white/60">
+                      <label htmlFor="contact-first-name" className="block text-[11px] font-mono font-bold uppercase tracking-wider text-white/60">
                         First Name *
                       </label>
                       <input
                         required
+                        id="contact-first-name"
                         type="text"
                         name="firstName"
                         placeholder="First name"
@@ -235,11 +236,12 @@ export default function ContactClient() {
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <label className="block text-[11px] font-mono font-bold uppercase tracking-wider text-white/60">
+                      <label htmlFor="contact-last-name" className="block text-[11px] font-mono font-bold uppercase tracking-wider text-white/60">
                         Last Name *
                       </label>
                       <input
                         required
+                        id="contact-last-name"
                         type="text"
                         name="lastName"
                         placeholder="Last name"
@@ -251,11 +253,12 @@ export default function ContactClient() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="block text-[11px] font-mono font-bold uppercase tracking-wider text-white/60">
+                    <label htmlFor="contact-business-name" className="block text-[11px] font-mono font-bold uppercase tracking-wider text-white/60">
                       Company / Business Name *
                     </label>
                     <input
                       required
+                      id="contact-business-name"
                       type="text"
                       name="businessName"
                       placeholder="Your company name"
@@ -267,11 +270,12 @@ export default function ContactClient() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <label className="block text-[11px] font-mono font-bold uppercase tracking-wider text-white/60">
+                      <label htmlFor="contact-email" className="block text-[11px] font-mono font-bold uppercase tracking-wider text-white/60">
                         Work Email *
                       </label>
                       <input
                         required
+                        id="contact-email"
                         type="email"
                         name="email"
                         placeholder="name@company.com"
@@ -281,11 +285,12 @@ export default function ContactClient() {
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <label className="block text-[11px] font-mono font-bold uppercase tracking-wider text-white/60">
+                      <label htmlFor="contact-phone" className="block text-[11px] font-mono font-bold uppercase tracking-wider text-white/60">
                         Phone Number *
                       </label>
                       <input
                         required
+                        id="contact-phone"
                         type="tel"
                         name="phone"
                         placeholder="(555) 234-5678"
@@ -297,12 +302,13 @@ export default function ContactClient() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="block text-[11px] font-mono font-bold uppercase tracking-wider text-white/60">
+                    <label htmlFor="contact-industry" className="block text-[11px] font-mono font-bold uppercase tracking-wider text-white/60">
                       Industry *
                     </label>
                     <div className="relative">
                       <select
                         required
+                        id="contact-industry"
                         name="industry"
                         value={formData.industry}
                         onChange={handleChange}
@@ -324,11 +330,12 @@ export default function ContactClient() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="block text-[11px] font-mono font-bold uppercase tracking-wider text-white/60">
+                    <label htmlFor="contact-scope" className="block text-[11px] font-mono font-bold uppercase tracking-wider text-white/60">
                       Project Scope / Workflow to Automate
                     </label>
                     <textarea
                       rows={3}
+                      id="contact-scope"
                       name="scope"
                       placeholder="Tell us about your business, current missed call challenges, or tools you use (e.g. ServiceTitan, Housecall Pro)..."
                       value={formData.scope}

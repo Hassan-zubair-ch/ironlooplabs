@@ -108,9 +108,9 @@ export default function PlatformVideoSection() {
         <video
           ref={videoRef}
           src="https://embed-ssl.wistia.com/deliveries/bf914f7766cf61569471a1eba520cf32.bin"
-          poster="/video-poster.jpg"
+          poster="/video-poster.webp"
           playsInline
-          preload="none"
+          preload="metadata"
           onTimeUpdate={() => {
             if (videoRef.current) setCurrentTime(videoRef.current.currentTime);
           }}
@@ -123,7 +123,9 @@ export default function PlatformVideoSection() {
           }}
           onClick={handlePlay}
           className="w-full h-full object-cover cursor-pointer"
-        />
+        >
+          <track kind="captions" src="/captions.vtt" srcLang="en" label="English" default />
+        </video>
 
         {/* Subtitles Overlay */}
         {showSubtitles && isPlaying && (
@@ -139,7 +141,7 @@ export default function PlatformVideoSection() {
           <div
             onClick={handlePlay}
             className="absolute inset-0 bg-cover bg-center flex flex-col items-center justify-center cursor-pointer transition-all z-20 group/poster"
-            style={{ backgroundImage: `url('/video-poster.jpg')` }}
+            style={{ backgroundImage: `url('/video-poster.webp')` }}
           >
             <div className="absolute inset-0 bg-black/40 hover:bg-black/30 transition-colors" />
             <motion.div
@@ -165,7 +167,7 @@ export default function PlatformVideoSection() {
             <button
               onClick={handlePlay}
               className="hover:scale-110 active:scale-95 transition-transform flex items-center justify-center text-[#050608] shrink-0"
-              aria-label="Play/Pause"
+              aria-label="Play or pause video"
             >
               <span className="material-symbols-outlined text-2xl font-black">
                 {isPlaying ? "pause" : "play_arrow"}
@@ -185,6 +187,7 @@ export default function PlatformVideoSection() {
                 max={duration || 100}
                 value={currentTime}
                 onChange={handleSeek}
+                aria-label="Video seek position"
                 className="w-full h-1.5 bg-[#050608]/30 rounded-full appearance-none cursor-pointer accent-[#050608] relative z-10"
               />
 
@@ -202,6 +205,7 @@ export default function PlatformVideoSection() {
             {/* 4. Subtitle (CC) Button */}
             <button
               onClick={() => setShowSubtitles(!showSubtitles)}
+              aria-label="Toggle subtitles"
               className={`px-2 py-0.5 rounded text-[11px] font-black uppercase transition-all ${
                 showSubtitles
                   ? "bg-[#050608] text-[#C5E033]"
@@ -215,6 +219,7 @@ export default function PlatformVideoSection() {
             {/* 5. Volume / Mic Icon */}
             <button
               onClick={toggleMute}
+              aria-label="Mute or unmute audio"
               className="hover:scale-110 transition-transform text-[#050608] shrink-0"
               title="Volume / Mic"
             >
@@ -230,6 +235,7 @@ export default function PlatformVideoSection() {
             {/* 6. Fullscreen / Large Screen Button */}
             <button
               onClick={toggleFullscreen}
+              aria-label="Toggle fullscreen view"
               className="hover:scale-110 transition-transform text-[#050608] shrink-0"
               title="Large Screen / Fullscreen"
             >
