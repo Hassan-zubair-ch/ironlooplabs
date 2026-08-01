@@ -7,9 +7,9 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 
 const CalendlyWidget = dynamic(() => import("@/components/CalendlyWidget"), { ssr: false });
 
-const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap", fallback: ["system-ui", "sans-serif"] });
-const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans", display: "swap", fallback: ["system-ui", "sans-serif"] });
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains-mono", display: "swap", fallback: ["monospace"] });
+const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap", fallback: ["system-ui", "sans-serif"], adjustFontFallback: true });
+const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans", display: "swap", fallback: ["system-ui", "sans-serif"], adjustFontFallback: true });
+const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains-mono", display: "swap", fallback: ["monospace"], preload: false });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ironlooplabs.com"),

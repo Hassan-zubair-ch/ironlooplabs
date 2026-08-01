@@ -24,7 +24,7 @@ export default function Nav() {
         {/* LOGO */}
         <Link href="/" className="flex items-center group cursor-pointer shrink-0">
           <Image
-            src="/logo-main.png"
+            src="/logo-main.webp"
             alt="IronLoop Labs"
             width={360}
             height={100}

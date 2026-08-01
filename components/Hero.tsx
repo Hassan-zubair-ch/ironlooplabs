@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function Hero() {
@@ -21,48 +18,28 @@ export default function Hero() {
 
       <div className="relative z-10 text-center max-w-4xl mx-auto space-y-8">
         {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex justify-center"
-        >
+        <div className="flex justify-center">
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/15 bg-white/[0.06] backdrop-blur-md text-xs sm:text-sm font-medium text-white/90 shadow-xl">
             <span className="text-[#C5E033]">⚡</span>
             Built for HVAC, Plumbing &amp; Roofing Companies
           </div>
-        </motion.div>
+        </div>
 
         {/* Main Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.08] tracking-tight text-white font-display"
-        >
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.08] tracking-tight text-white font-display">
           Stop losing jobs<br />
           <span className="bg-gradient-to-r from-white via-white/80 to-[#C5E033] bg-clip-text text-transparent">
             to missed calls.
           </span>
-        </motion.h1>
+        </h1>
 
         {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-base sm:text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed font-body"
-        >
+        <p className="text-base sm:text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed font-body">
           Every call answered. Every lead followed up. Every no-show turned into a booked job. IronLoop Labs runs your phones and follow-ups so your team stays on the tools — not stuck answering calls all day.
-        </motion.p>
+        </p>
 
         {/* Action Buttons & Note */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col items-center gap-3 pt-2"
-        >
+        <div className="flex flex-col items-center gap-3 pt-2">
           <div className="flex flex-wrap justify-center gap-4 w-full sm:w-auto">
             <Link
               href="/contact"
@@ -82,15 +59,10 @@ export default function Hero() {
           <p className="text-white/40 text-xs sm:text-sm font-mono mt-1">
             15-minute call. No contract. See it working before you decide anything.
           </p>
-        </motion.div>
+        </div>
 
         {/* Bottom Metrics Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto pt-12 border-t border-white/10 mt-12"
-        >
+        <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto pt-12 border-t border-white/10 mt-12">
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-display">+85%</div>
             <div className="text-white/40 text-[10px] sm:text-xs uppercase tracking-widest font-mono font-semibold">
@@ -109,7 +81,7 @@ export default function Hero() {
               Missed Calls, Day or Night
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
