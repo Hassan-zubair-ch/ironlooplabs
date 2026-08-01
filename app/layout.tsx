@@ -3,12 +3,12 @@ import { Manrope, Open_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import dynamic from "next/dynamic";
 import MaterialSymbolsLoader from "@/components/MaterialSymbolsLoader";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const CalendlyWidget = dynamic(() => import("@/components/CalendlyWidget"), { ssr: false });
 
-const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap", fallback: ["system-ui", "sans-serif"], adjustFontFallback: true });
-const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans", display: "swap", fallback: ["system-ui", "sans-serif"], adjustFontFallback: true });
+const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap", fallback: ["system-ui", "sans-serif"], preload: false });
+const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans", display: "swap", fallback: ["system-ui", "sans-serif"], preload: false });
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains-mono", display: "swap", fallback: ["monospace"], preload: false });
 
 export const metadata: Metadata = {
