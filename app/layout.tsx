@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import MaterialSymbolsLoader from "@/components/MaterialSymbolsLoader";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
-const CalendlyWidget = dynamic(() => import("@/components/CalendlyWidget"), { ssr: false });
+const WhatsAppWidget = dynamic(() => import("@/components/WhatsAppWidget"), { ssr: false });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ironlooplabs.com"),
@@ -221,7 +221,7 @@ export default function RootLayout({
         <GoogleAnalytics gaId="G-VP9HC133R6" />
         <MaterialSymbolsLoader />
         <div className="relative z-10">{children}</div>
-        <CalendlyWidget />
+        <WhatsAppWidget />
       </body>
     </html>
   );

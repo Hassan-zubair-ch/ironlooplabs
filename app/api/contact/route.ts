@@ -12,12 +12,12 @@ export async function POST(req: Request) {
       port: Number(process.env.SMTP_PORT) || 465,
       secure: true, // true for port 465, false for other ports
       auth: {
-        user: process.env.SMTP_USER || 'hassan@ironlooplabs.com',
+        user: process.env.SMTP_USER || 'hello@ironlooplabs.com',
         pass: process.env.SMTP_PASS || 'macbookPro@2030',
       },
     });
 
-    const recipientEmail = process.env.SMTP_USER || 'hassan@ironlooplabs.com';
+    const recipientEmail = process.env.SMTP_USER || 'hello@ironlooplabs.com';
 
     const mailOptions = {
       from: recipientEmail,
